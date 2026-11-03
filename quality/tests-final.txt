@@ -1,0 +1,17 @@
+......................................................                   [100%]
+54 passed in 7.26s
+test_allreduce (__main__.LabTests.test_allreduce) ... ok
+test_memory_budget (__main__.LabTests.test_memory_budget) ... ok
+test_pipeline (__main__.LabTests.test_pipeline) ... ok
+test_placement (__main__.LabTests.test_placement) ... ok
+test_telemetry (__main__.LabTests.test_telemetry) ... ok
+test_training (__main__.LabTests.test_training) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK
+Banque valide : 100 questions ; examens A/B de 50 ; pondération 19/20/11 ; objectifs et sources vérifiés.
+Export : questions/examen-A.md
+Export : questions/examen-B.md
+Quiz autonome généré : /home/kali/nca-aiio-course/site/quiz.html

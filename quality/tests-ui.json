@@ -1,0 +1,25 @@
+{
+  "scope": "Banque réelle corrigée de 100 questions ; HTML autonome reconstruit ; pilotage Chromium via browser_exec",
+  "test_sessions": [
+    {
+      "exam": "A",
+      "inputs": "50 réponses correctes injectées pour vérifier le calcul; ce n’est pas un résultat candidat",
+      "observed_score": "50/50 (100 %)",
+      "observed_corrections": 50,
+      "observed_source_links": 75
+    },
+    {
+      "exam": "B",
+      "inputs": "50 réponses incorrectes injectées pour vérifier le calcul",
+      "observed_score": "0/50 (0 %)",
+      "observed_corrections": 50,
+      "observed_source_links": 77
+    }
+  ],
+  "no_correction_before_exam_finish": true,
+  "learning_correction_observed": true,
+  "learning_answer_locked": true,
+  "restart_cleared_results": true,
+  "observed_js_errors": [],
+  "limitations": "Contrôle de fonctionnement et de rendu, pas validation de l’exactitude technique des corrigés; les tests automatisés séparés vérifient aussi expiration et écran mobile."
+}

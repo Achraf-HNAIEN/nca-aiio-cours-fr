@@ -1,0 +1,11 @@
+test_allreduce (__main__.LabTests.test_allreduce) ... ok
+test_memory_budget (__main__.LabTests.test_memory_budget) ... ok
+test_pipeline (__main__.LabTests.test_pipeline) ... ok
+test_placement (__main__.LabTests.test_placement) ... ok
+test_telemetry (__main__.LabTests.test_telemetry) ... ok
+test_training (__main__.LabTests.test_training) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.002s
+
+OK

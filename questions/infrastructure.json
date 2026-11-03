@@ -1,0 +1,987 @@
+[
+  {
+    "id": "I-001",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I01",
+    "question": "A training job fails because its required working tensors exceed available GPU memory. Which change most directly addresses this capacity constraint?",
+    "choices": {
+      "A": "Use a supported configuration with enough usable GPU memory for the working tensors.",
+      "B": "Add SSD capacity while keeping GPU memory unchanged.",
+      "C": "Increase network bandwidth without changing tensor placement.",
+      "D": "Replicate the complete job on another identical GPU without partitioning it."
+    },
+    "answer": "A",
+    "explanation": "La contrainte porte sur la mémoire de travail du GPU ; il faut une capacité utilisable suffisante ou une stratégie logicielle qui réduit ou répartit cette empreinte.",
+    "distractors": {
+      "B": "Les SSD n’augmentent pas la mémoire locale utilisable pour les tenseurs.",
+      "C": "Un lien plus rapide ne résout pas directement un manque de capacité mémoire.",
+      "D": "Une copie complète garde la même empreinte par GPU."
+    },
+    "source_ids": [
+      6,
+      16
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-002",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I02",
+    "question": "A single-node training run fits in memory. After adding nodes, workers spend much of their time waiting for gradient synchronization. What should be investigated first?",
+    "choices": {
+      "A": "The inter-node communication path and collective-operation performance.",
+      "B": "Increase GPU compute capacity before examining synchronization.",
+      "C": "Increase archive capacity while leaving active data paths unchanged.",
+      "D": "Tune only the single-node training path."
+    },
+    "answer": "A",
+    "explanation": "Le symptôme apparaît pendant la synchronisation distribuée ; le fabric et les opérations collectives sont donc les premières hypothèses à examiner.",
+    "distractors": {
+      "C": "La capacité d’archive ne modifie pas le chemin des gradients.",
+      "D": "Le symptôme apparaît précisément avec les échanges entre nœuds.",
+      "B": "Le temps d’attente décrit un problème de communication, pas d’abord de calcul local."
+    },
+    "source_ids": [
+      19,
+      68
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-003",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I03",
+    "question": "Which statement correctly describes Power Usage Effectiveness (PUE)?",
+    "choices": {
+      "A": "It is GPU energy divided by CPU energy.",
+      "B": "It is the ratio of total data center energy to IT equipment energy over a consistent measurement boundary and period.",
+      "C": "It is cooling energy divided by total facility energy.",
+      "D": "It is useful training throughput per kilowatt-hour."
+    },
+    "answer": "B",
+    "explanation": "Le PUE compare les énergies facility et IT sur un périmètre cohérent ; il ne mesure ni la vitesse des GPU ni la qualité des modèles.",
+    "distractors": {
+      "A": "Le périmètre du PUE couvre le site et l’ensemble IT, pas ce rapport de composants.",
+      "D": "Le travail utile par énergie est une autre mesure.",
+      "C": "Le refroidissement contribue aux charges non IT, mais ce rapport n’est pas le PUE."
+    },
+    "source_ids": [
+      72
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-004",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I04",
+    "question": "A team needs a two-week pilot, has no prepared data center, and is permitted to use a public cloud. Which approach is most reasonable before purchasing a permanent cluster?",
+    "choices": {
+      "A": "Purchase a permanent cluster using only the expected two-week GPU utilization.",
+      "B": "Choose the lowest hourly GPU price without checking data and networking.",
+      "C": "Evaluate a compatible cloud service, including availability, data movement, and total pilot cost.",
+      "D": "Use any available cloud instance without validating GPU memory requirements."
+    },
+    "answer": "C",
+    "explanation": "Un pilote court sans site prêt peut justifier une offre cloud ; il faut néanmoins vérifier disponibilité, données et coût complet au lieu de promettre un avantage automatique.",
+    "distractors": {
+      "A": "Cette décision ignore l’absence de site préparé et le coût d’un investissement durable.",
+      "B": "Le tarif isolé ne garantit pas le service nécessaire.",
+      "D": "La compatibilité et la mémoire restent des contraintes même dans le cloud."
+    },
+    "source_ids": [
+      74
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-005",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I05",
+    "question": "Which group best represents the supporting infrastructure of an accelerated compute cluster?",
+    "choices": {
+      "A": "Compute nodes and checkpoint storage, without management or communication fabrics.",
+      "B": "GPU servers and local caches, with no shared services or inter-node connectivity.",
+      "C": "Compute nodes, storage, communication fabrics, and management services.",
+      "D": "Networking and scheduling services without compute or storage resources."
+    },
+    "answer": "C",
+    "explanation": "Le cluster est un système complet : calcul, stockage, réseau et gestion doivent fonctionner ensemble.",
+    "distractors": {
+      "B": "Ce sous-ensemble omet des dépendances nécessaires au cluster distribué.",
+      "D": "Les services logiciels et réseaux ne fournissent pas à eux seuls le calcul et les données.",
+      "A": "Le stockage ne remplace ni les communications ni l’administration."
+    },
+    "source_ids": [
+      68
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-006",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I06",
+    "question": "A rack has enough empty mounting space for a new GPU server. What must still be validated before installation?",
+    "choices": {
+      "A": "Only the number of GPU slots available in the chassis.",
+      "B": "Only the installed GPU driver version.",
+      "C": "Mechanical loading, power distribution, cooling, access, and maintenance clearances.",
+      "D": "Only the total unused space across all racks."
+    },
+    "answer": "C",
+    "explanation": "L’espace disponible ne prouve ni la sécurité mécanique ni l’aptitude électrique et thermique du rack.",
+    "distractors": {
+      "A": "La capacité d’extension interne ne valide pas le site.",
+      "D": "Une place globale ne prouve pas qu’un rack précis peut accueillir la charge.",
+      "B": "Le pilote ne démontre pas l’aptitude électrique, mécanique et thermique."
+    },
+    "source_ids": [
+      67,
+      72
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-007",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I07",
+    "question": "A workload sends many small synchronization messages between workers. Which network property is especially important in addition to bandwidth?",
+    "choices": {
+      "A": "A larger persistent dataset capacity.",
+      "B": "Low communication latency.",
+      "C": "Higher nominal bandwidth with no latency evaluation.",
+      "D": "More storage cache capacity regardless of the communication path."
+    },
+    "answer": "B",
+    "explanation": "De nombreux petits échanges dépendants peuvent rendre le délai de communication déterminant, même lorsque les liens ont un débit élevé.",
+    "distractors": {
+      "A": "La capacité stockable n’est pas le délai d’un message.",
+      "D": "Le cache de stockage ne corrige pas nécessairement la latence de synchronisation.",
+      "C": "Un débit élevé seul ne garantit pas de faibles délais pour de petits messages."
+    },
+    "source_ids": [
+      19
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-008",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I08",
+    "question": "An Ethernet-based AI fabric is intended to provide RDMA. Which technology directly matches that requirement?",
+    "choices": {
+      "A": "TCP/IP over any Ethernet adapter, with no RDMA capability requirement.",
+      "B": "NVLink inside each server, without a compatible Ethernet RDMA path.",
+      "C": "An isolated BMC network configured for remote console access.",
+      "D": "RoCE on compatible adapters and a suitably configured fabric."
+    },
+    "answer": "D",
+    "explanation": "RoCE signifie RDMA over Converged Ethernet ; il exige une pile et une infrastructure compatibles.",
+    "distractors": {
+      "A": "Ethernet/TCP ne garantit pas un chemin RDMA ; RoCE exige une prise en charge adaptée.",
+      "B": "Le domaine NVLink ne remplace pas le transport RDMA sur Ethernet demandé.",
+      "C": "L’OOB n’est pas le chemin RDMA de la charge."
+    },
+    "source_ids": [
+      19,
+      82
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-009",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I09",
+    "question": "A design uses NVLink within compatible GPU systems and InfiniBand between systems. What is the best interpretation?",
+    "choices": {
+      "A": "Mixing local GPU links and a different inter-node fabric prevents collective operations.",
+      "B": "NVLink provides general IP routing and replaces the InfiniBand fabric.",
+      "C": "InfiniBand handles only administration while NVLink carries every inter-system transfer in this design.",
+      "D": "The design uses a GPU scale-up interconnect and a separate scale-out network fabric."
+    },
+    "answer": "D",
+    "explanation": "La conception distingue les échanges dans le domaine GPU étroitement couplé et les communications entre systèmes. Certaines architectures étendent le domaine NVLink, mais cela ne change pas le sens de ce scénario.",
+    "distractors": {
+      "B": "NVLink n’est pas le routage IP général du cluster.",
+      "C": "L’énoncé attribue explicitement les communications entre systèmes à InfiniBand.",
+      "A": "Les bibliothèques compatibles peuvent exploiter plusieurs mécanismes."
+    },
+    "source_ids": [
+      18,
+      19,
+      68
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-010",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I10",
+    "question": "What is the primary infrastructure role of a DPU?",
+    "choices": {
+      "A": "Serve as an automatic extension of every GPU memory allocation.",
+      "B": "Offload, accelerate, and isolate suitable networking, storage, and security functions.",
+      "C": "Execute the primary tensor calculations of every training model instead of GPUs.",
+      "D": "Provide only a faster physical port, with no programmable infrastructure role."
+    },
+    "answer": "B",
+    "explanation": "Le DPU traite des fonctions d’infrastructure et peut les isoler du domaine applicatif hôte ; ce n’est pas un remplaçant universel du CPU ou GPU.",
+    "distractors": {
+      "A": "Le DPU ne crée pas une VRAM unifiée universelle.",
+      "C": "Le calcul principal du modèle n’est pas sa mission générale.",
+      "D": "Cette description ignore les fonctions de traitement et d’isolation étudiées."
+    },
+    "source_ids": [
+      12
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-011",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I01",
+    "question": "An image-training pipeline has enough GPU memory, but GPUs wait while CPU-side image decoding remains saturated. Which action best matches the observed bottleneck?",
+    "choices": {
+      "A": "Improve the input-preparation path and validate the resulting end-to-end training throughput.",
+      "B": "Increase persistent capacity while leaving the decoder unchanged.",
+      "C": "Add more GPUs while leaving CPU-side decoding unchanged.",
+      "D": "Increase inter-node link speed while retaining the same saturated decoder."
+    },
+    "answer": "A",
+    "explanation": "Les symptômes désignent la préparation des données ; il faut traiter ce chemin et mesurer le résultat avant d’ajouter du calcul GPU.",
+    "distractors": {
+      "B": "Le problème indiqué n’est pas le volume stockable.",
+      "D": "Le goulot décrit est local à la préparation CPU, pas au fabric de calcul.",
+      "C": "Des GPU supplémentaires augmentent la demande sur le chemin déjà saturé."
+    },
+    "source_ids": [
+      16,
+      74
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-012",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I02",
+    "question": "A storage expansion doubles usable capacity, but training read throughput does not improve. Which explanation is most appropriate?",
+    "choices": {
+      "A": "Adding persistent capacity necessarily increases per-GPU memory.",
+      "B": "Storage scaling can improve capacity but never performance.",
+      "C": "Any added disk automatically doubles end-to-end read throughput.",
+      "D": "Storage capacity and storage performance are different scaling dimensions."
+    },
+    "answer": "D",
+    "explanation": "Augmenter le volume stockable ne garantit pas davantage de débit ; le chemin et les ressources de service restent à dimensionner.",
+    "distractors": {
+      "A": "La mémoire GPU intégrée reste distincte.",
+      "B": "Certaines architectures font évoluer les deux ; il faut les dimensionner.",
+      "C": "Les contrôleurs, le réseau et le profil d’accès peuvent rester limitants."
+    },
+    "source_ids": [
+      6
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-013",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I03",
+    "question": "A sizing exercise assumes 35 kW of average IT load and a constant facility-to-IT ratio of 1.4. What estimated average total facility power follows from these assumptions?",
+    "choices": {
+      "A": "14 kW.",
+      "B": "35 kW.",
+      "C": "49 kW.",
+      "D": "84 kW."
+    },
+    "answer": "C",
+    "explanation": "Le calcul pédagogique est 35 × 1,4 = 49 kW. Il ne constitue pas une mesure annuelle du PUE ni une validation électrique des circuits.",
+    "distractors": {
+      "B": "Cette réponse omet les charges non IT du modèle.",
+      "D": "Cette valeur additionne à tort la charge IT à un total qui l’inclut déjà.",
+      "A": "Cette valeur est l’écart non IT, pas le total."
+    },
+    "source_ids": [
+      72
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-014",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I04",
+    "question": "An organization has a steady long-term workload and strict data-location requirements. Which comparison best supports an on-premises versus cloud decision?",
+    "choices": {
+      "A": "Compare only the upfront hardware purchase price.",
+      "B": "Compare compliant options using utilization, full lifecycle costs, operational responsibilities, and data constraints.",
+      "C": "Compare only the lowest advertised hourly GPU rate.",
+      "D": "Assume a fixed utilization rate is irrelevant to the economics."
+    },
+    "answer": "B",
+    "explanation": "La décision dépend du besoin durable, des contraintes de données et du coût complet ; aucune localisation n’est toujours la meilleure.",
+    "distractors": {
+      "A": "L’exploitation sur la durée et la conformité restent à examiner.",
+      "C": "Le tarif isolé omet données, durée, réseau et responsabilités.",
+      "D": "L’utilisation influence la comparaison du coût complet."
+    },
+    "source_ids": [
+      74
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-015",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I05",
+    "question": "Why might a reference AI cluster separate compute, storage, and management traffic?",
+    "choices": {
+      "A": "To make all traffic use identical security and performance settings.",
+      "B": "To let ordinary cluster users directly administer every BMC.",
+      "C": "To match distinct traffic requirements and reduce interference or exposure between functions.",
+      "D": "To guarantee that no shared infrastructure component can ever fail."
+    },
+    "answer": "C",
+    "explanation": "Les fonctions ont des besoins différents ; la séparation peut préserver les performances et contrôler l’accès d’administration.",
+    "distractors": {
+      "A": "La séparation vise au contraire des besoins distincts.",
+      "B": "L’accès de gestion doit être restreint et contrôlé.",
+      "D": "La séparation ne prouve pas l’absence de toutes dépendances communes."
+    },
+    "source_ids": [
+      66,
+      68
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-016",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I06",
+    "question": "A dense rack has adequate room-level cooling capacity, but upper server inlets exceed their supported temperature. What should be investigated?",
+    "choices": {
+      "A": "Local airflow, recirculation, containment, and inlet conditions.",
+      "B": "Use only the room wall sensor as proof of safe server inlet conditions.",
+      "C": "Treat average rack temperature as sufficient even when individual inlets are out of range.",
+      "D": "Increase total room cooling capacity without examining inlet airflow."
+    },
+    "answer": "A",
+    "explanation": "La capacité globale ne prouve pas que chaque entrée reçoit un air adapté ; le chemin local doit être examiné.",
+    "distractors": {
+      "B": "Une sonde de salle ne décrit pas nécessairement chaque entrée.",
+      "C": "Les conditions locales hors spécification doivent être corrigées.",
+      "D": "Ce changement peut manquer une recirculation ou un défaut local."
+    },
+    "source_ids": [
+      72,
+      67
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-017",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I07",
+    "question": "A network meets a point-to-point bandwidth target, but simultaneous all-to-all traffic performs poorly. What additional aspect most directly needs evaluation?",
+    "choices": {
+      "A": "Only the latency of an otherwise idle pair of nodes.",
+      "B": "Only the nominal speed of one adapter port.",
+      "C": "Only the aggregate storage capacity.",
+      "D": "Shared fabric capacity, topology, congestion, and oversubscription under the real traffic pattern."
+    },
+    "answer": "D",
+    "explanation": "Une liaison isolée ne représente pas tous les chemins partagés ; il faut tester le fabric sous des échanges simultanés.",
+    "distractors": {
+      "B": "La vitesse d’un port isolé ne représente pas les chemins simultanés.",
+      "C": "Le volume stockable ne décrit pas le fabric all-to-all.",
+      "A": "Un test sans contention ne suffit pas pour le trafic simultané."
+    },
+    "source_ids": [
+      66,
+      68
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-018",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I08",
+    "question": "An engineer says that PFC and ECN are interchangeable names for the same RoCE function. Which correction is most accurate?",
+    "choices": {
+      "A": "PFC is priority-based flow control, whereas ECN signals congestion; their use depends on the validated fabric design.",
+      "B": "PFC provides IP routing, while ECN increases GPU memory capacity.",
+      "C": "Both mechanisms guarantee that congestion never occurs.",
+      "D": "ECN eliminates the need to validate the fabric configuration."
+    },
+    "answer": "A",
+    "explanation": "Les deux mécanismes traitent des aspects différents. La documentation Onyx présente des modes qui n’utilisent pas tous PFC de la même manière.",
+    "distractors": {
+      "C": "Ils gèrent des aspects du trafic ; ils ne rendent pas toute congestion impossible.",
+      "D": "Le signalement de congestion doit faire partie d’une conception validée.",
+      "B": "Ni le routage général ni l’ajout de VRAM ne définit ces fonctions."
+    },
+    "source_ids": [
+      82
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-019",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I09",
+    "question": "A supported network adapter transfers data directly to GPU memory rather than staging it through host memory. Which capability is being described?",
+    "choices": {
+      "A": "A transfer that always stages payloads through host application buffers.",
+      "B": "A DPU-only feature that requires moving the training model onto DPU CPU cores.",
+      "C": "NVLink-only communication with no network adapter involvement.",
+      "D": "GPUDirect RDMA."
+    },
+    "answer": "D",
+    "explanation": "GPUDirect RDMA vise ce chemin direct entre un équipement pair et la mémoire GPU, sous contraintes de compatibilité et de topologie.",
+    "distractors": {
+      "A": "Le scénario indique précisément l’évitement d’un buffer hôte intermédiaire.",
+      "B": "Le chemin GPUDirect ne suppose ni DPU obligatoire ni migration du modèle.",
+      "C": "L’énoncé décrit l’intervention directe d’un adaptateur réseau."
+    },
+    "source_ids": [
+      55,
+      19
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-020",
+    "exam": "A",
+    "domain": "infrastructure",
+    "objective": "I10",
+    "question": "A cloud operator wants infrastructure security functions to remain separate from the tenant-controlled host operating system. Which DPU benefit is most directly relevant?",
+    "choices": {
+      "A": "Combining tenant and operator security functions inside the same tenant-controlled process.",
+      "B": "Isolation of suitable infrastructure control and security functions.",
+      "C": "Moving all tenant tensor calculations to the DPU CPU cores.",
+      "D": "Replacing access policies because hardware isolation is sufficient by itself."
+    },
+    "answer": "B",
+    "explanation": "Un domaine DPU séparé peut héberger des fonctions de contrôle et de sécurité indépendantes du système applicatif hôte.",
+    "distractors": {
+      "A": "Cela ne fournit pas le domaine séparé demandé.",
+      "C": "Le besoin porte sur l’isolation de l’infrastructure, pas sur le calcul du modèle.",
+      "D": "L’isolation ne dispense pas de politiques et de maintenance."
+    },
+    "source_ids": [
+      12
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-021",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I01",
+    "question": "A training dataset is much larger than GPU memory, but all tensors required for one training step—including model parameters, optimizer state, gradients, activations, the current batch, and temporary buffers—fit together in usable GPU memory. Which conclusion is justified?",
+    "choices": {
+      "A": "The dataset can be processed in batches if the input path supplies them at an adequate rate.",
+      "B": "The complete dataset must reside in GPU memory at every training step.",
+      "C": "Persistent storage capacity is irrelevant once the model fits in GPU memory.",
+      "D": "The input path can be ignored because batch memory fits."
+    },
+    "answer": "A",
+    "explanation": "Tout le jeu de données n’a pas à résider en VRAM : l’ensemble des tenseurs requis pour une étape doit y tenir simultanément, et le chemin d’entrée doit fournir les lots à un débit suffisant.",
+    "distractors": {
+      "B": "Cette exigence n’est pas nécessaire pour un traitement par lots compatible.",
+      "C": "Les données doivent rester stockées et fournies à un débit suffisant.",
+      "D": "Le débit d’alimentation peut encore limiter la charge."
+    },
+    "source_ids": [
+      6,
+      79
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-022",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I02",
+    "question": "A model is too large for one GPU. An engineer proposes placing a complete replica on each of four equally sized GPUs. What is the main flaw?",
+    "choices": {
+      "A": "The proposal automatically pools all four GPU memories for each unmodified replica.",
+      "B": "Adding persistent storage makes complete replicas fit in the original GPU memory.",
+      "C": "Each replica still has the original per-GPU memory requirement.",
+      "D": "Replication always reduces model weight size in each replica."
+    },
+    "answer": "C",
+    "explanation": "La réplication intégrale ne réduit pas l’empreinte d’une copie. Il faut une stratégie qui répartit effectivement le modèle ou réduit ses besoins.",
+    "distractors": {
+      "A": "La mémoire agrégée n’est pas une allocation unique automatique.",
+      "D": "Une copie complète conserve les mêmes poids.",
+      "B": "Les disques n’augmentent pas la capacité locale du GPU."
+    },
+    "source_ids": [
+      6,
+      19
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-023",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I03",
+    "question": "A server specification lists multiple power supplies for redundancy. Why is summing their nameplate capacities not a reliable estimate of normal server consumption?",
+    "choices": {
+      "A": "Each supply always delivers its full rated power whenever connected.",
+      "B": "Redundant supply capacity and actual system load are different quantities.",
+      "C": "Redundant supplies eliminate all system power consumption.",
+      "D": "The number of supplies alone determines the annual PUE."
+    },
+    "answer": "B",
+    "explanation": "La capacité disponible inclut des marges et de la redondance ; il faut les spécifications système et le scénario de charge, pas seulement la somme des PSU.",
+    "distractors": {
+      "A": "La charge réelle ne correspond pas nécessairement à la capacité nominale.",
+      "D": "Le PUE dépend des énergies mesurées du site et de l’IT.",
+      "C": "Elles assurent des chemins alternatifs, pas une consommation nulle."
+    },
+    "source_ids": [
+      16
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-024",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I04",
+    "question": "A proposal offers the lowest GPU hourly rate but requires large recurring data transfers. What should the buyer do?",
+    "choices": {
+      "A": "Compare GPU hourly rates only because storage is a separate service.",
+      "B": "Assume recurring data transfers are free without checking the offer.",
+      "C": "Compare only peak GPU FLOPS while ignoring the planned usage period.",
+      "D": "Include transfer, storage, compute, and operational costs over the expected usage period."
+    },
+    "answer": "D",
+    "explanation": "Le coût complet sur la durée peut être différent du tarif GPU isolé ; les transferts et le stockage font partie de l’évaluation.",
+    "distractors": {
+      "A": "Le fait de facturer séparément ne rend pas le coût négligeable.",
+      "B": "Les conditions réelles de transfert doivent être examinées.",
+      "C": "La vitesse crête ne décrit pas le coût complet sur la durée."
+    },
+    "source_ids": [
+      74
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-025",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I05",
+    "question": "What is a primary purpose of an out-of-band management network in an AI cluster?",
+    "choices": {
+      "A": "Provide shared high-performance storage for all training checkpoints.",
+      "B": "Provide the primary application path for all GPU collective traffic.",
+      "C": "Provide controlled access to hardware-management interfaces such as BMC ports.",
+      "D": "Provide ordinary users unrestricted access to hardware-management ports."
+    },
+    "answer": "C",
+    "explanation": "L’OOB vise notamment les interfaces de gestion matérielle et permet de les séparer des accès ordinaires des utilisateurs.",
+    "distractors": {
+      "B": "Le réseau OOB vise la gestion matérielle, pas le fabric applicatif principal.",
+      "D": "L’OOB sert un accès contrôlé, pas une exposition générale.",
+      "A": "Le stockage partagé possède un autre rôle et son propre chemin."
+    },
+    "source_ids": [
+      66,
+      16
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-026",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I06",
+    "question": "Which statement about liquid-cooled AI systems is most accurate?",
+    "choices": {
+      "A": "They eliminate the need for any facility heat rejection.",
+      "B": "They still require a validated heat-rejection path, compatible facility interfaces, and maintenance planning.",
+      "C": "They can use arbitrary facility fluids without equipment validation.",
+      "D": "They always eliminate all air cooling from every server component."
+    },
+    "answer": "B",
+    "explanation": "Le liquide transporte la chaleur ; il faut toujours l’évacuer et respecter les exigences de conception et d’exploitation.",
+    "distractors": {
+      "A": "Le fluide déplace la chaleur ; il faut toujours la rejeter.",
+      "C": "La compatibilité du fluide et des interfaces doit être vérifiée.",
+      "D": "Des solutions hybrides conservent des besoins d’air."
+    },
+    "source_ids": [
+      72
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-027",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I07",
+    "question": "A model-serving application runs independent replicas with little GPU-to-GPU communication. Which requirement should guide its network design first?",
+    "choices": {
+      "A": "A requirement for every replica to participate in per-request AllReduce operations.",
+      "B": "The actual request, response, data-access, and availability requirements of the service.",
+      "C": "Only local GPU peak bandwidth, without request or data-path evaluation.",
+      "D": "A full-rack NVLink domain solely because the service performs inference."
+    },
+    "answer": "B",
+    "explanation": "La topologie doit suivre les échanges réels. L’absence de communication étroite entre répliques ne justifie pas automatiquement un grand domaine scale-up.",
+    "distractors": {
+      "A": "Le scénario ne décrit pas une telle coopération entre répliques.",
+      "D": "Le mot inférence ne suffit pas à justifier une communication GPU étroite.",
+      "C": "Le service dépend aussi des requêtes et des données."
+    },
+    "source_ids": [
+      18,
+      6
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-028",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I08",
+    "question": "Which description correctly classifies NCCL in an AI communication stack?",
+    "choices": {
+      "A": "An inter-node physical link standard that replaces InfiniBand and Ethernet.",
+      "B": "A GPU-to-GPU switching chip in an NVLink fabric.",
+      "C": "A mechanism that automatically pools all GPU memory into one allocation.",
+      "D": "A library providing GPU-oriented collective and other communication operations."
+    },
+    "answer": "D",
+    "explanation": "NCCL est une couche logicielle exploitant les transports compatibles ; ce n’est ni une famille de câbles ni un protocole de facility.",
+    "distractors": {
+      "A": "NCCL est une bibliothèque qui exploite des transports.",
+      "B": "Cela décrit une fonction matérielle, pas NCCL.",
+      "C": "La communication ne garantit pas une allocation mémoire unifiée."
+    },
+    "source_ids": [
+      19
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "I-029",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I09",
+    "question": "A design review states, \"NVLink can never connect GPUs beyond a single server chassis.\" Which response is most accurate?",
+    "choices": {
+      "A": "NVLink Switch is simply a conventional Ethernet IP router.",
+      "B": "All NVLink generations are restricted to one chassis by definition.",
+      "C": "Any GPUs with NVLink can be connected across arbitrary racks without platform validation.",
+      "D": "Some supported NVLink Switch scale-up domains span multiple nodes or trays; the exact boundary is architecture-specific."
+    },
+    "answer": "D",
+    "explanation": "La frontière du domaine NVLink dépend de la plateforme. Certaines architectures à l’échelle du rack dépassent un seul serveur ; on ne doit pas généraliser un ancien périmètre.",
+    "distractors": {
+      "B": "Cette règle ignore les domaines NVLink Switch étendus compatibles.",
+      "C": "L’extension dépend d’une architecture compatible.",
+      "A": "La commutation NVLink n’est pas un routeur Ethernet général."
+    },
+    "source_ids": [
+      18
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-030",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I10",
+    "question": "A team proposes moving the main neural-network training computation from GPUs to general-purpose DPU CPU cores to \"offload AI.\" Which evaluation is best?",
+    "choices": {
+      "A": "This confuses application compute with the DPU role of accelerating and isolating suitable infrastructure work.",
+      "B": "Any move from a host processor to DPU cores guarantees faster application computation.",
+      "C": "DPU offload means the GPU model no longer requires working memory.",
+      "D": "A DPU should replace all CPU and GPU functions in an accelerated server."
+    },
+    "answer": "A",
+    "explanation": "Le DPU vise les fonctions d’infrastructure adaptées. Déplacer arbitrairement le calcul GPU sur ses cœurs généralistes n’apporte pas le bénéfice annoncé.",
+    "distractors": {
+      "C": "Le choix d’un processeur ne supprime pas les besoins mémoire du modèle.",
+      "D": "La répartition des rôles reste spécialisée.",
+      "B": "Sans accélération adaptée, déplacer le calcul peut réduire les performances."
+    },
+    "source_ids": [
+      12
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-031",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I01",
+    "question": "Two candidate servers have the same GPU count. One has a validated GPU-to-network topology for the required direct transfers. Why is GPU count alone insufficient for selection?",
+    "choices": {
+      "A": "The data path, adapter placement, and platform compatibility can affect communication performance.",
+      "B": "Only persistent storage capacity can influence direct GPU transfers.",
+      "C": "Equal GPU counts guarantee identical communication performance.",
+      "D": "A supported direct path removes every software and driver requirement."
+    },
+    "answer": "A",
+    "explanation": "Le nombre de GPU ne décrit pas la topologie ni la compatibilité GPUDirect ; il faut examiner le chemin réel.",
+    "distractors": {
+      "B": "Le chemin PCIe, les équipements et les logiciels interviennent aussi.",
+      "D": "La compatibilité et la préparation logicielle restent nécessaires.",
+      "C": "Le nombre de GPU ne décrit pas la topologie ni l’adaptateur."
+    },
+    "source_ids": [
+      55,
+      19
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-032",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I02",
+    "question": "A project will add compute nodes next year. What is the best infrastructure planning action now?",
+    "choices": {
+      "A": "Plan GPU count alone and defer all supporting capacity until after installation.",
+      "B": "Plan expandable compute, storage, network ports, cabling, power, and cooling as a balanced system.",
+      "C": "Reserve storage capacity only, treating network and cooling as fixed unlimited resources.",
+      "D": "Assume existing shared uplinks scale automatically with node count."
+    },
+    "answer": "B",
+    "explanation": "La croissance du calcul doit être accompagnée des chemins de données et de la facility ; sinon un autre composant peut empêcher le gain attendu.",
+    "distractors": {
+      "A": "Cette démarche risque de rendre les GPU inutilisables ou sous-alimentés.",
+      "C": "Ces ressources ont aussi des limites qui doivent être anticipées.",
+      "D": "La capacité des liaisons communes reste bornée."
+    },
+    "source_ids": [
+      66,
+      68,
+      72
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-033",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I03",
+    "question": "A facility report shows improved PUE while useful training throughput has fallen. Which interpretation is valid?",
+    "choices": {
+      "A": "PUE is another name for average GPU utilization.",
+      "B": "Lower PUE guarantees a higher number of completed training jobs.",
+      "C": "PUE alone does not measure useful AI work or training throughput.",
+      "D": "PUE alone establishes that the chosen model is more energy-efficient."
+    },
+    "answer": "C",
+    "explanation": "Le rapport facility/IT peut s’améliorer sans prouver une hausse du travail utile ; il faut d’autres mesures pour évaluer l’IA.",
+    "distractors": {
+      "B": "Le nombre de travaux n’entre pas dans sa définition.",
+      "D": "Il ne mesure pas le travail utile du modèle par énergie.",
+      "A": "Le PUE porte sur les énergies facility et IT."
+    },
+    "source_ids": [
+      72
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-034",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I04",
+    "question": "A company owns its GPU servers but installs them in a commercial colocation facility. Which statement is correct?",
+    "choices": {
+      "A": "Using a colocation facility necessarily transfers equipment ownership to the facility operator.",
+      "B": "Customer-owned colocation hardware is necessarily billed as public-cloud instances.",
+      "C": "The equipment can remain customer-owned even though the facility is operated by a colocation provider.",
+      "D": "Locating hardware off-site automatically removes workload-management responsibilities."
+    },
+    "answer": "C",
+    "explanation": "La référence SuperPOD distingue la propriété du matériel et son hébergement : une colocation peut accueillir des systèmes appartenant au client.",
+    "distractors": {
+      "A": "La propriété dépend du contrat ; le scénario conserve la propriété cliente.",
+      "D": "Les responsabilités applicatives doivent être précisées ; elles ne disparaissent pas.",
+      "B": "Hébergement et modèle de service ne sont pas synonymes."
+    },
+    "source_ids": [
+      68
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-035",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I05",
+    "question": "Why does an AI cluster need a coherent software and management layer in addition to GPU servers?",
+    "choices": {
+      "A": "Identical GPU models automatically create a working multi-user cluster.",
+      "B": "Nodes, access to data, provisioning, and job execution must be coordinated into an operational service.",
+      "C": "Management software replaces the physical compute and storage resources.",
+      "D": "An inventory of installed GPUs is sufficient to provision and schedule every workload."
+    },
+    "answer": "B",
+    "explanation": "Les ressources physiques ne suffisent pas à fournir un service exploitable ; la référence associe matériel, gestion et orchestration.",
+    "distractors": {
+      "A": "L’accès aux données, la configuration et les services restent nécessaires.",
+      "D": "Un inventaire seul ne fournit pas le service complet.",
+      "C": "Le logiciel coordonne les ressources, il ne les crée pas."
+    },
+    "source_ids": [
+      68,
+      66
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-036",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I06",
+    "question": "During maintenance planning, a technician proposes moving a heavy server without assistance because it fits in a standard rack. What is the best response?",
+    "choices": {
+      "A": "Use qualified personnel and appropriate mechanical or other assistance according to the equipment guidance.",
+      "B": "Removing the storage drives always makes any lifting method acceptable.",
+      "C": "Handle the server first and check the manufacturer handling guidance afterward.",
+      "D": "Standard rack dimensions prove that manual lifting without assistance is safe."
+    },
+    "answer": "A",
+    "explanation": "Le format rack ne rend pas une charge lourde sûre à manipuler ; les consignes de manutention et les moyens adaptés s’appliquent.",
+    "distractors": {
+      "B": "Une réduction de poids supposée ne remplace pas les consignes validées.",
+      "C": "Les précautions doivent être vérifiées avant la manutention.",
+      "D": "Le format rack ne supprime pas les risques de manutention."
+    },
+    "source_ids": [
+      67
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-037",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I07",
+    "question": "Compute synchronization and high-volume storage reads compete on an undersized shared path. Which design change most directly addresses this contention?",
+    "choices": {
+      "A": "Increase per-GPU memory and assume that all storage traffic will disappear.",
+      "B": "Increase GPU count without changing the shared path.",
+      "C": "Increase storage capacity while leaving the congested path unchanged.",
+      "D": "Provision adequate fabric capacity and evaluate separation of compute and storage traffic."
+    },
+    "answer": "D",
+    "explanation": "Le problème est la capacité partagée entre deux flux critiques ; dimensionner et séparer leurs chemins peut réduire l’interférence.",
+    "distractors": {
+      "B": "Cela risque d’augmenter encore le trafic sur le goulot.",
+      "C": "Le volume stockable ne corrige pas sa capacité de transport.",
+      "A": "Davantage de mémoire ne garantit pas la suppression des accès aux données."
+    },
+    "source_ids": [
+      66,
+      68
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-038",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I08",
+    "question": "A team claims RDMA means that no CPU, driver, or memory setup is involved at any stage. Which correction is best?",
+    "choices": {
+      "A": "RDMA removes the need for compatible drivers once an Ethernet cable is present.",
+      "B": "RDMA requires every payload to pass through host application buffers.",
+      "C": "RDMA reduces work on the data path, but setup, memory registration, and software support still matter.",
+      "D": "RDMA support guarantees identical performance on every hardware topology."
+    },
+    "answer": "C",
+    "explanation": "Le chemin de données peut éviter des copies et une partie du traitement CPU ; les étapes de préparation et la pile logicielle restent nécessaires.",
+    "distractors": {
+      "A": "Le matériel et la pile logicielle doivent prendre en charge RDMA.",
+      "D": "La topologie et les contraintes de plateforme restent importantes.",
+      "B": "L’objectif est justement d’éviter certains passages et copies."
+    },
+    "source_ids": [
+      55,
+      19
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-039",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I09",
+    "question": "An organization already operates Ethernet and is considering a high-speed AI fabric. Which statement best compares Ethernet/RoCE with InfiniBand?",
+    "choices": {
+      "A": "Both can be relevant; compare validated end-to-end performance, congestion handling, integration, and operational capability.",
+      "B": "The fastest advertised port alone determines the better end-to-end solution.",
+      "C": "Ethernet cannot provide RDMA even with compatible RoCE components.",
+      "D": "Existing Ethernet operational experience makes all fabric validation unnecessary."
+    },
+    "answer": "A",
+    "explanation": "La pertinence dépend du fabric complet et de l’usage, pas du seul nom de technologie. Les options de stockage B200 illustrent les deux familles.",
+    "distractors": {
+      "B": "La topologie, la congestion et l’intégration comptent également.",
+      "D": "Les compétences aident, mais la solution RDMA doit être validée.",
+      "C": "RoCE fournit précisément cette possibilité."
+    },
+    "source_ids": [
+      19,
+      66,
+      82
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "I-040",
+    "exam": "B",
+    "domain": "infrastructure",
+    "objective": "I10",
+    "question": "A server supports GPUDirect RDMA with a compatible network adapter. Does this fact alone establish that the server contains a DPU?",
+    "choices": {
+      "A": "Yes; every adapter that accesses GPU memory directly is a programmable DPU.",
+      "B": "Yes; GPUDirect RDMA is simply the software name for BlueField hardware.",
+      "C": "No; a network adapter cannot participate in direct GPU-memory transfers.",
+      "D": "No; a direct GPU-memory data path and a DPU are different capabilities."
+    },
+    "answer": "D",
+    "explanation": "GPUDirect RDMA décrit un chemin d’accès mémoire ; un DPU est un processeur d’infrastructure. Une carte compatible peut fournir le chemin direct sans que cette seule information prouve la présence d’un DPU.",
+    "distractors": {
+      "A": "Le chemin mémoire ne prouve pas la présence d’un DPU.",
+      "B": "La technologie GPUDirect n’est pas un synonyme de la famille BlueField.",
+      "C": "Cette réponse nie une capacité décrite par GPUDirect RDMA."
+    },
+    "source_ids": [
+      55,
+      19,
+      12
+    ],
+    "difficulty": "scenario"
+  }
+]

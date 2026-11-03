@@ -1,0 +1,691 @@
+{
+  "audited_at": "2026-11-03T22:06:27.342217+00:00",
+  "files": {
+    "revision/plan-decembre.md": {
+      "sha256": "8322ec315b25500c7cb82902e60bb5be41fc5c4d0b4eaa65c214dad02082ff06",
+      "line_count": 116,
+      "citation_ids": [
+        1,
+        3,
+        6,
+        27,
+        35,
+        38,
+        44,
+        53
+      ],
+      "undefined_references": [],
+      "ledger_mismatches": [],
+      "local_links": [
+        {
+          "target": "glossaire-en-fr.md",
+          "exists": true
+        },
+        {
+          "target": "../pratique/labs-avec-gpu.md",
+          "exists": true
+        }
+      ]
+    },
+    "revision/glossaire-en-fr.md": {
+      "sha256": "ed3f4b98202963ec39695c06f8c94c49cc1b7d55ceae8f01b0ade5718265998c",
+      "line_count": 150,
+      "citation_ids": [
+        1,
+        3,
+        6,
+        12,
+        16,
+        19,
+        27,
+        38,
+        39,
+        40,
+        44,
+        47,
+        48,
+        51,
+        53,
+        60,
+        61,
+        62,
+        81
+      ],
+      "undefined_references": [],
+      "ledger_mismatches": [],
+      "local_links": [
+        {
+          "target": "fiches-express.md",
+          "exists": true
+        }
+      ]
+    },
+    "revision/fiches-express.md": {
+      "sha256": "157124163512a1053982232258cbbec96ca3b8729e9e7ae099567e6f6bbb38f4",
+      "line_count": 180,
+      "citation_ids": [
+        1,
+        3,
+        6,
+        12,
+        16,
+        19,
+        27,
+        35,
+        38,
+        39,
+        40,
+        44,
+        47,
+        48,
+        51,
+        53,
+        60,
+        61,
+        62
+      ],
+      "undefined_references": [],
+      "ledger_mismatches": [],
+      "local_links": []
+    },
+    "pratique/labs-sans-gpu.md": {
+      "sha256": "30085db1d49663a6156433662e23c71e4f15cae414d8d1540c6e83f1a497ac3f",
+      "line_count": 147,
+      "citation_ids": [
+        1,
+        3,
+        6,
+        19,
+        27,
+        39,
+        48,
+        51,
+        54
+      ],
+      "undefined_references": [],
+      "ledger_mismatches": [],
+      "local_links": [
+        {
+          "target": "../tools/labs_cpu.py",
+          "exists": true
+        },
+        {
+          "target": "../research/labs-results.txt",
+          "exists": true
+        },
+        {
+          "target": "labs-avec-gpu.md",
+          "exists": true
+        }
+      ]
+    },
+    "pratique/labs-avec-gpu.md": {
+      "sha256": "6bec9eac5ffbfc7ebf0b744f479a266f85ac6d036553da21c6adb423bba89016",
+      "line_count": 112,
+      "citation_ids": [
+        19,
+        38,
+        39,
+        44,
+        61
+      ],
+      "undefined_references": [],
+      "ledger_mismatches": [],
+      "local_links": [
+        {
+          "target": "labs-sans-gpu.md",
+          "exists": true
+        },
+        {
+          "target": "labs-sans-gpu.md",
+          "exists": true
+        }
+      ]
+    },
+    "sources/ressources-complementaires.md": {
+      "sha256": "9ff487585323fc04f21b3386fbc8824e3f918f2f60b458a9aafbca3e0e6dc024",
+      "line_count": 149,
+      "citation_ids": [
+        1,
+        3,
+        6,
+        12,
+        16,
+        19,
+        27,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        38,
+        39,
+        40,
+        44,
+        48,
+        51,
+        53,
+        54,
+        60,
+        61
+      ],
+      "undefined_references": [],
+      "ledger_mismatches": [],
+      "local_links": []
+    },
+    "tools/labs_cpu.py": {
+      "sha256": "61e7487a6c4179a5e57381323a9147ad5e4ab402368a34b5df2c0053efa4332b",
+      "line_count": 201
+    }
+  },
+  "commands": [
+    {
+      "command": "python3 tools/labs_cpu.py --test",
+      "exit_code": 0,
+      "stdout": "test_allreduce (__main__.LabTests.test_allreduce) ... ok\ntest_memory_budget (__main__.LabTests.test_memory_budget) ... ok\ntest_pipeline (__main__.LabTests.test_pipeline) ... ok\ntest_placement (__main__.LabTests.test_placement) ... ok\ntest_telemetry (__main__.LabTests.test_telemetry) ... ok\ntest_training (__main__.LabTests.test_training) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.002s\n\nOK\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py all",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 1 training\n{\"final_mse\": 0.0, \"initial_mse\": 18.666666666666668, \"parameters_after_inference\": 2.0, \"parameters_before_inference\": 2.0, \"prediction_x4\": 8.0}\nLAB 2 memory_budget\n{\"margin_fraction\": 0.2, \"total_gib\": 4.635174179077148, \"weight_bytes\": 2000000000, \"weight_gib\": 1.862645149230957, \"workspace_gib\": 2}\nLAB 3 pipeline\n{\"bottleneck\": \"storage\", \"overlap_ideal_batches_s\": 20.0, \"serial_batches_s\": 12.5, \"stage_ms\": [50, 20, 10]}\nLAB 4 allreduce\n{\"mean\": [2.0, 3.0], \"replicas\": [[2.0, 3.0], [2.0, 3.0]], \"sum\": [4.0, 6.0]}\nLAB 5 telemetry\n{\"gpu-A\": {\"mean_util_pct\": 40.0, \"missing_util_samples\": 0, \"peak_used_mib\": 1200.0}, \"gpu-B\": {\"mean_util_pct\": null, \"missing_util_samples\": 1, \"peak_used_mib\": 500.0}}\nLAB 6 placement\n{\"assigned\": {\"A\": 0, \"B\": 1, \"D\": 0}, \"pending\": [\"C\"], \"remaining\": [{\"memory_gib\": 0, \"slots\": 0}, {\"memory_gib\": 2, \"slots\": 1}]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py 1",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 1 training\n{\"final_mse\": 0.0, \"initial_mse\": 18.666666666666668, \"parameters_after_inference\": 2.0, \"parameters_before_inference\": 2.0, \"prediction_x4\": 8.0}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py 2",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 2 memory_budget\n{\"margin_fraction\": 0.2, \"total_gib\": 4.635174179077148, \"weight_bytes\": 2000000000, \"weight_gib\": 1.862645149230957, \"workspace_gib\": 2}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py 3",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 3 pipeline\n{\"bottleneck\": \"storage\", \"overlap_ideal_batches_s\": 20.0, \"serial_batches_s\": 12.5, \"stage_ms\": [50, 20, 10]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py 4",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 4 allreduce\n{\"mean\": [2.0, 3.0], \"replicas\": [[2.0, 3.0], [2.0, 3.0]], \"sum\": [4.0, 6.0]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py 5",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 5 telemetry\n{\"gpu-A\": {\"mean_util_pct\": 40.0, \"missing_util_samples\": 0, \"peak_used_mib\": 1200.0}, \"gpu-B\": {\"mean_util_pct\": null, \"missing_util_samples\": 1, \"peak_used_mib\": 500.0}}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py 6",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 6 placement\n{\"assigned\": {\"A\": 0, \"B\": 1, \"D\": 0}, \"pending\": [\"C\"], \"remaining\": [{\"memory_gib\": 0, \"slots\": 0}, {\"memory_gib\": 2, \"slots\": 1}]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py --help",
+      "exit_code": 0,
+      "stdout": "usage: labs_cpu.py [-h] [--test] [{all,1,2,3,4,5,6}]\n\nSix bounded CPU-only teaching labs. Python >=3.9, standard library only. No\nnetwork, GPU access, subprocess, external data, or persistent writes. Inputs\nare tiny original fixtures, never real hardware measurements. Run --test for\nregression tests; run all or a lab number to show results.\n\npositional arguments:\n  {all,1,2,3,4,5,6}\n\noptions:\n  -h, --help         show this help message and exit\n  --test\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py",
+      "exit_code": 0,
+      "stdout": "Python 3.14.8 | CPU-only stdlib | synthetic fixtures\nLAB 1 training\n{\"final_mse\": 0.0, \"initial_mse\": 18.666666666666668, \"parameters_after_inference\": 2.0, \"parameters_before_inference\": 2.0, \"prediction_x4\": 8.0}\nLAB 2 memory_budget\n{\"margin_fraction\": 0.2, \"total_gib\": 4.635174179077148, \"weight_bytes\": 2000000000, \"weight_gib\": 1.862645149230957, \"workspace_gib\": 2}\nLAB 3 pipeline\n{\"bottleneck\": \"storage\", \"overlap_ideal_batches_s\": 20.0, \"serial_batches_s\": 12.5, \"stage_ms\": [50, 20, 10]}\nLAB 4 allreduce\n{\"mean\": [2.0, 3.0], \"replicas\": [[2.0, 3.0], [2.0, 3.0]], \"sum\": [4.0, 6.0]}\nLAB 5 telemetry\n{\"gpu-A\": {\"mean_util_pct\": 40.0, \"missing_util_samples\": 0, \"peak_used_mib\": 1200.0}, \"gpu-B\": {\"mean_util_pct\": null, \"missing_util_samples\": 1, \"peak_used_mib\": 500.0}}\nLAB 6 placement\n{\"assigned\": {\"A\": 0, \"B\": 1, \"D\": 0}, \"pending\": [\"C\"], \"remaining\": [{\"memory_gib\": 0, \"slots\": 0}, {\"memory_gib\": 2, \"slots\": 1}]}\n",
+      "stderr": ""
+    },
+    {
+      "command": "python3 tools/labs_cpu.py 7",
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "usage: labs_cpu.py [-h] [--test] [{all,1,2,3,4,5,6}]\nlabs_cpu.py: error: argument lab: invalid choice: '7' (choose from 'all', '1', '2', '3', '4', '5', '6')\n"
+    }
+  ],
+  "glossary": {
+    "count": 99,
+    "unique_count": 99,
+    "terms": [
+      "Artificial intelligence (AI)",
+      "Machine learning (ML)",
+      "Deep learning (DL)",
+      "Neural network",
+      "Supervised learning",
+      "Unsupervised learning",
+      "Reinforcement learning (RL)",
+      "Classification",
+      "Regression",
+      "Clustering",
+      "Training",
+      "Inference",
+      "Training data",
+      "Validation data",
+      "Test data",
+      "Generalization",
+      "Overfitting",
+      "Model parameters",
+      "Hyperparameters",
+      "Gradient descent",
+      "Loss function",
+      "Generative AI",
+      "Large language model (LLM)",
+      "Batch",
+      "Central processing unit (CPU)",
+      "Graphics processing unit (GPU)",
+      "Parallel computing",
+      "Thread",
+      "CUDA",
+      "CUDA programming model",
+      "cuBLAS",
+      "cuDNN",
+      "NCCL",
+      "TensorRT",
+      "Quantization",
+      "NVIDIA Triton Inference Server",
+      "Dynamic batching",
+      "Model repository",
+      "Backend",
+      "NVIDIA AI Enterprise",
+      "NVIDIA GPU Operator",
+      "NVIDIA Container Toolkit",
+      "Device plugin",
+      "Driver",
+      "Compute node",
+      "Cluster",
+      "GPU memory",
+      "System memory",
+      "Memory bandwidth",
+      "PCIe",
+      "NVLink",
+      "NVSwitch",
+      "Network interface card (NIC)",
+      "Host channel adapter (HCA)",
+      "Ethernet",
+      "InfiniBand",
+      "Remote direct memory access (RDMA)",
+      "RDMA over Converged Ethernet (RoCE)",
+      "GPUDirect RDMA",
+      "GPUDirect Storage",
+      "AllReduce",
+      "Topology",
+      "Latency",
+      "Throughput",
+      "Scale up",
+      "Scale out",
+      "Data processing unit (DPU)",
+      "BlueField",
+      "Data plane",
+      "Control plane",
+      "Baseboard management controller (BMC)",
+      "Out-of-band management",
+      "Power supply unit (PSU)",
+      "Redundancy",
+      "Kubernetes",
+      "Container",
+      "Virtual machine (VM)",
+      "Slurm Workload Manager",
+      "Job scheduling",
+      "Resource allocation",
+      "Partition",
+      "Job",
+      "Job step",
+      "Pending",
+      "Preemption",
+      "Rollback",
+      "NVIDIA System Management Interface (nvidia-smi)",
+      "GPU UUID",
+      "GPU utilization",
+      "Memory utilization",
+      "Frame buffer memory",
+      "Error correcting code (ECC)",
+      "Xid",
+      "Thermal slowdown",
+      "NVIDIA Data Center GPU Manager (DCGM)",
+      "Health check",
+      "Multi-Instance GPU (MIG)",
+      "GPU pass-through",
+      "vGPU"
+    ]
+  },
+  "arithmetic": {
+    "blocks": {
+      "E1": 114,
+      "E2": 114,
+      "I1": 120,
+      "I2": 120,
+      "O1": 132,
+      "E3": 114,
+      "E4": 114,
+      "I3": 120,
+      "I4": 120,
+      "O2": 132,
+      "E5": 114,
+      "E6": 114,
+      "I5": 120,
+      "I6": 120,
+      "O3": 132,
+      "E7": 114,
+      "E8": 114,
+      "I7": 120,
+      "I8": 120,
+      "O4": 132
+    },
+    "block_count": 20,
+    "domain_minutes": {
+      "E": 912,
+      "I": 960,
+      "O": 528
+    },
+    "total_minutes": 2400,
+    "budgets": [
+      {
+        "total_hours": 36,
+        "domain_hours": [
+          "13.68",
+          "14.40",
+          "7.92"
+        ]
+      },
+      {
+        "total_hours": 40,
+        "domain_hours": [
+          "15.20",
+          "16.00",
+          "8.80"
+        ]
+      },
+      {
+        "total_hours": 48,
+        "domain_hours": [
+          "18.24",
+          "19.20",
+          "10.56"
+        ]
+      }
+    ],
+    "average_seconds_question": 72.0,
+    "first_second_pass_minutes": 60,
+    "labs_minutes_range": [
+      105,
+      135
+    ]
+  },
+  "cli_consistency": "all == six individually selected labs; default == all; invalid 7 -> exit 2",
+  "edge_probes": {
+    "memory_budget_nan": {
+      "returned": "{'weight_bytes': nan, 'weight_gib': nan, 'workspace_gib': 2, 'margin_fraction': 0.2, 'total_gib': nan}"
+    },
+    "memory_budget_infinite_margin": {
+      "returned": "{'weight_bytes': 2000000000, 'weight_gib': 1.862645149230957, 'workspace_gib': 2, 'margin_fraction': inf, 'total_gib': inf}"
+    },
+    "pipeline_nan": {
+      "returned": "{'stage_ms': [50, nan, 10], 'serial_batches_s': nan, 'overlap_ideal_batches_s': 20.0, 'bottleneck': 'storage'}"
+    },
+    "placement_fractional_slot": {
+      "returned": "{'assigned': {'fractional': 0}, 'pending': [], 'remaining': [{'slots': 1.5, 'memory_gib': 7}, {'slots': 2, 'memory_gib': 8}]}"
+    },
+    "allreduce_nan": {
+      "returned": "{'sum': [nan], 'mean': [nan], 'replicas': [[nan], [nan]]}"
+    },
+    "telemetry_missing_column": {
+      "exception": "KeyError",
+      "message": "'used_mib'"
+    }
+  },
+  "code_safety": {
+    "imports": [
+      "argparse",
+      "csv",
+      "io",
+      "json",
+      "math",
+      "platform",
+      "statistics",
+      "sys",
+      "unittest"
+    ],
+    "sensitive_calls": [],
+    "python_39_syntax": "accepted by Python 3.14 ast parser feature_version=(3,9), not executed on 3.9"
+  },
+  "remote_sources": [
+    {
+      "url": "https://cterpening.github.io/certification-study-library/guides/NCA-AIIO-nvidia-ai-infrastructure-operations-associate",
+      "status": 200,
+      "resolved": "https://cterpening.github.io/certification-study-library/guides/NCA-AIIO-nvidia-ai-infrastructure-operations-associate/",
+      "title": "NVIDIA-Certified Associate: AI Infrastructure and Operations (NCA-AIIO) Study Guide - Certification Study Library",
+      "chars": 47244,
+      "extract_path": "research/private/support-audit/db987e483cb5.txt",
+      "body_sha256": "8943ef3e2c7ea9cb4872fdcf1a532de300cf5dd46a1dcd62c27c4c6aae1e23dd"
+    },
+    {
+      "url": "https://developer.nvidia.com/blog/accelerating-io-in-the-modern-data-center-network-io",
+      "status": 200,
+      "resolved": "https://developer.nvidia.com/blog/accelerating-io-in-the-modern-data-center-network-io",
+      "title": "Accelerating IO in the Modern Data Center: Network IO | NVIDIA Technical Blog",
+      "chars": 27819,
+      "extract_path": "research/private/support-audit/eb40420aa1c7.txt",
+      "body_sha256": "90949766b6b3537e6a7fc789779370ba60c6aa4255fee5ae32651173342604bd"
+    },
+    {
+      "url": "https://developer.nvidia.com/blog/offloading-and-isolating-data-center-workloads-with-bluefield-dpu",
+      "status": 200,
+      "resolved": "https://developer.nvidia.com/blog/offloading-and-isolating-data-center-workloads-with-bluefield-dpu",
+      "title": "Offloading and Isolating Data Center Workloads with NVIDIA Bluefield DPU | NVIDIA Technical Blog",
+      "chars": 7814,
+      "extract_path": "research/private/support-audit/26d143609cc8.txt",
+      "body_sha256": "2e1eddfba04fa02935d6ac38d1aeead5f91d4229373f985e9e64967608eecff2"
+    },
+    {
+      "url": "https://developer.nvidia.com/blog/tips-on-scaling-storage-for-ai-training-and-inferencing",
+      "status": 200,
+      "resolved": "https://developer.nvidia.com/blog/tips-on-scaling-storage-for-ai-training-and-inferencing",
+      "title": "Tips on Scaling Storage for AI Training and Inferencing | NVIDIA Technical Blog",
+      "chars": 11152,
+      "extract_path": "research/private/support-audit/2634caa4242c.txt",
+      "body_sha256": "533ec5c7dba88a0fb4770132108906da7de2f38e14f01842f1fa9f070247e21b"
+    },
+    {
+      "url": "https://developer.nvidia.com/tensorrt",
+      "status": 200,
+      "resolved": "https://developer.nvidia.com/tensorrt",
+      "title": "TensorRT SDK | NVIDIA Developer",
+      "chars": 10156,
+      "extract_path": "research/private/support-audit/78d8e85b549e.txt",
+      "body_sha256": "632420501f70df61aaf17d38a97bbdd907d778dc919be3616c866f9a3ecf71bd"
+    },
+    {
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "status": 200,
+      "resolved": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "title": "Datasets: Dividing the original dataset  |  Machine Learning  |  Google for Developers",
+      "chars": 9752,
+      "extract_path": "research/private/support-audit/f25a435a8370.txt",
+      "body_sha256": "76765c6d1ac9d222626216a5f567202263fe964aaf43a5966f17b7d3bb809f7c"
+    },
+    {
+      "url": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container",
+      "status": 200,
+      "resolved": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container",
+      "title": "What is a container? | Docker Docs",
+      "chars": 6690,
+      "extract_path": "research/private/support-audit/218e5d0ff30a.txt",
+      "body_sha256": "1c53f237d76d5bd7e776c0f904fa4be07163537e74a4b2f1d2fd806908c54866"
+    },
+    {
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/cuda/cuda-programming-guide/index.html",
+      "title": "CUDA Programming Guide — CUDA Programming Guide",
+      "chars": 3691,
+      "extract_path": "research/private/support-audit/7eeb08d065fc.txt",
+      "body_sha256": "6c5c9868cc35887957811851ec4ed473055bcf5b9ec9590b6b7d674ea5278612"
+    },
+    {
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
+      "title": "1.1. Introduction — CUDA Programming Guide",
+      "chars": 3792,
+      "extract_path": "research/private/support-audit/ad531584af45.txt",
+      "body_sha256": "f9b66a55d57a21a0f0deed42433bc9df97a21ef728419b83acb7830c0763dcb4"
+    },
+    {
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html",
+      "title": "About the NVIDIA GPU Operator — NVIDIA GPU Operator",
+      "chars": 3634,
+      "extract_path": "research/private/support-audit/3482cd1a03d7.txt",
+      "body_sha256": "2d7da697c9fb600fd83525684dce6d010ff7ec95ec11ed9924343da74f1a7043"
+    },
+    {
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html",
+      "title": "Feature Overview — NVIDIA DCGM Documentation",
+      "chars": 92886,
+      "extract_path": "research/private/support-audit/f1a54a820f62.txt",
+      "body_sha256": "224d742b42263884d927068b364728d162673ea5dc17f362b7c53e1bc02a8f3b"
+    },
+    {
+      "url": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/introduction.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/introduction.html",
+      "title": "Introduction — NVIDIA Multi-Instance GPU User Guide",
+      "chars": 2575,
+      "extract_path": "research/private/support-audit/c24051ad2d50.txt",
+      "body_sha256": "0a018b199789e735c8340694e902153182a70736bdecea9a49a5eab4c9cb8409"
+    },
+    {
+      "url": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/supported-gpus.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/supported-gpus.html",
+      "title": "Supported GPUs — NVIDIA Multi-Instance GPU User Guide",
+      "chars": 1607,
+      "extract_path": "research/private/support-audit/724e4856b45e.txt",
+      "body_sha256": "96a643b04bdd77fd69894e2c065b428942c8c5c532a0e4d15196c92036cba4ac"
+    },
+    {
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html",
+      "title": "NVIDIA Triton Inference Server — NVIDIA Triton Inference Server",
+      "chars": 3126,
+      "extract_path": "research/private/support-audit/ab85ef5fe0e9.txt",
+      "body_sha256": "a5956636c25feda02d8b5cb73add77c4c17847ecf69fc4a537c98584da205fd1"
+    },
+    {
+      "url": "https://docs.nvidia.com/deploy/nvidia-smi/index.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/deploy/nvidia-smi/index.html",
+      "title": "",
+      "chars": 163354,
+      "extract_path": "research/private/support-audit/899955b35e6c.txt",
+      "body_sha256": "ec01956df0124d76a5a9e15fb6974a5d0d513b47f7c202131980a3b7d7706ca7"
+    },
+    {
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "status": 200,
+      "resolved": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "title": "Introduction to NVIDIA DGX H100/H200 Systems — NVIDIA DGX H100/H200 User Guide",
+      "chars": 10188,
+      "extract_path": "research/private/support-audit/512cd5ef5461.txt",
+      "body_sha256": "679c824db18ddf3b009965b81a62004ef7fffe4bb962b463268eff969a26dc5f"
+    },
+    {
+      "url": "https://docs.python.org/3/library/statistics.html",
+      "status": 200,
+      "resolved": "https://docs.python.org/3/library/statistics.html",
+      "title": "statistics — Mathematical statistics functions — Python 3.15.2 documentation",
+      "chars": 37202,
+      "extract_path": "research/private/support-audit/19fe5e6d42e3.txt",
+      "body_sha256": "f2e966c55fe549986f7443aec6c89bde62afd1b26f57151b96a68cdf9eb7455d"
+    },
+    {
+      "url": "https://easontechtalk.com/nvidia-nca-aiio-exam",
+      "status": 200,
+      "resolved": "https://easontechtalk.com/nvidia-nca-aiio-exam/",
+      "title": "How I Passed NVIDIA NCA-AIIO in 16 Hours: Study Plan and 7 Exam Topics | Eason Tech Talk",
+      "chars": 13414,
+      "extract_path": "research/private/support-audit/9b85a3e16036.txt",
+      "body_sha256": "7fba34d687f4c322e977efa131e97581d539524b9b1fdeaf6473f0f6d5bc08e7"
+    },
+    {
+      "url": "https://github.com/mgonzalezo/nvidia-ai-infra-certs",
+      "status": 200,
+      "resolved": "https://github.com/mgonzalezo/nvidia-ai-infra-certs",
+      "title": "GitHub - mgonzalezo/nvidia-ai-infra-certs: Everything you need to pass the NVIDIA NCP-AII and NCA-AII certifications: study guides, exam tips, practice questions, and real-world troubleshooting scenarios for GPU clusters, NVLink, DCGM, and AI infrastructure at scale. · GitHub",
+      "chars": 14797,
+      "extract_path": "research/private/support-audit/1ff5da8d8082.txt",
+      "body_sha256": "7b5cae0b8f136012d5844199d1dbf195d951856ea81de559899b03c1a4e5112e"
+    },
+    {
+      "url": "https://github.com/ziash/nvidia-nca-aiio-study-guide",
+      "status": 200,
+      "resolved": "https://github.com/ziash/nvidia-nca-aiio-study-guide",
+      "title": "GitHub - ziash/nvidia-nca-aiio-study-guide: Comprehensive NCA-AIIO exam prep: study notes, diagrams, screenshots, and field experience for the NVIDIA Certified Associate: AI Infrastructure and Operations certification. · GitHub",
+      "chars": 2504,
+      "extract_path": "research/private/support-audit/7083ce5c1b18.txt",
+      "body_sha256": "2652674ac01a030afff75a92ce2721cadfc7e206f79e6df55bd3dda1cc303d9d"
+    },
+    {
+      "url": "https://howtoai.com/nca-aiio-study-guide",
+      "status": 200,
+      "resolved": "https://howtoai.com/nca-aiio-study-guide/",
+      "title": "NCA-AIIO Study Guide 2026: Domains, Cheat Sheet, Free Prep",
+      "chars": 18344,
+      "extract_path": "research/private/support-audit/d74bddb23c15.txt",
+      "body_sha256": "0d9e392ca7f4e9b671bb6f8959f86435fc56b46fbaeb0b919fdbdcecff8bf42f"
+    },
+    {
+      "url": "https://kubernetes.io/docs/concepts/overview",
+      "status": 200,
+      "resolved": "https://kubernetes.io/docs/concepts/overview/",
+      "title": "Overview | Kubernetes",
+      "chars": 9924,
+      "extract_path": "research/private/support-audit/035293a8847a.txt",
+      "body_sha256": "afe1bea135385c5add5a04f862880763a2873eb4c72cdfb798727612ea1ab7ed"
+    },
+    {
+      "url": "https://nicheelab.com/en/articles/nvidia/aiio-overview",
+      "status": 200,
+      "resolved": "https://nicheelab.com/en/articles/nvidia/aiio-overview/",
+      "title": "NVIDIA-Certified Associate: AI Infrastructure & Operations (NCA-AIIO) Guide (2026)",
+      "chars": 12908,
+      "extract_path": "research/private/support-audit/45977c31207e.txt",
+      "body_sha256": "194a07cb11c79a851bf591f2c50c01bf510c613d1867f2659a3ce3b6721939cc"
+    },
+    {
+      "url": "https://slurm.schedmd.com/overview.html",
+      "status": 200,
+      "resolved": "https://slurm.schedmd.com/overview.html",
+      "title": "Slurm Workload Manager - Overview",
+      "chars": 8365,
+      "extract_path": "research/private/support-audit/96d68687fe3e.txt",
+      "body_sha256": "35013b36a4fec756ddc70f2f57fa30b3e626e6444a618bf2682ab14a7ea6c9a1"
+    },
+    {
+      "url": "https://www.ibm.com/think/topics/machine-learning",
+      "status": 200,
+      "resolved": "https://www.ibm.com/think/topics/machine-learning",
+      "title": "What is Machine Learning? | IBM",
+      "chars": 30085,
+      "extract_path": "research/private/support-audit/f5ffc112a86a.txt",
+      "body_sha256": "8785d16ab3778456963a1e369983e06515dbbe3b6b4bd67868e901b0a6130abd"
+    },
+    {
+      "url": "https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate",
+      "status": 200,
+      "resolved": "https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate/",
+      "title": "AI Infrastructure and Operations (AIIO) Certification for Professionals | NVIDIA",
+      "chars": 9286,
+      "extract_path": "research/private/support-audit/6f272bea717c.txt",
+      "body_sha256": "5db57ed09b8ae1826b568cdd4c74d2f071bcba48a5cdcc00eab2ec1077bf5f96"
+    }
+  ]
+}

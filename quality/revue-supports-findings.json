@@ -1,0 +1,63 @@
+{
+  "review": "Independent audit of support deliverables",
+  "date": "2026-11-03",
+  "verdict": "usable_with_minor_corrections",
+  "source_files_modified": false,
+  "evidence_file": "quality/support-audit-evidence.json",
+  "severity_counts": {"critical": 0, "high": 0, "medium": 0, "low": 5},
+  "findings": [
+    {
+      "id": "SUP-01",
+      "severity": "low",
+      "file": "revision/fiches-express.md",
+      "location": "line 3; sections 1–10 (lines 5–134)",
+      "issue": "The stated perimeter includes E04 and E05, but the express sheets contain no actual recap of recent AI adoption/improvement factors or industry use cases. This is not a contradiction of the syllabus and the file explicitly does not replace chapters; it is a revision-coverage gap.",
+      "evidence": "The live official page lists both 'Explain the factors contributing to recent rapid improvements and adoption of AI' and 'Explain the key AI use cases and industries'. The plan assigns E04/E05 to E4, while the express sheets have no corresponding section.",
+      "recommended_exact_correction": "Insert before section 2: '## Adoption et usages — E04/E05\n\nPour les facteurs d’amélioration et d’adoption, revoir cours/01-fondamentaux-ia.md : données disponibles et adaptées, progrès des méthodes, calcul accéléré, logiciels et possibilités de déploiement ; ne pas attribuer tout progrès à un seul GPU.\n\nComparer trois cas : détection de défauts en industrie (images, qualité des labels, débit et délai), prévision de demande (historique pertinent, validation temporelle) et assistant documentaire (qualité des réponses, confidentialité, latence). Pour chacun, nommer la tâche, les données, une mesure de réussite et une contrainte d’exploitation. Ce sont des exemples pédagogiques, pas une liste de questions annoncées.' Attach a precise primary source for the adoption-factor paragraph, or replace that paragraph with a direct link to the independently verified chapter instead of adding uncited claims."
+    },
+    {
+      "id": "SUP-02",
+      "severity": "low",
+      "file": "tools/labs_cpu.py",
+      "location": "memory_budget lines 37–45; pipeline lines 48–57; related tests lines 126–146",
+      "issue": "Sign checks accept non-finite numeric values. Editable lab variants can therefore produce NaN/Infinity results and an internally inconsistent bottleneck report. Fixed documented CLI fixtures are unaffected; this is not a security vulnerability.",
+      "evidence": "Actual probes: memory_budget(parameters=float('nan')) returns total_gib=nan; memory_budget(margin=float('inf')) returns total_gib=inf; pipeline((50,float('nan'),10)) returns serial_batches_s=nan but overlap_ideal_batches_s=20.0 and bottleneck='storage'. Exact repr outputs are stored in quality/support-audit-evidence.json under edge_probes.",
+      "recommended_exact_correction": "Before the current memory_budget sign check, add: `if not all(math.isfinite(value) for value in (parameters, bytes_per_parameter, extra_gib, margin)): raise ValueError('finite numeric inputs required')`. Change the pipeline guard to: `if len(stages_ms) != 3 or any(not math.isfinite(t) or t <= 0 for t in stages_ms): raise ValueError('three finite strictly positive stage times required')`. Add assertRaises(ValueError) tests for parameters=nan, margin=inf and pipeline((50,nan,10)). Preserve all six current default outputs."
+    },
+    {
+      "id": "SUP-03",
+      "severity": "low",
+      "file": "revision/plan-decembre.md",
+      "location": "line 25, read together with lines 79 and 91–96",
+      "issue": "'Multiplier toutes les durées' by 0.9 or 1.2 is broader than intended and can be read as scaling the one-hour timed mock itself. Official exam duration and the separate instruction to reserve one continuous hour should remain unchanged.",
+      "evidence": "Python verified 20 blocks total 2400 minutes and the domain weights are exact. The issue is wording, not arithmetic: the base plan separately prescribes a 60-minute continuous mock, while its scaling rule says all durations.",
+      "recommended_exact_correction": "Replace 'Pour 36 h ou 48 h, multiplier toutes les durées par 0,9 ou 1,2 ; conserver les livrables et supprimer ou ajouter de la profondeur, pas un domaine entier.' with 'Pour 36 h ou 48 h, multiplier les durées des blocs E/I/O par 0,9 ou 1,2 ; conserver les livrables et supprimer ou ajouter de la profondeur, pas un domaine entier. Chaque essai blanc chronométré conserve ses 60 minutes continues ; ajuster le temps de lecture, de consolidation et de correction autour de lui, sans compter deux fois les essais mixtes.'"
+    },
+    {
+      "id": "SUP-04",
+      "severity": "low",
+      "file": "revision/plan-decembre.md",
+      "location": "line 79, last sentence",
+      "issue": "The final learner-facing text still refers to 'other course agents', an authoring-process artifact rather than a stable resource reference.",
+      "evidence": "Exact current sentence: 'Les autres agents du cours fournissent les banques ; ce planning ne modifie pas leurs nombres de questions.' Both questions/examen-A.md and questions/examen-B.md exist at audit time.",
+      "recommended_exact_correction": "Replace the sentence with 'Utiliser les deux banques originales [examen A](../questions/examen-A.md) et [examen B](../questions/examen-B.md), sans consulter leur correction avant l’essai.'"
+    },
+    {
+      "id": "SUP-05",
+      "severity": "low",
+      "file": "pratique/labs-sans-gpu.md",
+      "location": "line 147; same source-title artifact in sources/ressources-complementaires.md line 147",
+      "issue": "The displayed Python statistics source title contains mojibake. The URL itself works; this is an editorial encoding defect, not a broken source.",
+      "evidence": "Current title includes 'statistics â Mathematical statistics functions'. An independent fresh fetch with detected text encoding returns 'statistics — Mathematical statistics functions — Python 3.15.2 documentation'.",
+      "recommended_exact_correction": "In both source lists, replace the displayed title after the URL with 'statistics — Mathematical statistics functions — Python documentation'. Preserve the existing source ID and URL. Avoid presenting the moving /3/ page as the exact interpreter version used for tests (observed runtime: Python 3.14.8)."
+    }
+  ],
+  "limitations": [
+    "No GPU command was executed, and no GPU hardware result is claimed.",
+    "Only Python 3.14.8 was exercised. Python 3.9 grammar compatibility was checked with ast.parse(feature_version=(3,9)), not by running a 3.9 interpreter.",
+    "HTTP status and substantive body retrieval were checked for all 26 distinct cited URLs; selected claims were spot-checked, not every sentence of every external document.",
+    "The author's historical TDD sequence and approval-withdrawal account cannot be independently reconstructed from the current source files. The retained historical six-test output is corroborated by a new independent run, not proof of that entire history.",
+    "Direct executable invocation was not tested or required by the documentation; no file permission was changed.",
+    "The source files were not corrected by this review. The parent agent must decide and apply changes, then rerun relevant checks."
+  ]
+}

@@ -1,0 +1,544 @@
+[
+  {
+    "id": "O-001",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O01",
+    "question": "A GPU server no longer responds through its operating system network interface. The operator needs a separate management path to inspect the console and power state. Which component is most appropriate?",
+    "choices": {
+      "A": "The server's BMC on the management network",
+      "B": "nvidia-smi invoked over the unavailable host SSH connection",
+      "C": "DCGM Exporter's GPU telemetry endpoint",
+      "D": "A GPU device plugin running in the unavailable host OS"
+    },
+    "answer": "A",
+    "explanation": "Le BMC fournit des fonctions de gestion de plateforme, notamment console, alimentation et récupération. Un chemin OOB évite de dépendre uniquement de l'accès à l'OS hôte, sous réserve que le BMC et son réseau soient disponibles.",
+    "distractors": {
+      "B": "Une commande via la connexion SSH indisponible ne fournit pas un chemin de récupération distinct de l'OS hôte.",
+      "C": "L'exporter expose de la télémétrie GPU ; il ne fournit pas les fonctions de console et d'alimentation de plateforme.",
+      "D": "Le plugin annonce des ressources au cluster mais reste dépendant de l'environnement hôte ; ce n'est pas le contrôleur OOB."
+    },
+    "source_ids": [
+      20,
+      41
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-002",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O01",
+    "question": "A team already uses Prometheus and wants GPU telemetry fields from DCGM to be available for scraping. Which component directly provides this interface?",
+    "choices": {
+      "A": "Slurm's GPU resource allocation",
+      "B": "DCGM Exporter",
+      "C": "The BMC platform telemetry interface",
+      "D": "A local NVML query without an exporter"
+    },
+    "answer": "B",
+    "explanation": "DCGM Exporter convertit les champs DCGM sélectionnés au format d'exposition Prometheus. La collecte et la conservation des séries sont des responsabilités distinctes.",
+    "distractors": {
+      "A": "Une allocation de scheduler décide quelles ressources un job reçoit ; elle n'expose pas directement cette interface de télémétrie.",
+      "C": "Les mesures de plateforme du BMC ne sont pas la conversion directe des champs DCGM au format Prometheus.",
+      "D": "Une interrogation locale NVML ne fournit pas à elle seule l'interface d'exposition Prometheus demandée."
+    },
+    "source_ids": [
+      57,
+      43,
+      20
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-003",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O01",
+    "question": "Production jobs are running on a node. An operator proposes running an invasive DCGM diagnostic that requires exclusive GPU access. What is the best next action?",
+    "choices": {
+      "A": "Run it immediately because every DCGM operation is passive",
+      "B": "Arrange an approved maintenance opportunity and exclusive access before the test",
+      "C": "Disable job logging so that the test completes faster",
+      "D": "Treat a previous utilization reading as proof that the hardware is fully validated"
+    },
+    "answer": "B",
+    "explanation": "DCGM distingue les contrôles passifs de santé et les diagnostics actifs invasifs. Un test nécessitant l'exclusivité doit être coordonné avec l'exploitation et les travaux.",
+    "distractors": {
+      "A": "Le fait que DCGM serve à surveiller ne rend pas tous ses diagnostics non invasifs.",
+      "D": "Une lecture d'utilisation ne remplace ni un diagnostic ni une validation matérielle appropriée.",
+      "C": "Supprimer les journaux ne donne pas l'exclusivité et détruit des éléments utiles au diagnostic."
+    },
+    "source_ids": [
+      38
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-004",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O03",
+    "question": "A dashboard shows high GPU utilization from nvidia-smi, but application throughput remains poor. Which interpretation is justified by the utilization metric alone?",
+    "choices": {
+      "A": "The application has reached the GPU's theoretical compute throughput",
+      "B": "GPU memory capacity must be exhausted",
+      "C": "At least one kernel was executing during much of the sampling interval",
+      "D": "The network is certainly the bottleneck"
+    },
+    "answer": "C",
+    "explanation": "L'utilisation GPU de nvidia-smi représente le temps de l'intervalle pendant lequel au moins un kernel s'exécute. Elle ne prouve ni l'efficacité des kernels ni la cause d'un faible débit applicatif.",
+    "distractors": {
+      "A": "L'activité temporelle n'est pas une mesure directe du rendement maximal du calcul.",
+      "B": "L'utilisation GPU ne mesure pas la capacité mémoire occupée.",
+      "D": "Une conclusion certaine sur le réseau exige d'autres observations ; cette métrique seule ne l'établit pas."
+    },
+    "source_ids": [
+      39
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-005",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O03",
+    "question": "An inference model remains loaded in GPU memory while few requests arrive. Memory used is high and GPU utilization is low. What is the best interpretation?",
+    "choices": {
+      "A": "The GPU must be replaced because these readings cannot coexist",
+      "B": "High memory used proves that memory bandwidth is saturated",
+      "C": "Low utilization proves that the GPU has no allocated memory",
+      "D": "Resident allocations and kernel activity measure different aspects of the workload"
+    },
+    "answer": "D",
+    "explanation": "Un modèle résident peut occuper la mémoire tout en exécutant rarement des kernels. Il faut distinguer quantité de mémoire occupée, temps d'activité mémoire et activité de calcul.",
+    "distractors": {
+      "B": "Une quantité occupée élevée ne mesure pas la saturation de la bande passante mémoire.",
+      "C": "L'absence relative de kernels n'implique pas l'absence d'allocations.",
+      "A": "Ces mesures sont compatibles avec un service peu sollicité ; elles ne prouvent pas une panne."
+    },
+    "source_ids": [
+      39
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-006",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O03",
+    "question": "Training throughput falls while GPU clocks decline and thermal limiting is reported. Which investigation is the best first match to this evidence?",
+    "choices": {
+      "A": "Assume that the model checkpoint format is incompatible",
+      "B": "Check cooling conditions, relevant temperature limits, and platform telemetry",
+      "C": "Increase the power limit without checking platform constraints",
+      "D": "Add GPU memory solely because clock frequency decreased"
+    },
+    "answer": "B",
+    "explanation": "La corrélation entre limitation thermique, baisse de fréquence et baisse de débit justifie d'examiner le refroidissement et les limites du produit. Le BMC peut compléter l'observation des capteurs de plateforme.",
+    "distractors": {
+      "A": "Le format des checkpoints ne correspond pas aux indices thermiques observés.",
+      "C": "Modifier la puissance sans comprendre les contraintes peut aggraver le risque ; ce n'est pas l'investigation demandée.",
+      "D": "Une fréquence réduite n'établit pas un manque de capacité mémoire."
+    },
+    "source_ids": [
+      39,
+      20
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-007",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O03",
+    "question": "A job fails and an Xid message appears in the kernel log. What is the most defensible initial response?",
+    "choices": {
+      "A": "Replace the GPU because every Xid proves a hardware defect",
+      "B": "Ignore the event because Xid messages concern only graphics applications",
+      "C": "Delete the log and rerun until the message disappears",
+      "D": "Preserve the message and workload context, then investigate the documented possible causes"
+    },
+    "answer": "D",
+    "explanation": "Un Xid est un rapport d'erreur du pilote ; ses causes peuvent être matérielles, logicielles ou applicatives. Le message complet et son contexte sont nécessaires pour guider l'enquête.",
+    "distractors": {
+      "A": "Le code Xid seul ne prouve pas une cause matérielle unique.",
+      "B": "Les Xid sont des rapports d'erreurs GPU et ne se limitent pas aux applications graphiques.",
+      "C": "Effacer les preuves ne corrige pas la cause et empêche de comparer les incidents."
+    },
+    "source_ids": [
+      37
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-008",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O02",
+    "question": "A Slurm cluster manages GPUs as GRES. A submitted job requests CPU resources but does not request any GPU GRES. What should the user change to obtain a GPU allocation?",
+    "choices": {
+      "A": "Set an arbitrary GPU index in the application and bypass the scheduler",
+      "B": "Include an appropriate GPU resource request in the job submission",
+      "C": "Run a DCGM health check instead of requesting resources",
+      "D": "Increase only the job's CPU memory request"
+    },
+    "answer": "B",
+    "explanation": "Dans le mécanisme GRES, les ressources génériques ne sont pas attribuées au job sans demande appropriée. La réservation doit précéder l'utilisation du GPU par l'application.",
+    "distractors": {
+      "A": "Choisir arbitrairement une carte contourne l'allocation et peut entrer en conflit avec d'autres jobs.",
+      "C": "Un contrôle de santé ne réserve pas une ressource au job.",
+      "D": "Demander plus de RAM CPU ne constitue pas une demande GRES GPU."
+    },
+    "source_ids": [
+      43,
+      38
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-009",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O02",
+    "question": "GPU drivers work on Kubernetes nodes, but the cluster does not expose the vendor GPU resource to Pods. Which component is responsible for advertising these specialized devices through the standard device-plugin mechanism?",
+    "choices": {
+      "A": "Slurm's GRES configuration",
+      "B": "NVIDIA Container Toolkit runtime integration",
+      "C": "The DCGM host engine",
+      "D": "The GPU vendor's device plugin"
+    },
+    "answer": "D",
+    "explanation": "Le device plugin du fournisseur expose les appareils spécialisés comme ressources consommables par les Pods. Un pilote hôte fonctionnel ne suffit pas à lui seul à publier cette ressource dans Kubernetes.",
+    "distractors": {
+      "B": "Le toolkit intègre l'accès des conteneurs au GPU ; le plugin est responsable de l'annonce comme ressource Kubernetes.",
+      "C": "Le moteur DCGM assure des fonctions de gestion et télémétrie ; il n'est pas le device plugin Kubernetes.",
+      "A": "GRES relève de Slurm et ne publie pas à lui seul des ressources dans Kubernetes."
+    },
+    "source_ids": [
+      41
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-010",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O04",
+    "question": "An application in a supported VM must have exclusive access to an entire physical GPU, without sharing that GPU among VMs. Which mechanism directly matches this requirement?",
+    "choices": {
+      "A": "GPU passthrough",
+      "B": "A time-sliced vGPU profile shared with other VMs",
+      "C": "A MIG instance assigned to a bare-metal process",
+      "D": "A container GPU visibility environment variable"
+    },
+    "answer": "A",
+    "explanation": "Le passthrough assigne directement le GPU physique entier à une VM. Dans le mécanisme décrit, le pilote invité utilise cet appareil exclusivement.",
+    "distractors": {
+      "C": "Une instance matérielle plus petite utilisée en bare metal ne donne pas la carte entière à la VM demandée.",
+      "D": "Une variable de visibilité conteneur ne réalise pas l'assignation directe de la carte entière à une VM.",
+      "B": "Un profil partagé temporellement ne correspond pas à l'exclusivité de la carte entière demandée."
+    },
+    "source_ids": [
+      56,
+      58
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-011",
+    "exam": "A",
+    "domain": "operations",
+    "objective": "O04",
+    "question": "On a GPU model that supports it, which feature partitions compute resources and memory-system paths into separate GPU instances?",
+    "choices": {
+      "A": "GPU time slicing without hardware partitioning",
+      "B": "A device plugin advertising whole physical GPUs",
+      "C": "Multi-Instance GPU (MIG)",
+      "D": "GPU passthrough of an entire card"
+    },
+    "answer": "C",
+    "explanation": "MIG partitionne les ressources d'un GPU compatible en instances séparées, notamment avec des ressources de calcul et des chemins mémoire dédiés décrits par NVIDIA.",
+    "distractors": {
+      "A": "Le partage temporel sans partitionnement matériel alterne l'accès ; il ne crée pas les ressources matérielles séparées demandées.",
+      "B": "L'annonce de GPU entiers ne réalise pas leur partitionnement matériel.",
+      "D": "Le passthrough d'une carte entière assigne cet appareil ; il ne le divise pas en instances."
+    },
+    "source_ids": [
+      44
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "O-012",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O02",
+    "question": "A platform team wants Kubernetes automation for NVIDIA drivers, the GPU device plugin, container integration, and DCGM-based monitoring. Which product most directly addresses this requirement?",
+    "choices": {
+      "A": "The Kubernetes scheduler by itself",
+      "B": "The GPU device plugin by itself",
+      "C": "DCGM Exporter by itself",
+      "D": "NVIDIA GPU Operator"
+    },
+    "answer": "D",
+    "explanation": "GPU Operator automatise la gestion de plusieurs composants NVIDIA de la pile Kubernetes, dont pilotes, plugin GPU, Container Toolkit et monitoring DCGM.",
+    "distractors": {
+      "A": "Le scheduler place les Pods ; il ne gère pas à lui seul le déploiement de cette pile NVIDIA.",
+      "B": "Le plugin annonce les ressources GPU ; il ne remplace pas l'automatisation de tous les composants cités.",
+      "C": "L'exporter publie la télémétrie ; il ne déploie pas à lui seul pilotes, plugin et toolkit."
+    },
+    "source_ids": [
+      40
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-013",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O02",
+    "question": "A GPU is usable on the host and allocated to a container workload, but the container runtime has not been integrated with NVIDIA device support. Which component family should the administrator investigate?",
+    "choices": {
+      "A": "The amount of allocated framebuffer only",
+      "B": "The device plugin resource count only",
+      "C": "NVIDIA Container Toolkit and its runtime integration",
+      "D": "The scheduler queue priority only"
+    },
+    "answer": "C",
+    "explanation": "Le Container Toolkit fournit des composants d'intégration permettant aux runtimes de configurer l'accès NVIDIA des conteneurs. La disponibilité sur l'hôte et l'allocation ne garantissent pas cette intégration.",
+    "distractors": {
+      "B": "Le compte de ressources publié ne configure pas les périphériques dans le runtime ; l'allocation a déjà eu lieu dans ce scénario.",
+      "D": "La priorité de file ne configure pas l'accès GPU dans un conteneur déjà alloué.",
+      "A": "Une quantité de mémoire ne vérifie pas l'intégration du runtime et l'exposition des appareils."
+    },
+    "source_ids": [
+      42
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-014",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O02",
+    "question": "Using the documented Kubernetes extended-resource GPU mechanism, a container specifies a GPU limit but omits a GPU request. How does Kubernetes treat the GPU request?",
+    "choices": {
+      "A": "It uses the GPU limit as the request value",
+      "B": "It always defaults to zero, allowing unlimited overcommit",
+      "C": "It derives the request from current GPU utilization",
+      "D": "It asks DCGM Exporter to choose a request value"
+    },
+    "answer": "A",
+    "explanation": "Pour le mécanisme GPU documenté, Kubernetes utilise la limite comme demande si la demande est omise. Si les deux sont précisées, elles doivent être égales.",
+    "distractors": {
+      "C": "La demande déclarative ne se calcule pas à partir de l'utilisation observée.",
+      "D": "L'exporter publie des métriques ; il ne choisit pas la demande de ressources du Pod.",
+      "B": "Ce mécanisme ne décrit pas une demande GPU nulle avec surallocation illimitée."
+    },
+    "source_ids": [
+      41,
+      57
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "O-015",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O02",
+    "question": "A Kubernetes Pod requests a GPU and requires a particular accelerator label. It stays Pending although idle GPUs exist only on nodes without that label. Which explanation best fits?",
+    "choices": {
+      "A": "No currently available node satisfies both the resource and placement constraints",
+      "B": "DCGM Exporter must allocate one of the idle GPUs",
+      "C": "The presence of any idle GPU guarantees placement regardless of labels",
+      "D": "The Pod's model weights have necessarily corrupted the GPU driver"
+    },
+    "answer": "A",
+    "explanation": "La capacité libre globale ne suffit pas : le nœud doit aussi satisfaire les contraintes de sélection ou d'affinité. Kubernetes documente ces mécanismes pour les clusters comportant plusieurs types de GPU.",
+    "distractors": {
+      "B": "DCGM Exporter est une interface de télémétrie et non le décideur de placement.",
+      "D": "Un état Pending lié aux contraintes ne démontre pas une corruption du pilote par le modèle.",
+      "C": "Les labels et contraintes restent applicables même si une carte est libre ailleurs."
+    },
+    "source_ids": [
+      41,
+      57
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-016",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O03",
+    "question": "After enabling MIG, an operator sees N/A for a utilization query in nvidia-smi on the deployed configuration. What is the best interpretation before raising an idle-GPU alarm?",
+    "choices": {
+      "A": "N/A proves that the GPU is consuming zero power",
+      "B": "The queried metric may be unsupported at that observation level or in that configuration",
+      "C": "MIG has removed all physical memory from the GPU",
+      "D": "N/A is equivalent to zero utilization in every NVIDIA tool"
+    },
+    "answer": "B",
+    "explanation": "NVIDIA documente des restrictions de métriques avec MIG et l'usage de N/A pour des informations non supportées. Une valeur absente ne doit pas devenir artificiellement un zéro.",
+    "distractors": {
+      "A": "Une information indisponible sur l'utilisation ne renseigne pas une puissance nulle.",
+      "C": "MIG partitionne des ressources ; cette lecture n'indique pas leur disparition.",
+      "D": "N/A signifie indisponibilité, pas valeur numérique nulle universelle."
+    },
+    "source_ids": [
+      39,
+      44
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-017",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O03",
+    "question": "A reliability review finds that an ECC error counter is nonzero. Which additional context is most useful before deciding how to respond?",
+    "choices": {
+      "A": "Whether errors are corrected or uncorrected, the counter's scope, and how it changes over time",
+      "B": "Only whether total GPU utilization is high",
+      "C": "Only whether the job received its requested GPU count",
+      "D": "Whether a single successful job can justify clearing all error history"
+    },
+    "answer": "A",
+    "explanation": "Les compteurs ECC distinguent plusieurs types d'erreurs et périmètres de comptage. La nature des erreurs et leur évolution sont plus utiles qu'une valeur historique isolée pour orienter l'analyse.",
+    "distractors": {
+      "B": "Une forte activité ne précise ni le type ni le périmètre ni la récence des erreurs ECC.",
+      "C": "Une allocation correcte ne caractérise pas les erreurs mémoire observées.",
+      "D": "Un job réussi ne suffit pas à effacer ou caractériser l'historique de fiabilité ; cela supprimerait du contexte."
+    },
+    "source_ids": [
+      39
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-018",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O03",
+    "question": "An operator compares a GPU's measured power draw with its configured power limit. Which statement is correct?",
+    "choices": {
+      "A": "Both values are cumulative job energy measurements",
+      "B": "The configured limit guarantees constant application throughput",
+      "C": "Power draw is observed consumption, while the limit constrains allowed power behavior",
+      "D": "The measured power draw directly reports the number of occupied memory bytes"
+    },
+    "answer": "C",
+    "explanation": "La puissance observée et la limite de puissance sont des informations différentes. Le GPU peut ajuster son état de performance pour respecter une enveloppe ; une puissance en watts ne constitue pas une énergie cumulée de job.",
+    "distractors": {
+      "A": "Des valeurs de puissance ne sont pas des quantités cumulées d'énergie.",
+      "D": "La puissance ne mesure pas la capacité mémoire occupée.",
+      "B": "Une contrainte de puissance ne garantit pas un débit constant pour toutes les charges."
+    },
+    "source_ids": [
+      39
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "O-019",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O04",
+    "question": "A team argues that no license obligations can apply because its NVIDIA vGPU software deployment does not check out a license from a server. What should the reviewer point out?",
+    "choices": {
+      "A": "Every use of bare-metal MIG automatically requires the same vWS license",
+      "B": "All passthrough deployments use identical software and licensing terms",
+      "C": "A successful GPU allocation by a scheduler automatically grants software usage rights",
+      "D": "Some documented vGPU software licensing modes are enforced through the EULA rather than a server checkout"
+    },
+    "answer": "D",
+    "explanation": "Le guide vGPU décrit un enforcement contractuel EULA sans checkout dans certains cas. Il faut identifier l'offre et le mode de déploiement exacts ; cela ne permet pas d'étendre ces règles à tout CUDA ou MIG.",
+    "distractors": {
+      "A": "MIG est un mécanisme matériel ; le besoin de licence dépend de la pile et de l'offre, pas du seul mot MIG.",
+      "B": "L'assignation technique ne détermine pas à elle seule une règle de licence identique pour tous les logiciels.",
+      "C": "Une allocation de ressources ne remplace pas des droits contractuels d'utilisation du logiciel."
+    },
+    "source_ids": [
+      59,
+      44
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-020",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O04",
+    "question": "A proposed vGPU profile has enough framebuffer memory for an application. What must still be checked before declaring the deployment compatible?",
+    "choices": {
+      "A": "Only whether the host driver can list the physical GPU",
+      "B": "The supported GPU, profile, hypervisor and software versions, and required application features",
+      "C": "Only whether a different hypervisor supports a similarly named profile",
+      "D": "Only whether the required number of vGPUs can be allocated"
+    },
+    "answer": "B",
+    "explanation": "La capacité mémoire seule ne valide pas les API ni la combinaison de support. NVIDIA précise que le support CUDA dépend des types vGPU et GPU, et que les capacités doivent être vérifiées par hyperviseur et versions.",
+    "distractors": {
+      "A": "Détecter la carte sur l'hôte ne valide pas le profil invité et les fonctions applicatives.",
+      "C": "Le support sur un autre hyperviseur ne valide pas automatiquement celui qui sera déployé.",
+      "D": "Une allocation possible ne garantit pas le support des API et fonctions nécessaires."
+    },
+    "source_ids": [
+      58
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-021",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O04",
+    "question": "A design uses MIG-backed vGPUs on a supported platform. A reviewer says MIG and vGPU cannot be combined because they are competing names for the same feature. Which correction is best?",
+    "choices": {
+      "A": "MIG partitions physical GPU resources, while a supported vGPU stack can present those resources to VMs",
+      "B": "MIG-backed vGPU support on one hypervisor guarantees support on every hypervisor",
+      "C": "vGPU always disables every form of hardware partitioning",
+      "D": "MIG and vGPU both require assigning the entire physical GPU exclusively to one VM"
+    },
+    "answer": "A",
+    "explanation": "MIG et vGPU sont des mécanismes distincts pouvant être combinés dans les configurations prises en charge. MIG partitionne les ressources ; vGPU ajoute la présentation et la gestion dans un environnement VM.",
+    "distractors": {
+      "B": "Les combinaisons GPU, versions et hyperviseur doivent être vérifiées ; le support n'est pas universel.",
+      "C": "Le guide documente précisément des configurations de vGPU fondées sur MIG.",
+      "D": "Le passthrough correspond à cette assignation entière ; MIG partitionne et vGPU peut partager les ressources."
+    },
+    "source_ids": [
+      44,
+      58
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "O-022",
+    "exam": "B",
+    "domain": "operations",
+    "objective": "O01",
+    "question": "An intermittent slowdown affects a GPU service. A single local nvidia-smi snapshot taken after recovery looks normal. What is the most useful monitoring improvement?",
+    "choices": {
+      "A": "Conclude that the incident did not occur because the latest snapshot is normal",
+      "B": "Use only current BMC sensor values to reconstruct past GPU activity",
+      "C": "Collect time-series telemetry and correlate it with workload events and logs",
+      "D": "Run an exclusive diagnostic during every production request"
+    },
+    "answer": "C",
+    "explanation": "Un instantané après récupération ne décrit pas l'incident. Une collecte suivie, par exemple via DCGM Exporter et Prometheus, aide à rapprocher mesures, travaux et événements ; les journaux restent nécessaires pour le contexte d'erreur.",
+    "distractors": {
+      "A": "Une mesure hors de la fenêtre d'incident ne réfute pas un problème intermittent.",
+      "D": "Les diagnostics exclusifs sont invasifs et ne doivent pas être imposés à chaque requête de production.",
+      "B": "Des lectures actuelles de plateforme ne reconstituent pas l'historique d'activité GPU pendant l'incident."
+    },
+    "source_ids": [
+      57,
+      37,
+      38,
+      20
+    ],
+    "difficulty": "scenario"
+  }
+]

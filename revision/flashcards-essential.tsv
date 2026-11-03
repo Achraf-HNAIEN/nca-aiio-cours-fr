@@ -1,0 +1,48 @@
+Front	Back	Tags
+What is the relationship AI → ML → DL ? / Quelle relation ?	Artificial intelligence est le périmètre le plus large ; machine learning en est une partie ; deep learning est une partie du ML. DL ⊂ ML ⊂ AI. [48]	essential E03 definitions
+Can AI be rule-based? / IA à règles possible ?	Yes. Un système peut utiliser des règles explicites sans apprendre ses paramètres ; toute IA n’est donc pas du ML. [48]	essential E03 definitions
+Supervised learning / Apprentissage supervisé	Apprendre une relation avec une cible de référence ; exemples : classification et régression. [48]	essential E03 learning
+Classification vs regression / Différence ?	Classification prédit une catégorie ; regression prédit une quantité continue. Les deux peuvent être supervisées. [48]	essential E03 learning
+Unsupervised clustering / Regroupement non supervisé	Découvrir des groupes de données similaires sans catégories cibles prédéfinies ; les groupes demandent une interprétation métier. [48]	essential E03 learning
+Reinforcement learning / Apprentissage par renforcement	Un agent choisit des actions et apprend à améliorer une récompense liée à leurs conséquences. [48]	essential E03 learning
+Self-supervised learning / Auto-supervision	La cible est construite depuis les données elles-mêmes, par exemple un fragment de texte à prédire ; pas besoin d’annotation humaine pour chaque cible. [48]	essential E03 learning
+Feature, label, parameter / Trois rôles ?	Feature : propriété d’entrée ; label : cible de référence ; parameter : valeur interne ajustée par l’apprentissage. [48]	essential E03 vocabulary
+Generalization / Généralisation	Objectif du ML : appliquer les régularités apprises à de nouvelles données pertinentes, pas seulement réussir les exemples d’entraînement. [48]	essential E03 quality
+Why did AI progress? / Moteurs techniques ?	Usable data + improved algorithms + accessible compute : données exploitables, méthodes améliorées et calcul disponible se renforcent. [48][62]	essential E04 adoption
+How do libraries help adoption? / Rôle des bibliothèques ?	Elles donnent accès à des primitives accélérées réutilisables ; l’utilisateur n’a pas à réimplémenter chaque opération GPU. [62]	essential E04 software
+Pretraining vs fine-tuning / Préentraînement et adaptation	Un pretrained model possède déjà des paramètres appris ; fine-tuning les adapte à une tâche ou un domaine, sans répéter nécessairement tout l’apprentissage initial. [48][9]	essential E04 lifecycle
+Object detection vs image classification / Détection ou classification ?	Detection localise des objets ; whole-image classification attribue une catégorie globale à l’image. [48]	essential E05 vision
+LLM use cases / Exemples d’usages ?	Résumé, traduction, assistance conversationnelle et génération de code ; le chatbot n’est qu’un usage du large language model. [9]	essential E05 language
+Fraud inference bottleneck / Profil client lent ?	Mesurer aussi la récupération des données : un modèle rapide ne garantit pas une décision de bout en bout rapide. [6]	essential E05 latency
+Digital twin / Jumeau numérique industriel	Représentation utilisée pour simuler et analyser un système ; Omniverse fournit des bibliothèques et microservices liés à ce type d’application et à la simulation robotique. [65]	essential E05 E06 simulation
+CPU vs GPU / Compromis principal ?	CPU : exécution séquentielle et contrôle ; GPU : débit de nombreux threads parallèles. Les deux sont complémentaires. [62]	essential E08 architecture
+Does using a GPU guarantee speedup? / Accélération garantie ?	No. Parallélisme insuffisant, transferts, préparation ou surcoûts peuvent limiter l’intérêt d’un GPU. [62][71]	essential E08 performance
+Memory capacity vs bandwidth / Capacité ou bande passante ?	Capacity : quantité stockable ; bandwidth : débit de lecture/écriture. Assez de capacité ne garantit pas un débit suffisant. [6][71]	essential E08 memory
+Compute-bound vs memory-bound / Quelle limite ?	Compute-bound : calcul dominant ; memory-bound : mouvement des données dominant. Le remède dépend du goulot mesuré. [71]	essential E08 performance
+Tensor Cores / Rôle ?	Unités spécialisées de calcul matriciel dans certaines architectures GPU ; elles n’exécutent pas toutes les opérations et les formats dépendent du matériel. [71]	essential E08 hardware
+Training vs inference / Différence de finalité ?	Training ajuste les paramètres ; inference applique le modèle appris à de nouvelles entrées, sans mise à jour implicite des poids. [48]	essential E02 lifecycle
+Forward, loss, backward, optimizer / Séquence conceptuelle ?	Propagation avant, mesure de l’objectif, calcul des gradients, puis mise à jour des paramètres. [48]	essential E02 training
+Why can training use more memory? / Mémoire additionnelle ?	Outre les poids, l’apprentissage peut nécessiter des valeurs intermédiaires, gradients et états d’optimiseur ; pas de multiplicateur universel. [79]	essential E02 memory
+Latency vs throughput / Latence et débit	Latency : délai d’un résultat ; throughput : quantité traitée par unité de temps. Améliorer l’un ne garantit pas d’améliorer l’autre. [5]	essential E02 performance
+Batching trade-off / Compromis du regroupement	Regrouper peut améliorer l’utilisation et le débit mais ajouter une attente avant exécution ; respecter la contrainte du service. [5][70]	essential E02 serving
+Can inference need multiple GPUs? / Plusieurs GPU possibles ?	Yes. Dimensionner selon modèle, mémoire et exigences du service ; inference ne signifie pas nécessairement petite charge. [5]	essential E02 sizing
+Quantization / Quantification	Utiliser une précision réduite pour certaines valeurs ; vérifier qualité, compatibilité et performance sur la configuration cible. [3]	essential E02 optimization
+Checkpoint / Point de reprise	État sauvegardé réutilisable pour reprendre ou personnaliser un travail ; conserver les éléments nécessaires à la reprise. [52]	essential E07 artifacts
+AI lifecycle / Étapes principales ?	Définir le besoin, préparer les données, développer/personnaliser, évaluer, conditionner, déployer et observer ; réitérer selon les résultats. [48][52][65]	essential E07 lifecycle
+Why track experiments? / Pourquoi tracer ?	Relier données, configuration, métriques et artefacts pour comparer et reproduire ; un nom comme final-model ne suffit pas.[83]	essential E07 reproducibility
+Does accuracy prove service readiness? / Score suffisant ?	No. Vérifier aussi latence, débit et comportement du service sous une charge représentative. [5][48]	essential E07 validation
+Preprocessing consistency / Cohérence de préparation	Le modèle en production doit recevoir des caractéristiques cohérentes avec la représentation validée ; le GPU ne devine pas une transformation manquante. [78]	essential E07 data
+CUDA / Définition anglaise et française	Parallel computing platform and programming model : plateforme de calcul parallèle et modèle de programmation NVIDIA, non limité au graphisme. [47]	essential E01 stack
+cuBLAS and cuDNN / Quelle couche ?	Bibliothèques de calcul optimisées réutilisées par des applications et frameworks ; ce ne sont ni des modèles métier ni des registres. [62]	essential E01 libraries
+TensorRT vs Triton / Deux rôles ?	TensorRT optimise l’exécution d’inférence ; Triton sert les modèles et organise les requêtes, éventuellement avec TensorRT comme backend. [3][70]	essential E06 serving
+NIM / Quel besoin ?	Microservices et conteneurs pour simplifier le déploiement d’inférence de modèles pris en charge, notamment sur une infrastructure autogérée. [5]	essential E06 deployment
+NeMo Framework / Quel besoin ?	Développement, entraînement et personnalisation ; la documentation consultée détaille notamment les modèles vocaux et checkpoints préentraînés. [52]	essential E06 development
+NGC / Catalogue ou calculateur ?	Catalogue de logiciels optimisés GPU et fonctions de registre pour distribuer/partager des artefacts ; pas un ordonnanceur de cluster. [49]	essential E06 distribution
+GPU Operator / Que gère-t-il ?	Automatise dans Kubernetes des composants comme pilotes, Container Toolkit et device plugin ; ne crée ni GPU physique ni modèle entraîné. [40]	essential E01 E06 kubernetes
+AI Enterprise vs DGX / Logiciel ou plateforme ?	AI Enterprise : suite logicielle commerciale prise en charge ; DGX : plateforme intégrée d’infrastructure, logiciel et expertise. [65][64]	essential E06 solutions
+Can a container replace the host driver? / Conteneur autosuffisant ?	No. Une image ne garantit pas le pilote hôte compatible ni l’intégration de l’accès GPU. [40]	essential E01 containers
+Rollback / Retour arrière	Revenir à une version validée lorsque la nouvelle ne respecte pas les critères ; conserver artefacts et configuration précédents.[84]	essential E07 releases
+Stable latency but declining quality / Que vérifier ?	Examiner l’évolution des données et réévaluer les résultats ; la santé de l’infrastructure ne garantit pas la généralisation continue du modèle. [48]	essential E07 monitoring
+NCCL / Calcul ou communication ?	NVIDIA Collective Communications Library : primitives collectives et point à point entre GPU, par exemple AllReduce ; ce n’est ni un câble ni un framework complet d’apprentissage. [75]	essential E01 communications
+RAPIDS and CUDA-X data science / Quel rôle ?	Accélérer traitement de données, ML et analytique ; exemples : cuDF pour DataFrames, cuML pour ML, cuGraph pour graphes. [77]	essential E06 data
+TAO / Quel besoin ?	Personnaliser notamment des modèles de vision préentraînés à partir de ses propres données, dans le périmètre des modèles et fonctionnalités pris en charge. [76]	essential E06 customization

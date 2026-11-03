@@ -1,0 +1,1336 @@
+{
+  "reviewer_role": "independent reviewer, not infrastructure author",
+  "status": "conditional_acceptance_minor_content_corrections_and_question_key_permutation",
+  "scope": [
+    "cours/04-serveurs-et-stockage.md",
+    "cours/05-reseaux-et-dpu.md",
+    "cours/06-datacenter-et-dimensionnement.md",
+    "questions/infrastructure.json",
+    "revision/flashcards-infrastructure.tsv"
+  ],
+  "no_author_files_modified": true,
+  "summary": {
+    "chapters_reviewed": 3,
+    "questions_reviewed": 40,
+    "flashcards_reviewed": 32,
+    "objectives_reviewed": 10,
+    "live_primary_sources_read": 7,
+    "blocking_factual_errors": 0,
+    "findings_by_severity": {
+      "medium": 1,
+      "low": 3
+    },
+    "single_best_answer_keys_wrong": 0,
+    "note": "Aucune clé techniquement erronée identifiée. Corriger le motif ABCD et les ambiguïtés signalées avant publication ; une validation de structure seule ne détecte pas ce motif."
+  },
+  "findings": [
+    {
+      "id": "INF-01",
+      "severity": "medium",
+      "category": "assessment_validity",
+      "file": "questions/infrastructure.json",
+      "location": "I-001 à I-040, champ answer ; les deux examens A/B",
+      "issue": "Les 40 clés suivent exactement ABCD répété. L’équilibre des lettres masque un motif exploitable sans connaissance du contenu ; ce n’est pas une erreur de clé technique mais une faiblesse importante de simulation.",
+      "evidence": {
+        "observed_answer_sequence": "ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD",
+        "matches_ABCD_repeat": 40,
+        "total": 40,
+        "verification": "independent-checks.json + assertions du présent script"
+      },
+      "recommended_exact_correction": "Permuter les quatre choix de chaque question pour placer le choix actuellement correct à la lettre indiquée dans recommended_answer_positions ; remapper answer ET les clés de distractors par la même permutation. Garder les textes et les identifiants. Vérifier ensuite unicité de la bonne réponse et cinq A/B/C/D dans chaque examen. Ne pas changer uniquement answer.",
+      "recommended_answer_positions": {
+        "I-001": "A",
+        "I-002": "A",
+        "I-003": "B",
+        "I-004": "C",
+        "I-005": "C",
+        "I-006": "C",
+        "I-007": "B",
+        "I-008": "D",
+        "I-009": "D",
+        "I-010": "B",
+        "I-011": "A",
+        "I-012": "D",
+        "I-013": "C",
+        "I-014": "B",
+        "I-015": "C",
+        "I-016": "A",
+        "I-017": "D",
+        "I-018": "A",
+        "I-019": "D",
+        "I-020": "B",
+        "I-021": "A",
+        "I-022": "C",
+        "I-023": "B",
+        "I-024": "D",
+        "I-025": "C",
+        "I-026": "B",
+        "I-027": "B",
+        "I-028": "D",
+        "I-029": "D",
+        "I-030": "A",
+        "I-031": "A",
+        "I-032": "B",
+        "I-033": "C",
+        "I-034": "C",
+        "I-035": "B",
+        "I-036": "A",
+        "I-037": "D",
+        "I-038": "C",
+        "I-039": "A",
+        "I-040": "D"
+      }
+    },
+    {
+      "id": "INF-02",
+      "severity": "low",
+      "category": "memory_condition_precision",
+      "file": "questions/infrastructure.json",
+      "location": "I-021.question, ligne 498 ; I-021.explanation, ligne 506",
+      "issue": "« the model and each working batch fit » laisse implicites gradients, états optimiseur, activations et buffers temporaires ainsi que leur co-résidence. La réponse A reste le meilleur choix, mais le lecteur pourrait croire que poids + données du lot suffisent à établir la faisabilité de l’entraînement.",
+      "evidence": {
+        "course": "cours/04-serveurs-et-stockage.md:20 décompose explicitement tous les états.",
+        "source_ids": [
+          79
+        ],
+        "source_extract": "research/private/essential/torch-memory.txt:197-207",
+        "quote": "Typically, training memory consists of: Model parameters (size P) Activations that are saved for the backward pass (size A) Gradients, which are the same size as the model parameters, so size G = P. Optimizer state, which is proportional to the size of the parameters."
+      },
+      "recommended_exact_correction": {
+        "question": "A training dataset is much larger than GPU memory, but all tensors required for one training step—including model parameters, optimizer state, gradients, activations, the current batch, and temporary buffers—fit together in usable GPU memory. Which conclusion is justified?",
+        "explanation": "Tout le jeu de données n’a pas à résider en VRAM : l’ensemble des tenseurs requis pour une étape doit y tenir simultanément, et le chemin d’entrée doit fournir les lots à un débit suffisant.",
+        "unchanged_fields": "answer=A ; conserver les quatre choix actuels."
+      }
+    },
+    {
+      "id": "INF-03",
+      "severity": "low",
+      "category": "bilingual_semantics",
+      "file": "revision/flashcards-infrastructure.tsv",
+      "location": "ligne 20, Front ; carte 19 hors en-tête",
+      "issue": "Le recto anglais demande si le liquide « remove waste heat ». Le refroidissement retire bien la chaleur des composants ; répondre Non ne devient correct que si la question porte sur la suppression du besoin de rejet au site. Le français « élimine » vise cette autre notion.",
+      "evidence": {
+        "observed_front": "Does liquid cooling remove waste heat? / Le liquide élimine-t-il la chaleur ?",
+        "observed_back": "Non : il transporte la chaleur ; le système doit toujours la rejeter. Certaines solutions restent hybrides air-liquide. [72]",
+        "source_ids": [
+          72
+        ],
+        "source_extract": "research/private/infrastructure-review/source-72.txt:1048-1056, 1081-1103",
+        "quote": "the majority (but not all) of the heat load from IT equipment is captured and removed by the liquid"
+      },
+      "recommended_exact_correction": {
+        "Front": "Does liquid cooling eliminate the need for facility heat rejection? / Le refroidissement liquide supprime-t-il le besoin de rejeter la chaleur hors du site ?",
+        "Back": "Non : il transporte la chaleur des équipements ; le site doit toujours la rejeter. Certaines solutions restent hybrides air-liquide. [72]",
+        "Tags": "I06 infrastructure refroidissement"
+      }
+    },
+    {
+      "id": "INF-04",
+      "severity": "low",
+      "category": "source_metadata_encoding",
+      "file": "cours/04-serveurs-et-stockage.md",
+      "location": "Sources [55], ligne 98 ; même titre en 05:104 et 06:100",
+      "affected_files": [
+        "cours/05-reseaux-et-dpu.md",
+        "cours/06-datacenter-et-dimensionnement.md",
+        "sources/ledger.json"
+      ],
+      "issue": "Le titre GPUDirect contient un tiret long mal décodé (mojibake). Cela n’invalide pas les faits mais dégrade les références publiées.",
+      "evidence": {
+        "source_ids": [
+          55
+        ],
+        "source_extract": "research/private/infrastructure-review/source-55.txt:1",
+        "observed_title_in_course": "1. Overview â GPUDirect RDMA 13.4 documentation",
+        "live_title": "1. Overview — GPUDirect RDMA 13.4 documentation"
+      },
+      "recommended_exact_correction": "Remplacer uniquement le titre de la source 55 dans sources/ledger.json par « 1. Overview — GPUDirect RDMA 13.4 documentation », puis régénérer les blocs Sources des trois chapitres. Ne pas modifier URL ni identifiant."
+    }
+  ],
+  "objective_verdicts": [
+    {
+      "id": "I01",
+      "label": "Identifier le matériel adapté à une tâche d'entraînement",
+      "verdict": "covered_with_minor_correction",
+      "chapters": [
+        "cours/04-serveurs-et-stockage.md"
+      ],
+      "question_ids": [
+        "I-001",
+        "I-011",
+        "I-021",
+        "I-031"
+      ],
+      "flashcard_lines": [
+        2,
+        3,
+        4
+      ],
+      "assessment": "CPU, GPU, RAM, VRAM, empreinte d’entraînement, stockage et préparation des données : couverts ; préciser I-021."
+    },
+    {
+      "id": "I02",
+      "label": "Adapter et étendre une infrastructure GPU selon l'usage",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/04-serveurs-et-stockage.md"
+      ],
+      "question_ids": [
+        "I-002",
+        "I-012",
+        "I-022",
+        "I-032"
+      ],
+      "flashcard_lines": [
+        5,
+        6,
+        7
+      ],
+      "assessment": "Montée en charge, réplication contre partitionnement, scale-up/scale-out et croissance équilibrée : couverts."
+    },
+    {
+      "id": "I03",
+      "label": "Identifier les notions et spécifications générales d'alimentation et de refroidissement",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/06-datacenter-et-dimensionnement.md"
+      ],
+      "question_ids": [
+        "I-003",
+        "I-013",
+        "I-023",
+        "I-033"
+      ],
+      "flashcard_lines": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "assessment": "Puissance/énergie, IT/facility, TDP/PSU, PUE et calcul : exacts sous hypothèses explicites."
+    },
+    {
+      "id": "I04",
+      "label": "Comparer les avantages et contraintes on-premises et cloud",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/06-datacenter-et-dimensionnement.md"
+      ],
+      "question_ids": [
+        "I-004",
+        "I-014",
+        "I-024",
+        "I-034"
+      ],
+      "flashcard_lines": [
+        12,
+        13,
+        14
+      ],
+      "assessment": "Cloud/on-prem/colocation, conformité, responsabilités et TCO : couverts sans promesse économique universelle."
+    },
+    {
+      "id": "I05",
+      "label": "Identifier les composants et considérations d'un cluster accéléré",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/04-serveurs-et-stockage.md"
+      ],
+      "question_ids": [
+        "I-005",
+        "I-015",
+        "I-025",
+        "I-035"
+      ],
+      "flashcard_lines": [
+        15,
+        16,
+        17
+      ],
+      "assessment": "Composants du cluster, fabrics, BMC, gestion et dépendances : couverts, quatre fabrics bornés à la référence."
+    },
+    {
+      "id": "I06",
+      "label": "Identifier les exigences du site datacenter",
+      "verdict": "covered_with_minor_correction",
+      "chapters": [
+        "cours/06-datacenter-et-dimensionnement.md"
+      ],
+      "question_ids": [
+        "I-006",
+        "I-016",
+        "I-026",
+        "I-036"
+      ],
+      "flashcard_lines": [
+        18,
+        19,
+        20
+      ],
+      "assessment": "Rack, manutention, site, entrées thermiques et refroidissement liquide : couverts ; corriger le recto anglais de la carte 19."
+    },
+    {
+      "id": "I07",
+      "label": "Déterminer les exigences réseau d'une charge IA",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/05-reseaux-et-dpu.md"
+      ],
+      "question_ids": [
+        "I-007",
+        "I-017",
+        "I-027",
+        "I-037"
+      ],
+      "flashcard_lines": [
+        21,
+        22,
+        23
+      ],
+      "assessment": "Latence, débit utile, simultanéité, topologie, contention et profil applicatif : couverts."
+    },
+    {
+      "id": "I08",
+      "label": "Identifier et décrire les protocoles et concepts réseau de datacenter",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/05-reseaux-et-dpu.md"
+      ],
+      "question_ids": [
+        "I-008",
+        "I-018",
+        "I-028",
+        "I-038"
+      ],
+      "flashcard_lines": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "assessment": "Ethernet/IP/TCP, RDMA/RoCEv2, PFC/ECN et bibliothèques : correctement séparés."
+    },
+    {
+      "id": "I09",
+      "label": "Identifier les réseaux haute vitesse et leurs usages",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/05-reseaux-et-dpu.md"
+      ],
+      "question_ids": [
+        "I-009",
+        "I-019",
+        "I-029",
+        "I-039"
+      ],
+      "flashcard_lines": [
+        28,
+        29,
+        30
+      ],
+      "assessment": "NVLink/NVSwitch scale-up y compris rack, InfiniBand/Ethernet scale-out et GPUDirect : caveats corrects."
+    },
+    {
+      "id": "I10",
+      "label": "Expliquer le rôle et les avantages d'un DPU",
+      "verdict": "covered_and_factually_consistent",
+      "chapters": [
+        "cours/05-reseaux-et-dpu.md"
+      ],
+      "question_ids": [
+        "I-010",
+        "I-020",
+        "I-030",
+        "I-040"
+      ],
+      "flashcard_lines": [
+        31,
+        32,
+        33
+      ],
+      "assessment": "DPU offload/accelerate/isolate, distinction NIC/GPUDirect et limites du remplacement CPU/GPU : exacts."
+    }
+  ],
+  "reviewed_question_ids": [
+    "I-001",
+    "I-002",
+    "I-003",
+    "I-004",
+    "I-005",
+    "I-006",
+    "I-007",
+    "I-008",
+    "I-009",
+    "I-010",
+    "I-011",
+    "I-012",
+    "I-013",
+    "I-014",
+    "I-015",
+    "I-016",
+    "I-017",
+    "I-018",
+    "I-019",
+    "I-020",
+    "I-021",
+    "I-022",
+    "I-023",
+    "I-024",
+    "I-025",
+    "I-026",
+    "I-027",
+    "I-028",
+    "I-029",
+    "I-030",
+    "I-031",
+    "I-032",
+    "I-033",
+    "I-034",
+    "I-035",
+    "I-036",
+    "I-037",
+    "I-038",
+    "I-039",
+    "I-040"
+  ],
+  "question_reviews": [
+    {
+      "id": "I-001",
+      "objective": "I01",
+      "exam": "A",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "VRAM suffisante ou partitionnement réel ; SSD, réseau seul et réplication intégrale ne corrigent pas la capacité.",
+      "source_ids": [
+        6,
+        16
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-002",
+      "objective": "I02",
+      "exam": "A",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Le chemin inter-nœuds et les collectives sont le meilleur premier examen parmi les choix ; attente ne prouve pas à elle seule la cause racine.",
+      "source_ids": [
+        19,
+        68
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-003",
+      "objective": "I03",
+      "exam": "A",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "PUE = énergie totale / énergie IT ; limites et période cohérentes.",
+      "source_ids": [
+        72
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-004",
+      "objective": "I04",
+      "exam": "A",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Pilote court : évaluer un cloud compatible et son coût complet, sans garantie économique.",
+      "source_ids": [
+        74
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-005",
+      "objective": "I05",
+      "exam": "A",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Calcul, stockage, fabrics et gestion forment le système complet.",
+      "source_ids": [
+        68
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-006",
+      "objective": "I06",
+      "exam": "A",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Les U libres ne valident pas mécanique, alimentation et thermique.",
+      "source_ids": [
+        67,
+        72
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-007",
+      "objective": "I07",
+      "exam": "A",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Petits messages synchronisés : latence pertinente en plus de la bande passante.",
+      "source_ids": [
+        19
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-008",
+      "objective": "I08",
+      "exam": "A",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "RoCE compatible satisfait la demande RDMA sur Ethernet ; les autres choix ne le font pas.",
+      "source_ids": [
+        19,
+        82
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-009",
+      "objective": "I09",
+      "exam": "A",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "NVLink scale-up et InfiniBand scale-out dans CE scénario ; pas de règle NVLink strictement intra-châssis.",
+      "source_ids": [
+        18,
+        19,
+        68
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-010",
+      "objective": "I10",
+      "exam": "A",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "DPU : fonctions réseau, stockage et sécurité adaptées ; pas extension VRAM ou remplacement du GPU.",
+      "source_ids": [
+        12
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-011",
+      "objective": "I01",
+      "exam": "A",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Saturation du décodage CPU : traiter la préparation des données puis mesurer le débit complet.",
+      "source_ids": [
+        16,
+        74
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-012",
+      "objective": "I02",
+      "exam": "A",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Capacité de stockage et performances sont distinctes ; ajout de disques ne garantit pas le débit.",
+      "source_ids": [
+        6
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-013",
+      "objective": "I03",
+      "exam": "A",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "35 × 1,4 = 49 kW ; 14 est le non-IT, 84 double-compte la charge IT.",
+      "source_ids": [
+        72
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-014",
+      "objective": "I04",
+      "exam": "A",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Comparer options conformes, utilisation et coûts de cycle de vie ; pas un prix isolé.",
+      "source_ids": [
+        74
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-015",
+      "objective": "I05",
+      "exam": "A",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Séparer des besoins de trafic et des expositions, sans garantie absolue de résilience.",
+      "source_ids": [
+        66,
+        68
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-016",
+      "objective": "I06",
+      "exam": "A",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Températures aux entrées hors limites : étudier la recirculation et le chemin local.",
+      "source_ids": [
+        72,
+        67
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-017",
+      "objective": "I07",
+      "exam": "A",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "All-to-all simultané : capacité partagée, topologie, congestion et sursouscription.",
+      "source_ids": [
+        66,
+        68
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-018",
+      "objective": "I08",
+      "exam": "A",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "PFC et ECN sont distincts ; pas de nécessité universelle de PFC sur tous les liens.",
+      "source_ids": [
+        82
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-019",
+      "objective": "I09",
+      "exam": "A",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Adaptateur vers mémoire GPU sans staging hôte : GPUDirect RDMA ; pas DPU obligatoire.",
+      "source_ids": [
+        55,
+        19
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-020",
+      "objective": "I10",
+      "exam": "A",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Isolation des fonctions de contrôle/sécurité opérateur hors OS locataire.",
+      "source_ids": [
+        12
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-021",
+      "objective": "I01",
+      "exam": "B",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass_with_precision_note",
+      "verdict": "pass_with_precision_note",
+      "reason": "Clé A attendue et unique meilleure réponse ; préciser que TOUS les tenseurs de travail tiennent ensemble (INF-02).",
+      "source_ids": [
+        6
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-022",
+      "objective": "I02",
+      "exam": "B",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Une réplication intégrale conserve le besoin mémoire par copie.",
+      "source_ids": [
+        6,
+        19
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-023",
+      "objective": "I03",
+      "exam": "B",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Capacité nominale des PSU redondantes distincte de la consommation réelle.",
+      "source_ids": [
+        16
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-024",
+      "objective": "I04",
+      "exam": "B",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Coûts de transfert, stockage, calcul et exploitation sur la durée pertinente.",
+      "source_ids": [
+        74
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-025",
+      "objective": "I05",
+      "exam": "B",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "OOB : accès matériel contrôlé aux BMC ; pas fabric applicatif ni accès public.",
+      "source_ids": [
+        66,
+        16
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-026",
+      "objective": "I06",
+      "exam": "B",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Liquide : rejet de chaleur, interfaces compatibles et maintenance restent requis.",
+      "source_ids": [
+        72
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-027",
+      "objective": "I07",
+      "exam": "B",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Répliques indépendantes : besoin réseau dicté par requêtes, réponses, données et disponibilité.",
+      "source_ids": [
+        18,
+        6
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-028",
+      "objective": "I08",
+      "exam": "B",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "NCCL est une bibliothèque GPU de collectives et autres communications.",
+      "source_ids": [
+        19
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-029",
+      "objective": "I09",
+      "exam": "B",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Certains domaines NVLink Switch dépassent un châssis ; architecture et génération obligatoires.",
+      "source_ids": [
+        18
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-030",
+      "objective": "I10",
+      "exam": "B",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "DPU généraliste ne remplace pas arbitrairement le calcul tensoriel GPU.",
+      "source_ids": [
+        12
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-031",
+      "objective": "I01",
+      "exam": "B",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Nombre identique de GPU ne décrit pas chemin PCIe, placement adaptateur et compatibilité.",
+      "source_ids": [
+        55,
+        19
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-032",
+      "objective": "I02",
+      "exam": "B",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Croissance cohérente du calcul, stockage, ports, câbles, alimentation et refroidissement.",
+      "source_ids": [
+        66,
+        68,
+        72
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-033",
+      "objective": "I03",
+      "exam": "B",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "PUE seul ne mesure ni débit utile ni efficacité du modèle.",
+      "source_ids": [
+        72
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-034",
+      "objective": "I04",
+      "exam": "B",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Colocation et propriété du matériel sont deux dimensions distinctes.",
+      "source_ids": [
+        68
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-035",
+      "objective": "I05",
+      "exam": "B",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Provisionnement, données et exécution nécessitent des couches coordonnées.",
+      "source_ids": [
+        68,
+        66
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-036",
+      "objective": "I06",
+      "exam": "B",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Personnel qualifié et assistance appropriée conformément aux consignes du système.",
+      "source_ids": [
+        67
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-037",
+      "objective": "I07",
+      "exam": "B",
+      "key": "A",
+      "independent_best_answer": "A",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Capacité suffisante et séparation de flux à évaluer pour traiter la contention.",
+      "source_ids": [
+        66,
+        68
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-038",
+      "objective": "I08",
+      "exam": "B",
+      "key": "B",
+      "independent_best_answer": "B",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "RDMA réduit le travail du chemin de données sans supprimer préparation, enregistrement et pilotes.",
+      "source_ids": [
+        55,
+        19
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-039",
+      "objective": "I09",
+      "exam": "B",
+      "key": "C",
+      "independent_best_answer": "C",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "InfiniBand ou Ethernet/RoCE : choisir sur validation bout-en-bout et capacité opérationnelle.",
+      "source_ids": [
+        19,
+        66,
+        82
+      ],
+      "cross_cutting_finding": "INF-01"
+    },
+    {
+      "id": "I-040",
+      "objective": "I10",
+      "exam": "B",
+      "key": "D",
+      "independent_best_answer": "D",
+      "single_best_answer": true,
+      "english_stem_and_choices": "pass",
+      "french_explanation_and_three_distractors": "pass",
+      "verdict": "pass",
+      "reason": "Le chemin GPUDirect RDMA ne prouve pas la présence d’un processeur DPU.",
+      "source_ids": [
+        55,
+        19,
+        12
+      ],
+      "cross_cutting_finding": "INF-01"
+    }
+  ],
+  "flashcards": {
+    "count": 32,
+    "reviewed_lines": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33
+    ],
+    "verdict": "31 sans anomalie de fond identifiée ; recto anglais ligne 20 à préciser (INF-03).",
+    "finding_ids": [
+      "INF-03"
+    ]
+  },
+  "calculations": {
+    "IT_kW": "35",
+    "facility_kW": "49.0",
+    "non_IT_kW": "14.0",
+    "duration_h": "10",
+    "IT_energy_kWh": "350",
+    "facility_energy_kWh": "490.0",
+    "non_IT_energy_kWh": "140.0",
+    "reconstructed_energy_PUE": "1.4",
+    "I013_wrong_84_kW": "84.0",
+    "PSU_rated_capacity_kW_not_consumption": "19.8",
+    "verdict": "all_published_numerical_examples_correct"
+  },
+  "live_primary_sources": [
+    {
+      "source_id": 12,
+      "url": "https://developer.nvidia.com/blog/offloading-and-isolating-data-center-workloads-with-bluefield-dpu",
+      "accessed": "2026-11-03T22:05:30.218075+00:00",
+      "status": 200,
+      "final_url": "https://developer.nvidia.com/blog/offloading-and-isolating-data-center-workloads-with-bluefield-dpu",
+      "content_type": "text/html; charset=UTF-8",
+      "text_path": "research/private/infrastructure-review/source-12.txt",
+      "characters": 7814,
+      "substantively_read": true,
+      "read_scope": "Corps signé, mission, accélération et isolation ; résumé IA non utilisé."
+    },
+    {
+      "source_id": 16,
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "accessed": "2026-11-03T22:05:30.218659+00:00",
+      "status": 200,
+      "final_url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "content_type": "text/html",
+      "text_path": "research/private/infrastructure-review/source-16.txt",
+      "characters": 10188,
+      "substantively_read": true,
+      "read_scope": "Composants, RAID, interfaces BMC et spécifications électriques/redondance."
+    },
+    {
+      "source_id": 18,
+      "url": "https://www.nvidia.com/en-us/data-center/nvlink",
+      "accessed": "2026-11-03T22:05:30.220972+00:00",
+      "status": 200,
+      "final_url": "https://www.nvidia.com/en-us/data-center/nvlink/",
+      "content_type": "text/html; charset=UTF-8",
+      "text_path": "research/private/infrastructure-review/source-18.txt",
+      "characters": 5820,
+      "substantively_read": true,
+      "read_scope": "Scale-up rack, extension multi-nœuds et réserve de spécifications préliminaires."
+    },
+    {
+      "source_id": 55,
+      "url": "https://docs.nvidia.com/cuda/gpudirect-rdma/index.html",
+      "accessed": "2026-11-03T22:05:30.221825+00:00",
+      "status": 200,
+      "final_url": "https://docs.nvidia.com/cuda/gpudirect-rdma/index.html",
+      "content_type": "text/html",
+      "text_path": "research/private/infrastructure-review/source-55.txt",
+      "characters": 62430,
+      "substantively_read": true,
+      "read_scope": "Overview, enregistrement mémoire, Supported Systems et contraintes PCIe."
+    },
+    {
+      "source_id": 72,
+      "url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf",
+      "accessed": "2026-11-03T22:05:30.222704+00:00",
+      "status": 200,
+      "final_url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf",
+      "content_type": "application/pdf",
+      "text_path": "research/private/infrastructure-review/source-72.txt",
+      "characters": 104752,
+      "substantively_read": true,
+      "read_scope": "Sections 5.6 refroidissement et 8.1 PUE, plus passages ciblés air/UPS."
+    },
+    {
+      "source_id": 82,
+      "url": "https://networking-docs.nvidia.com/onyxum/3104606lts/rdma-over-converged-ethernet-roce",
+      "accessed": "2026-11-03T22:05:30.223274+00:00",
+      "status": 200,
+      "final_url": "https://networking-docs.nvidia.com/onyxum/3104606lts/rdma-over-converged-ethernet-roce",
+      "content_type": "text/html",
+      "text_path": "research/private/infrastructure-review/source-82.txt",
+      "characters": 5460,
+      "substantively_read": true,
+      "read_scope": "Congestion ECN/CNP et trois modes lossless/semi-lossless/lossy."
+    },
+    {
+      "source_id": 80,
+      "url": "https://docs.nvidia.com/networking/display/mlnxenv23102131201lts/rdma-over-converged-ethernet-roce.pdf",
+      "status": 200,
+      "substantively_read": true,
+      "text_path": "research/private/infrastructure-review/source-80.txt",
+      "read_scope": "RoCEv1/v2, IP/UDP et routage ; PDF relu après conversion pdftotext."
+    }
+  ],
+  "sources_used": [
+    {
+      "id": 1,
+      "url": "https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 6,
+      "url": "https://developer.nvidia.com/blog/tips-on-scaling-storage-for-ai-training-and-inferencing",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 12,
+      "url": "https://developer.nvidia.com/blog/offloading-and-isolating-data-center-workloads-with-bluefield-dpu",
+      "accessed": "2026-11-03",
+      "retrieval": "independent_live",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 16,
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "accessed": "2026-11-03",
+      "retrieval": "independent_live",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 18,
+      "url": "https://www.nvidia.com/en-us/data-center/nvlink",
+      "accessed": "2026-11-03",
+      "retrieval": "independent_live",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 19,
+      "url": "https://developer.nvidia.com/blog/accelerating-io-in-the-modern-data-center-network-io",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 55,
+      "url": "https://docs.nvidia.com/cuda/gpudirect-rdma/index.html",
+      "accessed": "2026-11-03",
+      "retrieval": "independent_live",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 66,
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/network-fabrics.html",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 67,
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/safety.html",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 68,
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/dgx-superpod-components.html",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 69,
+      "url": "https://www.energystar.gov/ia/partners/prod_development/downloads/DataCenterRating_General.pdf",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 72,
+      "url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf",
+      "accessed": "2026-11-03",
+      "retrieval": "independent_live",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 74,
+      "url": "https://images.nvidia.com/aem-dam/Solutions/documents/bus-leader-industry-brief-evolving-for-ai-3150350.pdf",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 79,
+      "url": "https://docs.pytorch.org/tutorials/intermediate/optimizer_step_in_backward_tutorial.html",
+      "accessed": "2026-11-03",
+      "retrieval": "provided_private_extract",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 80,
+      "url": "https://docs.nvidia.com/networking/display/mlnxenv23102131201lts/rdma-over-converged-ethernet-roce.pdf",
+      "accessed": "2026-11-03",
+      "retrieval": "independent_live",
+      "evidence_in_shared_ledger": true
+    },
+    {
+      "id": 82,
+      "url": "https://networking-docs.nvidia.com/onyxum/3104606lts/rdma-over-converged-ethernet-roce",
+      "accessed": "2026-11-03",
+      "retrieval": "independent_live",
+      "evidence_in_shared_ledger": true
+    }
+  ],
+  "limitations": [
+    "web_extract indisponible : requêtes HTTP requests + BeautifulSoup ; PDF via pdftotext. Sept sources primaires indépendamment récupérées HTTP 200 et passages de fond effectivement lus.",
+    "Les autres références sont vérifiées sur les extractions privées fournies et le registre partagé, pas toutes re-téléchargées. Le blueprint officiel est lu dans research/official-exam.txt, non revalidé en direct.",
+    "Le fichier auteur roce v2 (rocev2.txt) est déclaré binaire à cause d’octets NUL ; la source 80 a été re-téléchargée et convertie indépendamment, ce qui lève ce blocage de lecture. pue.txt est un ancien 404 : pue-authority.txt est la source 69 correcte effectivement lue.",
+    "NVLink : page produit vivante avec chiffres préliminaires ; aucun chiffre préliminaire n’est présenté ici comme norme ni mesure vérifiée. Onyx : version 3.10.4606 LTS, pas garantie universelle des configurations RoCE.",
+    "DOE PDF : texte des formules graphiques imparfait dans pdftotext ; définition PUE en prose lisible et calcul recomposé avec Decimal.",
+    "Pas d’accès au cours payant, à un examen réel, à du matériel GPU/réseau ni à un site électrique ; aucun benchmark ni validation de conception opérationnelle.",
+    "Single-best-answer évalué par lecture contradictoire des quatre choix et des trois réfutations françaises ; pas preuve psychométrique ou garantie d’alignement à toute future version d’examen."
+  ],
+  "author_delivery_claims_checked": {
+    "40_questions": true,
+    "32_flashcards": true,
+    "two_questions_per_objective_per_exam": true,
+    "five_each_letter_per_exam": true,
+    "32_scenario_labels": true,
+    "warning": "La distribution équilibrée n’empêche pas la séquence ABCD déterministe."
+  },
+  "reviewed_input_sha256": {
+    "cours/04-serveurs-et-stockage.md": "9cd3f84ca26462dd391ca36abda25f97eb159b8e92f7930199b3d79fe1cc28a0",
+    "cours/05-reseaux-et-dpu.md": "d0b1a6875e6f69cc8ebc9809478323425ce1531260c79934d25fd03745e5fafe",
+    "cours/06-datacenter-et-dimensionnement.md": "03e9721f96b6d116c491ca9e5d0d72c12a61b9d1750dc0c9083c7cb9591b404b",
+    "questions/infrastructure.json": "5be5ffee4f24565cb8e4c7080985d01c26a4a0e50b3554cc561f198e63c6dcc6",
+    "revision/flashcards-infrastructure.tsv": "fbd150b807d0d03cab007ee87234dbcfaa151d397a7762edc93057eb69c8e439"
+  }
+}

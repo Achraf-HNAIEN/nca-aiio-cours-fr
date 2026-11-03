@@ -1,0 +1,221 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 32,
+      "url": "https://cterpening.github.io/certification-study-library/guides/NCA-AIIO-nvidia-ai-infrastructure-operations-associate",
+      "title": "NVIDIA-Certified Associate: AI Infrastructure and Operations (NCA-AIIO) Study Guide - Certification Study Library",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Independent AI-assisted resource — SOURCES + OBJECTIVES CHECKED; HUMAN REVIEW PENDING.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "url": "https://developer.nvidia.com/blog/accelerating-io-in-the-modern-data-center-network-io",
+      "title": "Accelerating IO in the Modern Data Center: Network IO | NVIDIA Technical Blog",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 12,
+      "url": "https://developer.nvidia.com/blog/offloading-and-isolating-data-center-workloads-with-bluefield-dpu",
+      "title": "Offloading and Isolating Data Center Workloads with NVIDIA Bluefield DPU | NVIDIA Technical Blog",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 6,
+      "url": "https://developer.nvidia.com/blog/tips-on-scaling-storage-for-ai-training-and-inferencing",
+      "title": "NVIDIA: Scaling Storage for AI Training and Inferencing",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 3,
+      "url": "https://developer.nvidia.com/tensorrt",
+      "title": "NVIDIA TensorRT",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 81,
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "title": "Datasets: Dividing the original dataset  |  Machine Learning  |  Google for Developers",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 53,
+      "url": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container",
+      "title": "What is a container? | Docker Docs",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 47,
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html",
+      "title": "CUDA C++ Programming Guide",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 62,
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
+      "title": "1.1. Introduction — CUDA Programming Guide",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 40,
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html",
+      "title": "NVIDIA GPU Operator Overview",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 38,
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html",
+      "title": "NVIDIA DCGM Feature Overview",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 44,
+      "url": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/introduction.html",
+      "title": "NVIDIA MIG User Guide Introduction",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 61,
+      "url": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/supported-gpus.html",
+      "title": "Supported GPUs — NVIDIA Multi-Instance GPU User Guide",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "A30\nNVIDIA Ampere architecture\nGA100\n8.0\n24GB\n4",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html",
+      "title": "NVIDIA Triton Inference Server — NVIDIA Triton Inference Server",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 39,
+      "url": "https://docs.nvidia.com/deploy/nvidia-smi/index.html",
+      "title": "NVIDIA System Management Interface",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Percent of time over the past sample period during which global\n(device) memory was being read or written.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "title": "Introduction to NVIDIA DGX H100/H200 Systems — NVIDIA DGX H100/H200 User Guide",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 54,
+      "url": "https://docs.python.org/3/library/statistics.html",
+      "title": "statistics — Mathematical statistics functions — Python documentation",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 35,
+      "url": "https://easontechtalk.com/nvidia-nca-aiio-exam",
+      "title": "How I Passed NVIDIA NCA-AIIO in 16 Hours: Study Plan and 7 Exam Topics | Eason Tech Talk",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "This accelerated approach assumes relevant hands-on experience.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "url": "https://github.com/mgonzalezo/nvidia-ai-infra-certs",
+      "title": "GitHub - mgonzalezo/nvidia-ai-infra-certs: Everything you need to pass the NVIDIA NCP-AII and NCA-AII certifications: study guides, exam tips, practice questions, and real-world troubleshooting scenarios for GPU clusters, NVLink, DCGM, and AI infrastructure at scale. · GitHub",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "I passed both the NCA-AIIO and NCP-AII certifications and built this repository from the materials I used during preparation. I am also a contributor to",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "url": "https://github.com/ziash/nvidia-nca-aiio-study-guide",
+      "title": "GitHub - ziash/nvidia-nca-aiio-study-guide: Comprehensive NCA-AIIO exam prep: study notes, diagrams, screenshots, and field experience for the NVIDIA Certified Associate: AI Infrastructure and Operations certification. · GitHub",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "No exam-dump material. All practice questions are original.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "url": "https://howtoai.com/nca-aiio-study-guide",
+      "title": "NCA-AIIO Study Guide 2026: Domains, Cheat Sheet, Free Prep",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Book the exam when your practice readiness is consistently 80%+.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "url": "https://kubernetes.io/docs/concepts/overview",
+      "title": "Overview | Kubernetes",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 34,
+      "url": "https://nicheelab.com/en/articles/nvidia/aiio-overview",
+      "title": "NVIDIA-Certified Associate: AI Infrastructure & Operations (NCA-AIIO) Guide (2026)",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "MIG (Multi-Instance GPU) is\nhardware-level\nGPU partitioning (A100/H100 only).",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "url": "https://slurm.schedmd.com/overview.html",
+      "title": "Slurm Workload Manager - Overview",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 48,
+      "url": "https://www.ibm.com/think/topics/machine-learning",
+      "title": "IBM: What is machine learning?",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "all machine learning is AI, but not all AI is machine learning",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "url": "https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate",
+      "title": "AI Infrastructure and Operations (AIIO) Certification for Professionals | NVIDIA",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The exam is online and proctored remotely, includes 50 questions, and has a 60-minute time limit.",
+          "added": "2026-11-03"
+        }
+      ]
+    }
+  ]
+}

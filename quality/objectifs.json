@@ -1,0 +1,33 @@
+{
+  "source_id": 1,
+  "code_system": "Repères pédagogiques locaux, non officiels NVIDIA",
+  "domains": {
+    "essential": {"label": "Essential AI Knowledge", "weight_percent": 38, "questions_per_mock": 19},
+    "infrastructure": {"label": "AI Infrastructure", "weight_percent": 40, "questions_per_mock": 20},
+    "operations": {"label": "AI Operations", "weight_percent": 22, "questions_per_mock": 11}
+  },
+  "objectives": [
+    {"id":"E01","domain":"essential","label":"Décrire la pile logicielle NVIDIA d'un environnement IA","chapters":["cours/03-ecosysteme-nvidia.md"]},
+    {"id":"E02","domain":"essential","label":"Comparer les exigences d'architecture de l'entraînement et de l'inférence","chapters":["cours/02-calcul-et-cycle-de-vie.md"]},
+    {"id":"E03","domain":"essential","label":"Différencier IA, machine learning et deep learning","chapters":["cours/01-fondamentaux-ia.md"]},
+    {"id":"E04","domain":"essential","label":"Expliquer les facteurs d'amélioration et d'adoption de l'IA","chapters":["cours/01-fondamentaux-ia.md"]},
+    {"id":"E05","domain":"essential","label":"Expliquer les principaux cas d'usage et secteurs","chapters":["cours/01-fondamentaux-ia.md"]},
+    {"id":"E06","domain":"essential","label":"Expliquer le rôle et les cas d'usage des solutions NVIDIA","chapters":["cours/03-ecosysteme-nvidia.md"]},
+    {"id":"E07","domain":"essential","label":"Décrire les logiciels du cycle de développement et de déploiement IA","chapters":["cours/02-calcul-et-cycle-de-vie.md","cours/03-ecosysteme-nvidia.md"]},
+    {"id":"E08","domain":"essential","label":"Comparer les architectures CPU et GPU","chapters":["cours/02-calcul-et-cycle-de-vie.md"]},
+    {"id":"I01","domain":"infrastructure","label":"Identifier le matériel adapté à une tâche d'entraînement","chapters":["cours/04-serveurs-et-stockage.md"]},
+    {"id":"I02","domain":"infrastructure","label":"Adapter et étendre une infrastructure GPU selon l'usage","chapters":["cours/04-serveurs-et-stockage.md"]},
+    {"id":"I03","domain":"infrastructure","label":"Identifier les notions et spécifications générales d'alimentation et de refroidissement","chapters":["cours/06-datacenter-et-dimensionnement.md"]},
+    {"id":"I04","domain":"infrastructure","label":"Comparer les avantages et contraintes on-premises et cloud","chapters":["cours/06-datacenter-et-dimensionnement.md"]},
+    {"id":"I05","domain":"infrastructure","label":"Identifier les composants et considérations d'un cluster accéléré","chapters":["cours/04-serveurs-et-stockage.md"]},
+    {"id":"I06","domain":"infrastructure","label":"Identifier les exigences du site datacenter","chapters":["cours/06-datacenter-et-dimensionnement.md"]},
+    {"id":"I07","domain":"infrastructure","label":"Déterminer les exigences réseau d'une charge IA","chapters":["cours/05-reseaux-et-dpu.md"]},
+    {"id":"I08","domain":"infrastructure","label":"Identifier et décrire les protocoles et concepts réseau de datacenter","chapters":["cours/05-reseaux-et-dpu.md"]},
+    {"id":"I09","domain":"infrastructure","label":"Identifier les réseaux haute vitesse et leurs usages","chapters":["cours/05-reseaux-et-dpu.md"]},
+    {"id":"I10","domain":"infrastructure","label":"Expliquer le rôle et les avantages d'un DPU","chapters":["cours/05-reseaux-et-dpu.md"]},
+    {"id":"O01","domain":"operations","label":"Décrire les fondamentaux de gestion et de monitoring d'un datacenter IA","chapters":["cours/07-exploitation-et-observabilite.md"]},
+    {"id":"O02","domain":"operations","label":"Décrire orchestration de cluster et planification des jobs","chapters":["cours/08-orchestration-et-virtualisation.md"]},
+    {"id":"O03","domain":"operations","label":"Expliquer les métriques et critères de surveillance des GPU","chapters":["cours/07-exploitation-et-observabilite.md"]},
+    {"id":"O04","domain":"operations","label":"Identifier les considérations de virtualisation d'une infrastructure accélérée","chapters":["cours/08-orchestration-et-virtualisation.md"]}
+  ]
+}

@@ -1,0 +1,1205 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://www.nvidia.com/en-us/learn/certification/ai-infrastructure-operations-associate",
+      "title": "AI Infrastructure and Operations (AIIO) Certification for Professionals | NVIDIA",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The exam is online and proctored remotely, includes 50 questions, and has a 60-minute time limit.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The typical time to complete this course is seven hours.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "deployment.\nCompare and contrast GPU and CPU architectures.\n38%\nExam Weight\nRecommended Training and Suggested Reading on Essential AI Knowledge:\nRecommended Train",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Explain the purpose and benefits of a DPU in a data center.\n40%\nExam Weight\nRecommended Training and Suggested Reading on AI Infrastructure:\nRecommended Training\nA",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "considerations for virtualizing accelerated infrastructure.\n22%\nExam Weight\nRecommended Training and Suggested Reading on AI Operations:\nRecommended Training\nAI In",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "sic understanding of data center infrastructure.\nLanguage\n: English\nValidity\n: This certification is valid for two years from issuance. Recertification may be achieved",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "url": "https://academy.nvidia.com/en/course/ai-infrastructure-operations-fundamentals/?cm=64727",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 3,
+      "url": "https://developer.nvidia.com/tensorrt",
+      "title": "NVIDIA TensorRT",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "TensorRT SDK optimizes inference using quantization, layer and tensor fusion, and kernel tuning techniques.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The advantages of using Triton include high throughput with dynamic batching, concurrent model execution, model ensembling, and streaming audio and video inputs.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "NVIDIA TensorRT™ is an ecosystem of tools for developers to achieve high-performance deep learning inference.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "url": "https://medium.com/@AITutorMaster/deep-learning-training-vs-inference-do-you-know-the-difference-72e136a0a070",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 5,
+      "url": "https://developer.nvidia.com/topics/ai/ai-inference",
+      "title": "NVIDIA: AI inference",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The core difficulty is the fundamental trade-off between user experience and total output.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "If you manage your own GPU-accelerated infrastructure but want simplified software deployment, NVIDIA NIM™ provides containers to self-host inferencing microservices for pretrained and customized AI models.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "url": "https://developer.nvidia.com/blog/tips-on-scaling-storage-for-ai-training-and-inferencing",
+      "title": "NVIDIA: Scaling Storage for AI Training and Inferencing",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Storage scalability isn’t measured only in capacity. It’s also measured in performance.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The original GPU can use the memory of an added GPU if supported by the manufacturer",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Keep in mind that while storage devices and data fabric can scale, GPU memory is fixed.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "url": "https://www.ibm.com/topics/machine-learning",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 8,
+      "url": "https://www.sas.com/en_us/insights/analytics/machine-learning.html",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 9,
+      "url": "https://blogs.nvidia.com/blog/what-are-large-language-models-used-for",
+      "title": "NVIDIA: What Are Large Language Models Used For?",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Large language models are unlocking new possibilities in areas such as search engines, natural language processing, healthcare, robotics and code generation.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "url": "https://developer.nvidia.com/blog/nvidia-gpu-operator-simplifying-gpu-management-in-kubernetes",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 11,
+      "url": "https://www.intel.com/content/www/us/en/products/docs/processors/cpu-vs-gpu.html",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 12,
+      "url": "https://developer.nvidia.com/blog/offloading-and-isolating-data-center-workloads-with-bluefield-dpu",
+      "title": "Offloading and Isolating Data Center Workloads with NVIDIA Bluefield DPU | NVIDIA Technical Blog",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Move key data plane and control plane functions to a separate domain on the DPU",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The DPU is best suited for offloading workloads involving data movement, and security.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The best definition of the DPU’s mission is to offload, accelerate, and isolate infrastructure workloads.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/index.html",
+      "title": "NVIDIA DGX SuperPOD: Next Generation Scalable Infrastructure for AI Leadership Reference Architecture Featuring NVIDIA DGX B200 — NVIDIA DGX SuperPOD: Next Generation Scalable Infrastructure for AI Leadership Reference Architecture Featuring NVDIA DGX B200",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 14,
+      "url": "https://www.linkedin.com/pulse/power-constraints-ai-workloads-hidden-challenges-data-jeff-barber",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 15,
+      "url": "https://community.fs.com/article/highdensity-servers-maximizing-efficiency-and-performance-in-data-centers.html",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 16,
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html",
+      "title": "Introduction to NVIDIA DGX H100/H200 Systems — NVIDIA DGX H100/H200 User Guide",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "BMC (out-of-band system management)",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The DGX H100/H200 system contains six power supplies with balanced distribution of the power load.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The system includes six power supply units (PSU) configured for 4+2 redundancy.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "url": "https://vimeo.com/524936974",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 18,
+      "url": "https://www.nvidia.com/en-us/data-center/nvlink",
+      "title": "NVLink & NVLink Switch: Fastest HPC Data Center Platform | NVIDIA",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "With NVLink Switch, NVLink connections can be extended across nodes to create a seamless, high-bandwidth, multi-node GPU cluster",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "url": "https://developer.nvidia.com/blog/accelerating-io-in-the-modern-data-center-network-io",
+      "title": "Accelerating IO in the Modern Data Center: Network IO | NVIDIA Technical Blog",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "RDMA enables a direct, zero-copy data path between memories in different nodes, which boosts efficiency and avoids CPU overhead.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "NVIDIA NVLink enables high-speed peer-to-peer communication between GPUs within a node.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The BlueField data processing unit (DPU) family of SmartNICs has a programmable Arm CPU and additional accelerating hardware.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "url": "https://docs.nvidia.com/igx-orin/bmc/latest/introduction.html",
+      "title": "NVIDIA IGX BMC Introduction",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "provide a standards-based interface for system power management and recovery.\nBMC in the NVIDIA IGX Developer Kit is board management based on the open source OpenBMC software, which provides more robust remote control of the IGX Developer Kit.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Access to telemetry data of the system including relevant temperatures, voltages, currents, performance status, M.2 drive SMART status, and fan speeds.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "url": "https://www.nvidia.com/en-us/data-center/base-command",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 22,
+      "url": "https://developer.nvidia.com/dcgm",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 23,
+      "url": "https://infohub.delltechnologies.com/en-us/l/management-networks-for-dell-emc-networking-configuration-guide/out-of-band-management-networks",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 24,
+      "url": "https://kubernetes.io/docs/home",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 25,
+      "url": "https://www.samsungsds.com/en/techreport/job-scheduling.html",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 26,
+      "url": "https://www.docker.com/resources/what-container",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 27,
+      "url": "https://slurm.schedmd.com/overview.html",
+      "title": "Slurm Workload Manager - Overview",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Finally, it arbitrates contention for resources by managing a queue of",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "in Figure 2, include\nnodes\n,\nthe compute resource in Slurm,\npartitions\n, which group nodes into logical\nsets,\njobs\n, or allocations of resources assigned to a user for\na",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "url": "https://developer.nvidia.com/blog/maximizing-gpu-utilization-with-nvidia-runai-and-nvidia-nim",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 29,
+      "url": "https://www.nvidia.com/en-us/technologies/multi-instance-gpu",
+      "title": "",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 30,
+      "url": "https://github.com/ziash/nvidia-nca-aiio-study-guide",
+      "title": "GitHub - ziash/nvidia-nca-aiio-study-guide: Comprehensive NCA-AIIO exam prep: study notes, diagrams, screenshots, and field experience for the NVIDIA Certified Associate: AI Infrastructure and Operations certification. · GitHub",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "screenshots from the official NVIDIA training course",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "No exam-dump material. All practice questions are original.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "url": "https://github.com/mgonzalezo/nvidia-ai-infra-certs",
+      "title": "GitHub - mgonzalezo/nvidia-ai-infra-certs: Everything you need to pass the NVIDIA NCP-AII and NCA-AII certifications: study guides, exam tips, practice questions, and real-world troubleshooting scenarios for GPU clusters, NVLink, DCGM, and AI infrastructure at scale. · GitHub",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "I passed both the NCA-AIIO and NCP-AII certifications",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Import the Anki deck and study 15--30 minutes daily for 4--6 weeks",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "url": "https://cterpening.github.io/certification-study-library/guides/NCA-AIIO-nvidia-ai-infrastructure-operations-associate",
+      "title": "NVIDIA-Certified Associate: AI Infrastructure and Operations (NCA-AIIO) Study Guide - Certification Study Library",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Independent AI-assisted resource — SOURCES + OBJECTIVES CHECKED; HUMAN REVIEW PENDING.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Never run stress, reset, firmware, fabric or partitioning commands on shared/production equipment without approval",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "url": "https://howtoai.com/nca-aiio-study-guide",
+      "title": "NCA-AIIO Study Guide 2026: Domains, Cheat Sheet, Free Prep",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Book the exam when your practice readiness is consistently 80%+.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "MIG: partitions one GPU into up to 7 hardware-isolated instances (compute + memory)",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "url": "https://nicheelab.com/en/articles/nvidia/aiio-overview",
+      "title": "NVIDIA-Certified Associate: AI Infrastructure & Operations (NCA-AIIO) Guide (2026)",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "MIG (Multi-Instance GPU) is",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "IG (Multi-Instance GPU) is\nhardware-level\nGPU partitioning (A100/H100 only). vGPU is\nsoftware-level\nGPU virtualization (requires an NVIDIA AI Enterprise license). Being able",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "url": "https://easontechtalk.com/nvidia-nca-aiio-exam",
+      "title": "How I Passed NVIDIA NCA-AIIO in 16 Hours: Study Plan and 7 Exam Topics | Eason Tech Talk",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The goal is to give you a practical study framework—not to suggest that 16 hours is enough for everyone.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "This accelerated approach assumes relevant hands-on experience.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html",
+      "title": "NVIDIA DCGM Exporter",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 37,
+      "url": "https://docs.nvidia.com/deploy/xid-errors/introduction.html",
+      "title": "NVIDIA Xid Errors Introduction",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The messages can be indicative of a hardware problem, an NVIDIA software problem, or a user application problem.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Xid messages are intended to be used as debugging guides. Because many problems can have multiple possible root causes, itâs not always feasible to understand each issue from the Xid value alone.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/user-guide/feature-overview.html",
+      "title": "NVIDIA DCGM Feature Overview",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "This form of health check is invasive, requiring exclusive access to the target GPUs. By running real workloads and",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "These are non-invasive monitoring operations that occur while jobs are running, and can be queried at any time.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Groups are intended to help the user manage collections of GPUs as a single abstract resource, usually",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Field Value Watches (GPU metrics)",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Active Health Checks (GPU subsystems)",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Today DCGM does not enforce group behavior beyond itself",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "url": "https://docs.nvidia.com/deploy/nvidia-smi/index.html",
+      "title": "NVIDIA System Management Interface",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The output of NVSMI is not guaranteed to be backwards compatible.\nHowever, both NVML and the Python bindings are backwards compatible, and",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Percent of time over the past sample period during which one or more\nkernels was executing on the GPU. The sample period may be between 1",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Percent of time over the past sample period during which global\n(device) memory was being read or written. The sample period may be",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "GPU Slowdown Temp\nThe temperature at which a GPU HW will begin optimizing clocks due to",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "ECC Errors\nNVIDIA GPUs can provide error counts for various types of ECC errors.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Any unsupported data is indicated by a \"N/A\"",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "nvidia-smi topo -m",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "csv - comma separated values (MANDATORY)",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html",
+      "title": "NVIDIA GPU Operator Overview",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "within Kubernetes to automate the management of all NVIDIA software components needed to provision GPU. These components include the NVIDIA drivers (to enable CUDA),",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "within Kubernetes to automate the management of all NVIDIA software components needed to provision GPU.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "within Kubernetes to automate the management of all NVIDIA software components needed to provision GPU. These components include the NVIDIA drivers (to enable CUDA),\nKubernetes device plugin for GPUs, the\nNVIDIA Container Toolkit\n,\nautomatic node labeling using\nGFD\n,\nDCGM\nbased monitoring and others.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "url": "https://kubernetes.io/docs/tasks/manage-gpus/scheduling-gpus",
+      "title": "Kubernetes Schedule GPUs",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "As an administrator, you have to install GPU drivers from the corresponding\nhardware vendor on the nodes and run the corresponding device plugin from the",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Kubernetes will use the limit as the request value by default.\nYou can specify GPU in both",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "GPUs are only supposed to be specified in the\nlimits\nsection, which means:\nYou can specify GPU\nlimits\nwithout specifying\nrequests\n, because\nKubernetes will use the limit as the request value by default.\nYou can specify GPU in both\nlimits\nand\nrequests\nbut these two values\nmust be equal.\nYou cannot specify GPU\nrequests\nwithout specifying\nlimits\n.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "url": "https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/arch-overview.html",
+      "title": "NVIDIA Container Toolkit Architecture Overview",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "These components provide a library and a CLI utility to automatically configure GNU/Linux containers that use NVIDIA GPUs.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "inject NVIDIA GPU support into their containers.\nThe NVIDIA Container Runtime Hook",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "url": "https://slurm.schedmd.com/gres.html",
+      "title": "Slurm Generic Resource Scheduling",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Jobs will not be allocated any generic resources unless specifically\nrequested at job submit time using the options:",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "is set for each job step to determine which GPUs are\navailable for its use on each node. This environment variable is only set",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "In the case of Slurm's GRES plugin for GPUs, the environment variable\nCUDA_VISIBLE_DEVICES\nis set for each job step to determine which GPUs are\navailable for its use on each node. This environment variable is only set\nwhen tasks are launched on a specific compute node (no global environment\nvariable is set for the\nsalloc\ncommand and the environment variable set\nfor the\nsbatch\ncommand only reflects the GPUs allocated to that job\non that node, node zero of the allocation).",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "url": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/introduction.html",
+      "title": "NVIDIA MIG User Guide Introduction",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "With MIG, each instanceâs processors have separate and isolated paths through the entire memory system - the on-chip crossbar",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "MIG supports the following deployment configurations:\nBare-metal, including containers",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "on to providing enhanced isolation for customers.\nWith MIG, each instanceâs processors have separate and isolated paths through the entire memory system - the on-chip cros",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "coders),\nto provide a defined quality of service (QoS) with fault isolation for different clients such as VMs, containers or processes.\nMIG enables multiple GPU Instances to r",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "vGPU on top of supported hypervisors",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "url": "https://docs.nvidia.com/vgpu/latest/grid-licensing-user-guide/index.html",
+      "title": "NVIDIA vGPU Licensing User Guide",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 46,
+      "url": "https://docs.nvidia.com/vgpu/latest/grid-vgpu-user-guide/index.html",
+      "title": "NVIDIA vGPU User Guide",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 47,
+      "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html",
+      "title": "CUDA C++ Programming Guide",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "CUDA is a parallel computing platform and programming model developed by NVIDIA",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "url": "https://www.ibm.com/think/topics/machine-learning",
+      "title": "IBM: What is machine learning?",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "all machine learning is AI, but not all AI is machine learning",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Self-supervised learning entails training on tasks in which a supervisory signal is obtained directly from unlabeled data",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The backpropagation algorithm enables the computation of how each individual node contributes to the overall output of the loss function",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Machine learning is the subset of artificial intelligence (AI)",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Training itself is simply a means to an end:",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "inference efficiency issues and other adverse developments.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "with many layers—hence “deep”",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "that influence the learning process but are not themselves learnable",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "models predict continuous values",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "url": "https://docs.nvidia.com/ngc/gpu-cloud/ngc-overview/index.html",
+      "title": "NVIDIA NGC overview",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "NGC also hosts a catalog of GPU-optimized AI software, software development kits (SDKs), and Jupyter Notebooks.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "url": "https://docs.nvidia.com/nim/large-language-models/latest/introduction.html",
+      "title": "NVIDIA NIM for LLMs introduction",
+      "accessed": "2026-11-03"
+    },
+    {
+      "id": 51,
+      "url": "https://kubernetes.io/docs/concepts/overview",
+      "title": "Overview | Kubernetes",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Kubernetes is a portable, extensible, open source platform for managing containerized workloads",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "You tell Kubernetes how much CPU and memory (RAM) each container needs.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "url": "https://docs.nvidia.com/nemo-framework/user-guide/latest/overview.html",
+      "title": "NVIDIA NeMo Framework overview",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "NeMo Framework provides support for the training and customization of Speech AI models.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "url": "https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container",
+      "title": "What is a container? | Docker Docs",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "If you run multiple containers, they all share the same kernel",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "a VM is an entire operating system with its own kernel",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "url": "https://docs.python.org/3/library/statistics.html",
+      "title": "statistics — Mathematical statistics functions — Python documentation",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "ion mean Î¼.\nstatistics.\nfmean\n(\ndata\n,\nweights\n=\nNone\n)\nÂ¶\nConvert\ndata\nto floats and compute the arithmetic mean.\nThis runs faster than the\nmean()\nfunction and it al",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "compute the arithmetic mean.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "url": "https://docs.nvidia.com/cuda/gpudirect-rdma/index.html",
+      "title": "1. Overview — GPUDirect RDMA 13.4 documentation",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "GPUDirect RDMA is a technology introduced in Kepler-class GPUs and CUDA 5.0 that enables a direct path for data exchange between the GPU and a third-party peer device using standard features of PCI Express.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "url": "https://docs.nvidia.com/vgpu/latest/grid-vgpu-user-guide/using-gpu-pass-through.html",
+      "title": "NVIDIA Using GPU Pass-Through",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "GPU pass-through is used to directly assign an entire physical GPU to one VM, bypassing the NVIDIA Virtual GPU Manager. In this mode of operation, the GPU is accessed exclusively by the NVIDIA driver running in the VM to which it is assigned; the GPU is not shared among VMs.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The performance of a physical GPU passed through to a VM can be monitored only from within the VM itself. Such a GPU cannot be monitored by tools that operate through the hypervisor, such as XenCenter or",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "url": "https://docs.nvidia.com/datacenter/dcgm/latest/installation/install-dcgm-exporter.html",
+      "title": "NVIDIA Install DCGM Exporter",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "DCGM Exporter\nconverts selected\nDCGM telemetry fields to the",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Use the tested DCGM and DCGM Exporter version pair listed in the release\nnotes. This is the supported combination.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "DCGM Exporter\nconverts selected\nDCGM telemetry fields to the\nPrometheus exposition format\n. Install one\nexporter on each GPU node that Prometheus should monitor.\nDCGM Exporter can run as a package-managed systemd service, an OCI container,\nor a Kubernetes DaemonSet managed by Helm or the NVIDIA GPU Operator. By\ndefault, DCGM Exporter initializes an embedded DCGM host engine in its own\nprocess using\nlibdcgm\n. It can also connect to a separately managed\nDCGM host engine over TCP, a Unix socket, or VSOCK.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "url": "https://docs.nvidia.com/vgpu/latest/grid-vgpu-user-guide/grid-vgpu-introduction.html",
+      "title": "Introduction to NVIDIA vGPU Software",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "NVIDIA Virtual GPU (vGPU) enables multiple virtual machines (VMs) to have simultaneous, direct access to a single physical GPU, using the same NVIDIA graphics drivers that are deployed on non-virtualized operating systems. By doing this, NVIDIA vGPU provides VMs with unparalleled graphics performance, compute performance, and application compatibility, together with the cost-effectiveness and scalability brought about by sharing a GPU among multiple workloads.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Not all hypervisors support GPU instances in NVIDIA vGPU deployments. To determine if your chosen hypervisor supports GPU instances in NVIDIA vGPU deployments, consult the release notes for your hypervisor at",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "NVIDIA CUDA Toolkit and OpenCL are supported with NVIDIA vGPU only on a subset of vGPU types and supported GPUs.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "url": "https://docs.nvidia.com/vgpu/latest/grid-licensing-user-guide/intro-to-grid-licensing.html",
+      "title": "Introduction to NVIDIA vGPU Software Licensing",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The type of license required depends on how the physical GPU is deployed.\nIn GPU pass-through mode on Windows, or in a bare-metal deployment on Windows or Linux, a physical GPU requires a vWS license.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "When licensing is enforced only through the EULA, no licenses are checked out from the license server. You",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "EULA-Only Enforcement of NVIDIA vGPU Software Licensing\n#\nWhen licensing is enforced only through the EULA, no licenses are checked out from the license server. You\nmust\ncomply with the terms of the EULA by ensuring that\nall\nthe licenses required for your NVIDIA vGPU software deployment have been purchased.\nThe\nnvidia-smi\n-q\ncommand indicates that the product is licensed even when no license is checked out from the license server.\nIf licensing for\nall\nyour NVIDIA vGPU software deployments is enforced only through the EULA, you do not need to set up and run the NVIDIA vGPU software license server.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html",
+      "title": "NVIDIA Triton Inference Server — NVIDIA Triton Inference Server",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Triton Inference Server is an open source inference serving software",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "iple machine learning\nframeworks\nConcurrent model\nexecution\nDynamic batching\nSequence batching\nand\nimplicit state management\nfor stateful models\nProvides\nBackend API\nthat\nallow",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Readiness and liveness health endpoints",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "url": "https://docs.nvidia.com/datacenter/tesla/mig-user-guide/supported-gpus.html",
+      "title": "Supported GPUs — NVIDIA Multi-Instance GPU User Guide",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "A30\nNVIDIA Ampere architecture\nGA100\n8.0\n24GB\n4",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "H100-SXM5\nHopper\nGH100\n9.0\n80GB\n7",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "url": "https://docs.nvidia.com/cuda/cuda-programming-guide/01-introduction/introduction.html",
+      "title": "1.1. Introduction — CUDA Programming Guide",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "GPUs are specialized for highly parallel computations and devote more transistors to data processing units, while CPUs dedicate more transistors to data caching and flow control.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Libraries like cuBLAS, cuFFT, cuDNN, and CUTLASS are just a few examples of libraries that help developers avoid reimplementing well-established algorithms.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "a GPU is designed to excel at executing thousands of threads in parallel",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Libraries like cuBLAS, cuFFT, cuDNN, and CUTLASS",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "url": "https://www.nvidia.com/en-us/ai",
+      "title": "NVIDIA AI platform",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "NVIDIA NIM™ for fast, enterprise-ready deployment",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "url": "https://www.nvidia.com/en-us/data-center/dgx-platform",
+      "title": "NVIDIA DGX platform",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "NVIDIA DGX BasePOD Proven reference architecture for AI infrastructure delivered by leading storage providers.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "url": "https://www.nvidia.com/en-us/data-center/products/ai-enterprise",
+      "title": "NVIDIA AI Enterprise software platform",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "NVIDIA Omniverse™ is a collection of libraries and microservices for developing physical AI applications such as industrial digital twins and robotics simulation.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "NVIDIA AI Enterprise brings together microservices, frameworks, and libraries for AI development with advanced GPU orchestration and infrastructure management in a fully supported, production-ready, commercial software suite.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/network-fabrics.html",
+      "title": "Network Fabrics — NVIDIA DGX SuperPOD: Next Generation Scalable Infrastructure for AI Leadership Reference Architecture Featuring NVDIA DGX B200",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "DGX SuperPOD configurations utilize four network fabrics:",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "url": "https://docs.nvidia.com/dgx/dgxh100-user-guide/safety.html",
+      "title": "Safety — NVIDIA DGX H100/H200 User Guide",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Your server should be integrated and serviced only by technically qualified persons.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "url": "https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-b200/latest/dgx-superpod-components.html",
+      "title": "Key Components of the DGX SuperPOD — NVIDIA DGX SuperPOD: Next Generation Scalable Infrastructure for AI Leadership Reference Architecture Featuring NVDIA DGX B200",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "It is independent of the compute fabric to maximize performance of both storage and application performance.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "url": "https://www.energystar.gov/ia/partners/prod_development/downloads/DataCenterRating_General.pdf",
+      "title": "ENERGY STAR for Data Centers — PUE metric",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The PUE is a standard industry metric, equal to \nthe total energy consumption of a data center (for all fuels) divided by the energy consumption used for the \nIT equipment.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "url": "https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/user_guide/model_execution.html",
+      "title": "Triton Inference Server model execution",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Triton supports multiple scheduling and batching algorithms that can be selected independently for each model.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "url": "https://docs.nvidia.com/deeplearning/performance/dl-performance-gpu-background/index.html",
+      "title": "NVIDIA GPU performance background for deep learning",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Performance of a function on a given processor is limited by one of the following three factors; memory bandwidth, math bandwidth and latency.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Tensor Cores were introduced in the NVIDIA Volta™ GPU architecture to accelerate matrix multiply and accumulate operations for machine learning and scientific applications.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "The arithmetic intensity and ops:byte ratio analysis assumes that a workload is sufficiently large to saturate a given processor’s math and memory pipelines.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "url": "https://www.energy.gov/sites/default/files/2024-07/best-practice-guide-data-center-design.pdf",
+      "title": "DOE Best Practices Guide for Energy-Efficient Data Center Design (2024)",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "PUE is defined as the ratio of the total annual energy to run the data center facility to the total \nannual energy drawn by all IT equipment:",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "Direct liquid cooling refers to a number of different cooling approaches that all share the same \ncharacteristic of transferring waste heat to a fluid at or very near the point the heat is generated, \nrather than transferring it to room air and then conditioning the room air.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "url": "https://docs.nvidia.com/networking/display/nvidiaonyxusermanualv3104606lts/rdma+over+converged+ethernet+(roce)",
+      "title": "NVIDIA Onyx 3.10.4606 LTS — RDMA Over Converged Ethernet",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "There are three modes in which RoCE can be configured: lossless, semi-lossless, and lossy.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "RoCE Congestion Management (RCM) relies on the mechanism defined in RFC3168 in the ECN protocol for the signaling of congestion.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "url": "https://images.nvidia.com/aem-dam/Solutions/documents/bus-leader-industry-brief-evolving-for-ai-3150350.pdf",
+      "title": "NVIDIA Evolving Your Infrastructure for AI: Considerations for IT Leaders",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "IT leaders should evaluate the \ntotal cost of ownership (TCO) over time and consider factors such as data \nstorage, compute resources, and ongoing maintenance.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "url": "https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/overview.html",
+      "title": "NVIDIA NCCL overview",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "NCCL implements both collective communication and point-to-point send/receive primitives.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "url": "https://developer.nvidia.com/tao-toolkit",
+      "title": "NVIDIA TAO Toolkit",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Yes. TAO enables you to fine-tune NVIDIA pre-trained models using your own datasets to create solutions tailored to your specific use case.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "url": "https://developer.nvidia.com/rapids",
+      "title": "NVIDIA RAPIDS accelerated data science",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "CUDA-X libraries accelerate data and graph analytics, machine learning, and data visualizations.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "title": "scikit-learn common pitfalls: preprocessing and data leakage",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Data leakage occurs when information that would not be available at prediction time is used when building the model.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "If these data transforms are used when training a model, they also must be used on subsequent datasets, whether it’s test data or data in a production system.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "url": "https://docs.pytorch.org/tutorials/intermediate/optimizer_step_in_backward_tutorial.html",
+      "title": "PyTorch training memory usage and optimizer state",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Activations that are saved for the backward pass (size A)",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "url": "https://docs.nvidia.com/networking/display/mlnxenv23102131201lts/rdma-over-converged-ethernet-roce.pdf",
+      "title": "NVIDIA MLNX_EN 23.10 LTS — RoCE and RoCEv2",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Instead of the GRH used in RoCE, IP routable RoCE packets carry an IP header\nwhich allows traversal of IP L3 Routers and a UDP header (RoCEv2 only) that serves as a\nstateless encapsulation layer for the RDMA Transport Protocol Packets over IP.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "url": "https://developers.google.com/machine-learning/crash-course/overfitting/dividing-datasets",
+      "title": "Datasets: Dividing the original dataset  |  Machine Learning  |  Google for Developers",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "Use the\nvalidation set\nto evaluate results from the training set.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "the more you use the same data to make decisions about\nhyperparameter settings or other model improvements, the less confidence",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "url": "https://networking-docs.nvidia.com/onyxum/3104606lts/rdma-over-converged-ethernet-roce",
+      "title": "NVIDIA Onyx 3.10.4606 LTS — RoCE (direct documentation URL)",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "There are three modes in which RoCE can be configured: lossless, semi-lossless, and lossy.",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "RoCE Congestion Management (RCM) relies on the mechanism defined in RFC3168 in the ECN protocol for the signaling of congestion.",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "url": "https://mlflow.org/docs/latest/ml/tracking",
+      "title": "MLflow ML Experiment Tracking",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "The MLflow Tracking is an API and UI for logging parameters, code versions, metrics, and output files",
+          "added": "2026-11-03"
+        },
+        {
+          "text": "MLflow 3 allows you to link metrics to specific model checkpoints and datasets, providing better traceability of model performance:",
+          "added": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html",
+      "title": "Amazon SageMaker AI deployment guardrails",
+      "accessed": "2026-11-03",
+      "quotes": [
+        {
+          "text": "There are also built-in safeguards such as auto-rollbacks that help you catch issues early and automatically take corrective action before they significantly impact production.",
+          "added": "2026-11-03"
+        }
+      ]
+    }
+  ]
+}

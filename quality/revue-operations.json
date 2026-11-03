@@ -1,0 +1,125 @@
+{
+  "review": "independent-operations-review",
+  "reviewed_at_utc": "2026-11-03",
+  "independent_from_author": true,
+  "verdict": "PASS_WITH_CORRECTIONS",
+  "technical_verdict": "PASS",
+  "summary": "All two chapters, all 22 questions and all 26 flashcards reviewed. No blocking technical error or ambiguous keyed answer found. One medium pedagogical issue and two low citation-support issues remain.",
+  "scope": [
+    "cours/07-exploitation-et-observabilite.md",
+    "cours/08-orchestration-et-virtualisation.md",
+    "questions/operations.json",
+    "revision/flashcards-operations.tsv"
+  ],
+  "counts": {
+    "questions": 22,
+    "unique_question_ids": 22,
+    "questions_single_unambiguous_answer": 22,
+    "distractor_explanations_reviewed": 66,
+    "flashcards": 26,
+    "live_authoritative_sources": 16,
+    "critical_findings": 0,
+    "high_findings": 0,
+    "medium_findings": 1,
+    "low_findings": 2
+  },
+  "coverage": {
+    "O01": {"status": "covered", "chapter": "07", "question_count": 4, "flashcard_tag_count": 5},
+    "O02": {"status": "covered", "chapter": "08", "question_count": 6, "flashcard_tag_count": 7},
+    "O03": {"status": "covered", "chapter": "07", "question_count": 7, "flashcard_tag_count": 9},
+    "O04": {"status": "covered", "chapter": "08", "question_count": 5, "flashcard_tag_count": 6},
+    "notes": "Objective codes are correctly labelled local, not NVIDIA identifiers. One flashcard has two objective tags. Official suggested readings are not all mandatory objectives. Base Command is not taught in these chapters but is a suggested reading, not an explicitly compulsory named objective."
+  },
+  "technical_checks": {
+    "BMC_OOB": "PASS: product-specific platform management functions and management-path dependencies correctly scoped.",
+    "nvidia_smi_DCGM_exporter": "PASS: inspection, health diagnostics, exposure and historical collection distinguished; exclusive diagnostics and version-pair constraints documented.",
+    "utilization_vs_memory_quantity": "PASS: kernel-active time, occupied framebuffer quantity and global-memory activity time distinguished; no equation with throughput or bandwidth saturation.",
+    "Xid_ECC": "PASS: Xid not necessarily hardware; preserve context. ECC error type, time scope, trend and product support considered.",
+    "Kubernetes_GPU_Operator_device_plugin": "PASS: placement, resource advertisement, runtime integration and component lifecycle separated; GPU extended-resource limits/requests accurately scoped.",
+    "Slurm": "PASS: explicit GRES requests, per-node --gres, CUDA_VISIBLE_DEVICES and cgroup-dependent numbering correct.",
+    "containers_VM": "PASS_TECHNICAL_CITATION_FIX: correct kernel distinction; add direct Docker citation.",
+    "passthrough_vGPU_MIG": "PASS: exclusive full-device passthrough separated from time slicing and MIG hardware partitioning; supported MIG-backed vGPU allowed, without universal hypervisor support.",
+    "licensing_compatibility_scope": "PASS: vGPU Software licensing guide not generalized to all CUDA, bare-metal MIG or passthrough; application features and full supported combination must be checked."
+  },
+  "reviewed_question_ids": ["O-001", "O-002", "O-003", "O-004", "O-005", "O-006", "O-007", "O-008", "O-009", "O-010", "O-011", "O-012", "O-013", "O-014", "O-015", "O-016", "O-017", "O-018", "O-019", "O-020", "O-021", "O-022"],
+  "question_reviews": [
+    {"id":"O-001","answer":"A","verdict":"PASS","distractors_checked":["B","C","D"],"reason":"Only BMC provides the requested console and power-management path independent of the unavailable host OS connection."},
+    {"id":"O-002","answer":"B","verdict":"PASS","distractors_checked":["A","C","D"],"reason":"DCGM Exporter directly exposes DCGM fields in Prometheus format."},
+    {"id":"O-003","answer":"C","verdict":"PASS","distractors_checked":["A","B","D"],"reason":"Explicitly exclusive active diagnostics require coordinated maintenance and exclusive access."},
+    {"id":"O-004","answer":"D","verdict":"PASS","distractors_checked":["A","B","C"],"reason":"Utilization alone establishes kernel-active time, not throughput efficiency or the bottleneck."},
+    {"id":"O-005","answer":"A","verdict":"PASS","distractors_checked":["B","C","D"],"reason":"Resident allocations can remain while few kernels execute."},
+    {"id":"O-006","answer":"B","verdict":"PASS","distractors_checked":["A","C","D"],"reason":"Reported thermal limiting makes cooling, product limits and platform sensors the best first investigation."},
+    {"id":"O-007","answer":"C","verdict":"PASS","distractors_checked":["A","B","D"],"reason":"Xid requires context preservation and investigation, not automatic replacement or log deletion."},
+    {"id":"O-008","answer":"D","verdict":"PASS","distractors_checked":["A","B","C"],"reason":"In the specified Slurm GRES mechanism the user must request a GPU allocation."},
+    {"id":"O-009","answer":"A","verdict":"PASS","distractors_checked":["B","C","D"],"reason":"The vendor device plugin advertises devices through the stated device-plugin mechanism."},
+    {"id":"O-010","answer":"B","verdict":"PASS","distractors_checked":["A","C","D"],"reason":"Full physical GPU exclusively assigned to the specified VM matches passthrough."},
+    {"id":"O-011","answer":"C","verdict":"PASS","distractors_checked":["A","B","D"],"reason":"MIG hardware partitioning matches separate compute resources and memory-system paths."},
+    {"id":"O-012","answer":"D","verdict":"PASS","distractors_checked":["A","B","C"],"reason":"GPU Operator automates the listed NVIDIA stack components; none of the individual components does so alone."},
+    {"id":"O-013","answer":"A","verdict":"PASS","distractors_checked":["B","C","D"],"reason":"The missing runtime integration directs investigation to Container Toolkit."},
+    {"id":"O-014","answer":"B","verdict":"PASS","distractors_checked":["A","C","D"],"reason":"Documented GPU extended-resource mechanism uses limits as omitted requests."},
+    {"id":"O-015","answer":"C","verdict":"PASS","distractors_checked":["A","B","D"],"reason":"Available GPUs on nodes lacking the required label do not satisfy placement constraints."},
+    {"id":"O-016","answer":"D","verdict":"PASS","distractors_checked":["A","B","C"],"reason":"N/A can represent unsupported metric/configuration/observation scope, not zero."},
+    {"id":"O-017","answer":"A","verdict":"PASS","distractors_checked":["B","C","D"],"reason":"ECC category, counter scope and trend are directly useful reliability context."},
+    {"id":"O-018","answer":"B","verdict":"PASS","distractors_checked":["A","C","D"],"reason":"Measured power consumption differs from its allowed-power constraint and from cumulative energy."},
+    {"id":"O-019","answer":"C","verdict":"PASS","distractors_checked":["A","B","D"],"reason":"vGPU Software documents EULA-only obligations without a server checkout in some deployment modes; no global MIG/vWS rule follows."},
+    {"id":"O-020","answer":"D","verdict":"PASS","distractors_checked":["A","B","C"],"reason":"Framebuffer sufficiency alone does not establish profile/API/hypervisor/version compatibility."},
+    {"id":"O-021","answer":"A","verdict":"PASS","distractors_checked":["B","C","D"],"reason":"Supported vGPU deployments can present MIG-partitioned resources to VMs without universal compatibility."},
+    {"id":"O-022","answer":"B","verdict":"PASS","distractors_checked":["A","C","D"],"reason":"Time-series metrics correlated with events and logs address an intermittent incident missed by a post-recovery snapshot."}
+  ],
+  "flashcard_reviews": {"verdict":"PASS", "reviewed_tsv_lines":[2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27], "all_front_back_tags_read":true, "all_three_columns_valid":true},
+  "findings": [
+    {
+      "id": "OPS-01",
+      "severity": "medium",
+      "category": "assessment-quality",
+      "file": "questions/operations.json",
+      "location": "O-001 through O-022: answer fields and choice ordering",
+      "issue": "Every keyed letter follows a strict ABCD cycle in file order, allowing a positional cue when questions and choices are shown without shuffling. This is not an incorrect-answer defect.",
+      "evidence": {"answer_sequence":"ABCDABCDABCDABCDABCDAB", "python_check":"all(q['answer'] == 'ABCD'[i % 4] for i, q in enumerate(questions))", "result":true, "counts":{"A":6,"B":6,"C":5,"D":5}},
+      "recommended_exact_correction": {
+        "operation":"For each question, swap the current correct choice text into the target answer letter, move the displaced distractor text to the old correct letter, move that distractor explanation key accordingly, and update answer. Leave all wording unchanged; skip swaps where letters already match. Revalidate every choice/explanation association. Alternatively verify and document runtime choice shuffling that preserves all explanation associations.",
+        "target_answer_letters":{"O-001":"A","O-002":"B","O-003":"B","O-004":"C","O-005":"D","O-006":"B","O-007":"D","O-008":"B","O-009":"D","O-010":"A","O-011":"C","O-012":"D","O-013":"C","O-014":"A","O-015":"A","O-016":"B","O-017":"A","O-018":"C","O-019":"D","O-020":"B","O-021":"A","O-022":"C"}
+      },
+      "verdict":"CORRECTION_RECOMMENDED",
+      "limitations":"Quiz renderer behavior and actual choice randomization were not tested."
+    },
+    {
+      "id":"OPS-02",
+      "severity":"low",
+      "category":"citation-support",
+      "file":"cours/08-orchestration-et-virtualisation.md",
+      "location":"line 79, section 3.2, first sentence and Sources section",
+      "issue":"The correct Linux-container versus VM kernel distinction is not directly supported by its local toolkit architecture citation alone.",
+      "evidence":{"source_id":53,"url":"https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container","quotes":["a VM is an entire operating system with its own kernel","If you run multiple containers, they all share the same kernel"]},
+      "recommended_exact_correction":{"replace_first_sentence_with":"Un conteneur Linux n'est pas une VM complète : les conteneurs partagent le noyau de leur hôte, tandis qu'une VM dispose de son propre noyau.[53]","retain":"Rest of paragraph and [42] for runtime integration.","append_source_line":"[53] https://docs.docker.com/get-started/docker-concepts/the-basics/what-is-a-container — What is a container? | Docker Docs"},
+      "verdict":"MINOR_CITATION_CORRECTION",
+      "limitations":"No technical falsehood identified; the fix improves direct support and reader navigation."
+    },
+    {
+      "id":"OPS-03",
+      "severity":"low",
+      "category":"citation-support",
+      "file":"cours/08-orchestration-et-virtualisation.md",
+      "location":"line 121, section 5.3 and Sources section",
+      "issue":"Source [44] is the MIG introduction, not the model-specific supported GPU table invoked by the paragraph. The scoped technical advice is correct but needs the direct support reference.",
+      "evidence":{"source_ids":[44,61],"url":"https://docs.nvidia.com/datacenter/tesla/mig-user-guide/supported-gpus.html","table_facts":["A30: maximum 4 instances","H100-SXM5 80GB: maximum 7 instances"],"source44_scope":"Partitioning introduction and deployment configurations, not the per-model supported-product table."},
+      "recommended_exact_correction":{"replace_paragraph_with":"Le nombre d'instances, leurs profils et les fonctionnalités disponibles dépendent du GPU et de la version. La liste « Supported GPUs » donne notamment les modèles pris en charge et leur nombre maximal d'instances ; il ne faut pas transformer la valeur d'un produit en constante valable pour tout GPU NVIDIA. Un GPU d'une architecture récente ne prouve pas à lui seul le support de MIG : vérifier le modèle exact et les configurations supportées.[44][61]","append_source_line":"[61] https://docs.nvidia.com/datacenter/tesla/mig-user-guide/supported-gpus.html — Supported GPUs — NVIDIA Multi-Instance GPU User Guide"},
+      "verdict":"MINOR_CITATION_CORRECTION",
+      "limitations":"No specific model/driver/hypervisor support configuration was tested."
+    }
+  ],
+  "live_source_ids": [1,20,37,38,39,40,41,42,43,44,53,56,57,58,59,61],
+  "source_reading_scope": "All extracted main content read for sources 20,37,40,41,42,44,58,59,61. Relevant sections substantively read for sources 1,38,39,43,53,56,57. Full body files preserved privately; fetching alone is not claimed to establish full-document reading.",
+  "evidence_directory": "research/private/operations-review",
+  "source_manifest": "research/private/operations-review/fetch-manifest.json",
+  "reviewed_content_hashes": "research/private/operations-review/reviewed-content-sha256.json",
+  "limitations": [
+    "Documentary and structural review only; no actual GPU, Kubernetes/Slurm cluster or hypervisor was exercised.",
+    "No legal contract audit and no exhaustive validation of every hardware, profile, driver, OS and hypervisor combination.",
+    "Mutable latest documentation reflects the retrieval date, not a permanent support guarantee.",
+    "No exhaustive originality/plagiarism proof for the English questions; no private official exam bank accessed or used.",
+    "Actual quiz presentation order and runtime option shuffling not verified.",
+    "Only the four named content files are within the content verdict; other course files and whole-repository behavior were not reviewed."
+  ],
+  "changes": {"reviewed_content_modified":false,"commits":false,"pushes":false,"created":["quality/revue-operations.md","quality/revue-operations.json","research/private/operations-review/source-*.txt","research/private/operations-review/fetch-manifest.json","research/private/operations-review/reviewed-content-sha256.json"]}
+}

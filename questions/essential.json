@@ -1,0 +1,927 @@
+[
+  {
+    "id": "E-001",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E03",
+    "question": "Which relationship between artificial intelligence (AI), machine learning (ML), and deep learning (DL) is correct?",
+    "choices": {
+      "A": "AI is a subset of DL, and DL is a subset of ML.",
+      "B": "ML and DL are separate fields that do not overlap.",
+      "C": "DL is a subset of ML, and ML is a subset of AI.",
+      "D": "Every AI system must use a deep neural network."
+    },
+    "answer": "C",
+    "explanation": "Le deep learning est une famille de méthodes de machine learning ; le ML est lui-même un sous-ensemble de l’intelligence artificielle.",
+    "distractors": {
+      "A": "L’ordre des ensembles est inversé : AI est le périmètre le plus large.",
+      "B": "Les méthodes DL font partie du ML ; ces catégories ne sont pas disjointes.",
+      "D": "Une méthode à règles peut relever de l’IA sans utiliser de réseau profond."
+    },
+    "source_ids": [
+      48
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "E-002",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E03",
+    "question": "A utility has historical sensor readings paired with the actual amount of electricity consumed the following day. It wants to predict that amount for tomorrow. Which approach best matches the task?",
+    "choices": {
+      "A": "Unsupervised clustering",
+      "B": "Supervised classification",
+      "C": "Supervised regression",
+      "D": "Reinforcement learning from action rewards"
+    },
+    "answer": "C",
+    "explanation": "La cible est une quantité continue connue pour les exemples historiques : il s’agit d’une régression supervisée.",
+    "distractors": {
+      "A": "Le clustering cherche des groupes et ne correspond pas ici à la prédiction d’une quantité de référence.",
+      "B": "La classification prédit une catégorie ; la consommation demandée est une quantité continue.",
+      "D": "Le scénario décrit des exemples et des cibles, pas un agent choisissant des actions pour une récompense."
+    },
+    "source_ids": [
+      48
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-003",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E03",
+    "question": "A language model is trained to predict text that has been hidden from otherwise unannotated documents. Where does the supervisory signal primarily come from?",
+    "choices": {
+      "A": "A human must manually label every hidden word before training.",
+      "B": "The deployed model never needs a training objective.",
+      "C": "An action reward from a separate interactive environment supplies each missing-text target.",
+      "D": "The original document content provides targets for the prediction task."
+    },
+    "answer": "D",
+    "explanation": "En auto-supervision, une cible est construite depuis les données elles-mêmes ; il n’est pas nécessaire qu’un humain annote chaque cible.",
+    "distractors": {
+      "A": "Ce serait une annotation humaine systématique ; le signal peut être extrait du document original.",
+      "B": "L’auto-supervision possède un objectif, par exemple prédire le contenu masqué.",
+      "C": "Le scénario utilise le texte original comme cible ; il ne décrit pas une récompense issue d’actions dans un environnement."
+    },
+    "source_ids": [
+      48
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-004",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E04",
+    "question": "Which combination best explains major technical enablers of modern AI progress?",
+    "choices": {
+      "A": "Larger models alone, regardless of data or compute availability",
+      "B": "Replacing model evaluation with faster processors",
+      "C": "More usable data, improved algorithms, and greater accessible computing capability",
+      "D": "More compute alone, with no role for changes in data or algorithms"
+    },
+    "answer": "C",
+    "explanation": "Les données, les progrès des modèles et la disponibilité du calcul se renforcent mutuellement ; aucun composant isolé n’explique tout.",
+    "distractors": {
+      "A": "La taille des modèles ne suffit pas ; données exploitables et ressources de calcul contribuent aussi aux progrès.",
+      "B": "Le calcul ne remplace pas la validation de la qualité.",
+      "D": "Le calcul est un moteur important, mais pas l’unique cause des progrès de l’IA."
+    },
+    "source_ids": [
+      48,
+      62
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "E-005",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E04",
+    "question": "A small team wants to adapt an existing text model to its industry vocabulary without repeating its entire original training process. Which strategy best fits?",
+    "choices": {
+      "A": "Train a new foundation model from scratch solely because the vocabulary is specialized.",
+      "B": "Fine-tune an appropriate pretrained model and evaluate it on domain-specific examples.",
+      "C": "Assume that a pretrained model must already satisfy every industry requirement.",
+      "D": "Optimize inference precision without adapting the model to the domain."
+    },
+    "answer": "B",
+    "explanation": "La réutilisation d’un modèle préentraîné avec fine-tuning permet une adaptation ; l’évaluation locale reste nécessaire.",
+    "distractors": {
+      "A": "Le scénario demande précisément d’éviter de répéter tout l’apprentissage initial ; le préentraînement peut être réutilisé.",
+      "C": "Préentraîné ne signifie pas validé pour le domaine ou la tâche locale.",
+      "D": "L’optimisation d’inférence peut modifier les performances d’exécution, mais ne constitue pas à elle seule une adaptation au vocabulaire métier."
+    },
+    "source_ids": [
+      48,
+      9
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-006",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E05",
+    "question": "A manufacturer needs a model to draw a bounding box around each damaged component in a photograph, rather than only reporting whether damage exists. Which task most directly matches?",
+    "choices": {
+      "A": "Whole-image classification only",
+      "B": "Image segmentation that returns per-pixel class masks instead of bounding boxes",
+      "C": "Object detection",
+      "D": "Regression that predicts the total daily number of defective parts"
+    },
+    "answer": "C",
+    "explanation": "La localisation d’objets ou de composants dans une image correspond à la détection ; une simple classification ne fournit pas cette localisation.",
+    "distractors": {
+      "A": "Une classe globale peut indiquer la présence d’un défaut sans localiser chaque composant.",
+      "B": "Des masques par pixel ne sont pas le format de boîtes englobantes explicitement demandé.",
+      "D": "Prédire un total ne localise pas chaque composant endommagé dans une photographie."
+    },
+    "source_ids": [
+      48
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-007",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E05",
+    "question": "An online fraud service uses a fast model, but transaction decisions are delayed while customer profiles are retrieved. What should the team examine first?",
+    "choices": {
+      "A": "Only the number of training epochs",
+      "B": "The latency of the data retrieval path used by inference",
+      "C": "Only GPU arithmetic throughput, while leaving profile retrieval unchanged",
+      "D": "Only the classification threshold, without measuring the retrieval delay"
+    },
+    "answer": "B",
+    "explanation": "La latence du service comprend l’obtention des données ; accélérer uniquement le modèle ne corrige pas une attente dominante du profil client.",
+    "distractors": {
+      "A": "Les epochs concernent l’apprentissage et ne ciblent pas l’attente décrite en production.",
+      "C": "Le calcul du modèle est déjà rapide ; laisser le chemin de récupération inchangé ne cible pas la cause décrite.",
+      "D": "Changer le seuil de décision ne réduit pas la latence de récupération du profil."
+    },
+    "source_ids": [
+      6
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-008",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E08",
+    "question": "Which description best captures the architectural difference between a CPU and a GPU?",
+    "choices": {
+      "A": "A CPU emphasizes fast execution of serial work, while a GPU emphasizes throughput across many parallel threads.",
+      "B": "A GPU eliminates the need for host coordination in every application.",
+      "C": "A CPU cannot execute any parallel work.",
+      "D": "CPU cores and GPU cores are identical units that differ only in count."
+    },
+    "answer": "A",
+    "explanation": "CPU et GPU ont des objectifs de conception complémentaires : contrôle et performance séquentielle d’un côté, parallélisme massif et débit de l’autre.",
+    "distractors": {
+      "B": "La présence du GPU ne supprime pas la coordination et les autres tâches de l’application.",
+      "C": "Le CPU peut effectuer du travail parallèle ; la différence porte sur l’organisation et l’échelle privilégiées.",
+      "D": "Ces unités ne sont pas directement équivalentes ; les architectures et les compromis diffèrent."
+    },
+    "source_ids": [
+      62
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "E-009",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E08",
+    "question": "An application sends a tiny, mostly serial calculation to a GPU and spends more time launching work and transferring data than computing. What is the best conclusion?",
+    "choices": {
+      "A": "Every GPU workload must be faster than a CPU implementation.",
+      "B": "Increasing GPU memory capacity must make the serial calculation parallel.",
+      "C": "Adding more GPUs must improve this calculation even without dividing its work.",
+      "D": "GPU acceleration is not automatically beneficial when parallel work is insufficient relative to overhead."
+    },
+    "answer": "D",
+    "explanation": "Le GPU doit recevoir assez de travail parallélisable pour amortir les coûts ; son utilisation n’est pas une garantie de gain sur une petite tâche séquentielle.",
+    "distractors": {
+      "A": "L’accélération dépend du parallélisme et des coûts, pas de la seule présence du GPU.",
+      "B": "Davantage de capacité mémoire ne crée pas le parallélisme absent dans le calcul.",
+      "C": "Multiplier les accélérateurs sans répartir un travail parallélisable ne garantit pas un gain."
+    },
+    "source_ids": [
+      62,
+      71
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-010",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E02",
+    "question": "A network fits in GPU memory for inference but runs out of memory during gradient-based training with the same weights. What is the most likely conceptual explanation?",
+    "choices": {
+      "A": "Inference always stores more optimizer state than training.",
+      "B": "Training may require additional intermediate values, gradients, and optimizer state beyond the weights.",
+      "C": "The training dataset must always fit entirely in GPU memory.",
+      "D": "Training and inference necessarily have identical memory requirements whenever weight count matches."
+    },
+    "answer": "B",
+    "explanation": "L’apprentissage ne stocke pas seulement les poids ; les états nécessaires aux gradients et aux mises à jour peuvent augmenter la consommation mémoire.",
+    "distractors": {
+      "A": "L’inférence standard n’effectue pas les mises à jour par l’optimiseur décrites dans l’apprentissage.",
+      "C": "Le jeu complet peut être traité par portions ; ce n’est pas une obligation universelle.",
+      "D": "Les mêmes poids n’impliquent pas les mêmes états temporaires, gradients ou états d’optimiseur."
+    },
+    "source_ids": [
+      79
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-011",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E02",
+    "question": "A deployed classifier processes new customer requests. No training job or parameter-update process is running. What normally happens to its learned weights during these requests?",
+    "choices": {
+      "A": "The weights remain unchanged while the model computes predictions.",
+      "B": "The weights are automatically retrained after every request.",
+      "C": "The weights are replaced by the incoming input data.",
+      "D": "The batch size alone determines new weight values after each prediction."
+    },
+    "answer": "A",
+    "explanation": "L’inférence applique les paramètres appris. Le simple fait de recevoir de nouvelles entrées ne constitue pas un entraînement.",
+    "distractors": {
+      "B": "Une mise à jour nécessite un processus d’apprentissage ; elle n’est pas implicite dans chaque prédiction.",
+      "C": "Entrées et paramètres ont des rôles distincts ; les données de requête ne remplacent pas les poids.",
+      "D": "Le regroupement de requêtes ne déclenche pas une mise à jour des paramètres ; il faut un mécanisme d’apprentissage."
+    },
+    "source_ids": [
+      48
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-012",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E02",
+    "question": "A team increases batch size for an interactive inference service. Total requests processed per second improves, but some users wait longer for a batch to form. What trade-off is being observed?",
+    "choices": {
+      "A": "Higher throughput guarantees lower latency for every request.",
+      "B": "Batching changes inference into supervised training.",
+      "C": "Latency and throughput are two names for the same performance metric.",
+      "D": "Higher throughput can come with increased request latency."
+    },
+    "answer": "D",
+    "explanation": "Le regroupement peut accroître l’efficacité globale tout en ajoutant une attente par requête ; débit et latence ne sont pas synonymes.",
+    "distractors": {
+      "A": "Le délai d’attente de formation du batch peut augmenter malgré le débit supérieur.",
+      "B": "Regrouper des requêtes ne signifie pas calculer une loss et mettre les paramètres à jour.",
+      "C": "La latence mesure un délai, tandis que le débit mesure une quantité traitée par unité de temps."
+    },
+    "source_ids": [
+      5,
+      70
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-013",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E01",
+    "question": "What is CUDA primarily used for in the NVIDIA AI software stack?",
+    "choices": {
+      "A": "Providing a complete model-serving API and request scheduler by itself",
+      "B": "Replacing all operating-system and driver components",
+      "C": "Providing a parallel computing platform and programming model for GPU-accelerated applications",
+      "D": "Acting only as a public catalog of pretrained models"
+    },
+    "answer": "C",
+    "explanation": "CUDA permet d’exploiter le calcul parallèle des GPU NVIDIA ; son rôle est plus général que l’affichage graphique ou un registre de modèles.",
+    "distractors": {
+      "A": "CUDA est une plateforme de calcul ; une API de serving et l’organisation des requêtes relèvent d’autres composants.",
+      "B": "La plateforme s’appuie sur une pile système ; elle ne supprime pas ces couches.",
+      "D": "Ce rôle correspond davantage à un catalogue d’artefacts comme NGC, pas à la définition de CUDA."
+    },
+    "source_ids": [
+      47,
+      62
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "E-014",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E01",
+    "question": "A containerized GPU application works on a configured workstation but cannot access the GPU on a new host. Which assumption should be rejected?",
+    "choices": {
+      "A": "The host GPU software configuration can affect the application.",
+      "B": "A container image alone guarantees a compatible host GPU driver and device integration.",
+      "C": "Container GPU access can depend on runtime integration.",
+      "D": "Hardware availability and application access are separate checks."
+    },
+    "answer": "B",
+    "explanation": "Le conteneur ne suffit pas à garantir la pile hôte ; pilotes et intégration de l’accès GPU doivent être compatibles et présents.",
+    "distractors": {
+      "A": "Cette affirmation est correcte : la configuration hôte est précisément une dépendance à vérifier.",
+      "C": "Cette dépendance est réelle ; le Container Toolkit fait partie de la pile décrite par NVIDIA.",
+      "D": "Il est utile de distinguer matériel présent et accès depuis la charge ; cette affirmation ne doit pas être rejetée."
+    },
+    "source_ids": [
+      40
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-015",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E06",
+    "question": "A team has a validated neural network and wants to optimize its inference execution using techniques such as layer fusion and quantization on supported NVIDIA hardware. Which tool family most directly fits?",
+    "choices": {
+      "A": "NVIDIA TensorRT",
+      "B": "NGC Private Registry alone",
+      "C": "GPU Operator alone",
+      "D": "Triton request routing without changing the model execution backend"
+    },
+    "answer": "A",
+    "explanation": "TensorRT cible l’optimisation de l’inférence, notamment par fusion et quantification, sous réserve de qualité et de compatibilité.",
+    "distractors": {
+      "B": "Un registre stocke et partage des artefacts ; il n’effectue pas à lui seul cette optimisation du calcul.",
+      "C": "L’opérateur gère la pile GPU Kubernetes ; ce n’est pas le compilateur d’optimisation de réseaux demandé.",
+      "D": "Le routage de serving seul n’effectue pas les optimisations de fusion et de quantification du modèle demandées."
+    },
+    "source_ids": [
+      3
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-016",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E06",
+    "question": "A platform team needs to serve several trained models and configure concurrent model instances and request batching. Which component most directly addresses this requirement?",
+    "choices": {
+      "A": "A GPU driver by itself",
+      "B": "NVIDIA TensorRT used only as an inference execution library",
+      "C": "NGC used only to store the model artifacts",
+      "D": "NVIDIA Triton Inference Server"
+    },
+    "answer": "D",
+    "explanation": "Triton fournit des fonctions de serving, de concurrence et de regroupement ; ce sont les responsabilités décrites par le scénario.",
+    "distractors": {
+      "A": "Le pilote permet l’accès au matériel mais n’expose pas à lui seul le service multimodèle demandé.",
+      "B": "Le runtime optimise le calcul ; les fonctions de service multimodèle et d’organisation des requêtes demandent le serveur approprié.",
+      "C": "Le registre distribue les artefacts, mais n’exécute pas à lui seul le service concurrent décrit."
+    },
+    "source_ids": [
+      70,
+      3
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-017",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E06",
+    "question": "An enterprise manages its own GPU infrastructure and wants a packaged microservice path for deploying a supported pretrained model for inference. Which NVIDIA offering best matches?",
+    "choices": {
+      "A": "NGC used only as an artifact registry",
+      "B": "NVIDIA NIM",
+      "C": "NeMo used only to train a new model from scratch",
+      "D": "TensorRT used only as a low-level execution library that the team must package itself"
+    },
+    "answer": "B",
+    "explanation": "NIM propose des microservices et des conteneurs d’inférence, notamment pour simplifier un déploiement sur une infrastructure gérée par l’équipe.",
+    "distractors": {
+      "A": "Un registre fournit les artefacts ; il ne constitue pas le microservice d’inférence conditionné recherché.",
+      "C": "Le scénario cherche un déploiement d’inférence de modèle existant, pas un nouvel entraînement.",
+      "D": "Cette option peut contribuer à l’exécution, mais ne fournit pas directement la voie de déploiement en microservice conditionné décrite pour NIM."
+    },
+    "source_ids": [
+      5,
+      63
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-018",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E07",
+    "question": "Two experiments have different accuracy results, but the team did not record which dataset version and preprocessing configuration each used. What should be improved first?",
+    "choices": {
+      "A": "Track experiment configuration, data versions, and resulting model artifacts together.",
+      "B": "Record only the final accuracy and discard the data and configuration references.",
+      "C": "Assume the experiment using more GPU memory is always more accurate.",
+      "D": "Skip evaluation and publish whichever artifact was created last."
+    },
+    "answer": "A",
+    "explanation": "La traçabilité permet de comparer et reproduire les expériences ; sans connaître les entrées et la configuration, la différence de score est difficile à interpréter.",
+    "distractors": {
+      "B": "Le score isolé ne permet pas de relier le résultat aux données et à la configuration nécessaires à sa reproduction.",
+      "C": "La consommation de mémoire n’établit pas la qualité ni la cause de l’écart.",
+      "D": "La date de création ne remplace ni l’évaluation ni la comparaison contrôlée."
+    },
+    "source_ids": [
+      83
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-019",
+    "exam": "A",
+    "domain": "essential",
+    "objective": "E07",
+    "question": "A model meets its task-quality target in a notebook. Before opening a high-traffic inference API, what additional validation is most important?",
+    "choices": {
+      "A": "Measure end-to-end latency, throughput, and errors under representative service load.",
+      "B": "Check only the accuracy of a few isolated API calls without measuring load behavior.",
+      "C": "Assume that notebook accuracy guarantees API availability.",
+      "D": "Use the fastest observed single request as a substitute for a representative load test."
+    },
+    "answer": "A",
+    "explanation": "Un score de qualité ne démontre pas les propriétés du service sous charge ; il faut tester le comportement opérationnel représentatif.",
+    "distractors": {
+      "B": "Quelques appels isolés ne valident pas le comportement d’un service fortement sollicité.",
+      "C": "La qualité des prédictions et la disponibilité d’un service sont des dimensions différentes.",
+      "D": "La meilleure requête isolée ne décrit ni les files d’attente ni les erreurs et débits sous charge."
+    },
+    "source_ids": [
+      5,
+      48
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-020",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E03",
+    "question": "A retailer has customer behavior records but no predefined customer categories. It wants to discover groups of similar behavior. Which approach best fits?",
+    "choices": {
+      "A": "Unsupervised clustering",
+      "B": "Supervised regression to a known continuous target",
+      "C": "Supervised classification using customer categories that do not yet exist",
+      "D": "Reinforcement learning to choose actions, without a reward or interaction objective"
+    },
+    "answer": "A",
+    "explanation": "La recherche de groupes sans catégories de référence préexistantes correspond au clustering non supervisé.",
+    "distractors": {
+      "B": "Le scénario ne fournit pas de quantité cible connue à prédire.",
+      "C": "La classification supervisée exige une cible ; le scénario cherche justement à découvrir les groupes.",
+      "D": "Le problème décrit une découverte de groupes, pas des actions évaluées par récompense."
+    },
+    "source_ids": [
+      48
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-021",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E03",
+    "question": "A simulated robot tries actions and receives rewards for completing a task safely. Which learning paradigm is most directly illustrated?",
+    "choices": {
+      "A": "Supervised regression from fixed input-output pairs only",
+      "B": "Reinforcement learning",
+      "C": "Unsupervised clustering of images only",
+      "D": "Inference without any learning objective"
+    },
+    "answer": "B",
+    "explanation": "L’agent apprend en fonction des conséquences de ses actions et d’une récompense ; c’est le cadre du renforcement.",
+    "distractors": {
+      "A": "Le scénario insiste sur les actions et récompenses, pas uniquement sur des paires d’exemples statiques.",
+      "C": "Aucun regroupement d’images n’est décrit ; il faut apprendre un comportement.",
+      "D": "Le robot apprend à améliorer une récompense ; il existe donc un objectif d’apprentissage."
+    },
+    "source_ids": [
+      48
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-022",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E04",
+    "question": "A research group can now use optimized GPU libraries through a high-level framework instead of implementing every kernel itself. How does this support AI adoption?",
+    "choices": {
+      "A": "It proves that the group no longer needs data.",
+      "B": "It lowers the effort required to use accelerated computing in applications.",
+      "C": "It guarantees that every model will be accurate on every industry.",
+      "D": "It makes model-specific testing unnecessary because library kernels are optimized."
+    },
+    "answer": "B",
+    "explanation": "Les bibliothèques et frameworks rendent les capacités GPU plus accessibles et évitent de réimplémenter des opérations déjà optimisées.",
+    "distractors": {
+      "A": "Un meilleur accès logiciel au calcul ne remplace pas les données du problème.",
+      "C": "Les abstractions logicielles ne garantissent pas la généralisation ou l’adéquation métier.",
+      "D": "Une implémentation accélérée n’établit pas la validité des prédictions pour le modèle et le cas d’usage."
+    },
+    "source_ids": [
+      62
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-023",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E04",
+    "question": "A manager proposes buying faster GPUs to solve an AI pilot whose training data uses inconsistent labels. What is the best response?",
+    "choices": {
+      "A": "Approve the purchase because hardware speed guarantees correct labels.",
+      "B": "Improve data and evaluation quality; faster computation alone does not fix inconsistent targets.",
+      "C": "Stop recording labels because all AI is unsupervised.",
+      "D": "Increase model size until the inconsistent labels no longer need review."
+    },
+    "answer": "B",
+    "explanation": "Des cibles incohérentes affectent ce qui est appris et mesuré ; accélérer les calculs ne corrige pas ce défaut de données.",
+    "distractors": {
+      "A": "Le matériel exécute les calculs ; il ne rend pas les annotations cohérentes.",
+      "C": "L’IA n’est pas entièrement non supervisée ; la tâche peut nécessiter des cibles de référence.",
+      "D": "Un modèle plus grand ne garantit pas de corriger la cohérence des cibles ; les données doivent être examinées."
+    },
+    "source_ids": [
+      48,
+      62
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-024",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E05",
+    "question": "A software company wants an assistant that proposes source code from natural-language requests. Which model category is most directly relevant?",
+    "choices": {
+      "A": "An image classifier trained to recognize software logos",
+      "B": "A regression model that predicts software project duration",
+      "C": "A large language model capable of code generation",
+      "D": "A clustering model that groups existing code files by similarity"
+    },
+    "answer": "C",
+    "explanation": "NVIDIA cite la génération de code parmi les applications des LLM ; ce besoin porte sur la génération d’un contenu structuré à partir du langage.",
+    "distractors": {
+      "A": "Reconnaître des logos ne produit pas du code à partir de requêtes en langage naturel.",
+      "B": "Une prévision de durée ne génère pas le code demandé.",
+      "D": "Regrouper des fichiers similaires ne suffit pas à générer du code à partir d’une demande."
+    },
+    "source_ids": [
+      9
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-025",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E05",
+    "question": "An industrial team wants to develop a digital twin and simulate robotic activity before physical deployment. Which NVIDIA solution category most directly aligns?",
+    "choices": {
+      "A": "TensorRT used only to optimize an existing classifier",
+      "B": "A GPU driver as the complete simulation application",
+      "C": "NGC used only as a private artifact registry",
+      "D": "Omniverse libraries and microservices for physical AI and simulation"
+    },
+    "answer": "D",
+    "explanation": "Omniverse est associé aux jumeaux numériques industriels et à la simulation robotique ; le besoin est celui d’un environnement de simulation.",
+    "distractors": {
+      "A": "Optimiser l’exécution d’un classifieur n’apporte pas à lui seul les fonctions de jumeau numérique et de simulation.",
+      "B": "Le pilote permet l’accès au matériel mais ne constitue pas à lui seul l’application de jumeau numérique.",
+      "C": "Le registre peut distribuer des ressources, mais n’est pas l’outil qui fournit les fonctions de simulation demandées."
+    },
+    "source_ids": [
+      65
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-026",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E08",
+    "question": "Profiling shows that a GPU layer saturates the available device-memory bandwidth while its arithmetic units remain underutilized. No memory-capacity shortage is observed. What is the dominant limitation?",
+    "choices": {
+      "A": "The total memory capacity, even though no capacity shortage is observed",
+      "B": "Only the peak arithmetic rate",
+      "C": "Memory bandwidth",
+      "D": "Only the total persistent storage capacity"
+    },
+    "answer": "C",
+    "explanation": "Le profil confirme une saturation de la bande passante de la mémoire du GPU ; l’opération est donc memory-bandwidth-bound, et non simplement limitée par la capacité mémoire ou le débit arithmétique.",
+    "distractors": {
+      "A": "Capacité et bande passante sont distinctes ; le profil indique un débit de mouvement des données limitant.",
+      "B": "Le profil indique précisément que les transferts, et non les calculs, dominent.",
+      "D": "La capacité du stockage ne doit pas être confondue avec la bande passante de la mémoire du GPU."
+    },
+    "source_ids": [
+      71
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-027",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E08",
+    "question": "GPU utilization is low because the host CPU cannot decode and prepare incoming images fast enough. Which action best targets the stated cause?",
+    "choices": {
+      "A": "Profile and improve the input preparation pipeline on the host.",
+      "B": "Buy more GPU arithmetic capacity without changing the pipeline.",
+      "C": "Remove the CPU because GPU servers never need one.",
+      "D": "Increase the inference batch size without checking whether host preparation can supply it."
+    },
+    "answer": "A",
+    "explanation": "Le GPU attend les entrées : le premier levier vise la préparation qui l’alimente, plutôt que son débit arithmétique.",
+    "distractors": {
+      "B": "Davantage de calcul GPU ne corrige pas à lui seul la préparation insuffisante des entrées.",
+      "C": "CPU et GPU sont complémentaires ; retirer la coordination ne résout pas ce chemin de données.",
+      "D": "Cela ne corrige pas directement le décodage trop lent et ne garantit pas une meilleure alimentation du GPU."
+    },
+    "source_ids": [
+      62,
+      71
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-028",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E02",
+    "question": "An offline inference job must score a large archive overnight. Individual requests have no interactive deadline, but all results must finish by morning. Which metric is most directly relevant to tuning batching?",
+    "choices": {
+      "A": "Only the fastest isolated response on an empty server",
+      "B": "Only the latency of the first result, regardless of when the archive finishes",
+      "C": "Only peak GPU arithmetic performance, without measuring completed predictions",
+      "D": "Sustained throughput sufficient to complete the workload within the available window"
+    },
+    "answer": "D",
+    "explanation": "Le besoin concerne la quantité de travail achevée dans une fenêtre donnée ; le débit soutenu est donc prioritaire, sans ignorer qualité et fiabilité.",
+    "distractors": {
+      "A": "Une requête isolée rapide ne garantit pas l’achèvement de toute l’archive sous charge.",
+      "B": "Le premier résultat rapide ne garantit pas que tout le travail soit terminé dans la fenêtre disponible.",
+      "C": "Un pic théorique ne mesure pas le débit soutenu de la charge réelle ni son achèvement."
+    },
+    "source_ids": [
+      5,
+      70
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-029",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E02",
+    "question": "A large generative model does not fit the intended inference configuration on one GPU. Which statement is most accurate?",
+    "choices": {
+      "A": "Inference can require multiple GPUs and must be sized for the model and service requirements.",
+      "B": "Inference is defined as CPU-only execution.",
+      "C": "Only training can ever require more than one GPU.",
+      "D": "A model becomes smaller automatically when an API is added."
+    },
+    "answer": "A",
+    "explanation": "L’inférence n’est pas nécessairement petite ; les grands modèles peuvent nécessiter des ressources distribuées selon leur configuration et le service attendu.",
+    "distractors": {
+      "B": "L’inférence peut utiliser des GPU ; elle est définie par l’application du modèle, pas par le processeur.",
+      "C": "Des systèmes d’inférence distribuée existent également pour les charges importantes.",
+      "D": "L’interface API ne réduit pas par elle-même les exigences du modèle."
+    },
+    "source_ids": [
+      5
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-030",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E02",
+    "question": "A team quantizes a trained model to reduce inference memory requirements. Which validation is necessary before production deployment?",
+    "choices": {
+      "A": "Recheck task quality and performance on the target hardware and representative inputs.",
+      "B": "Assume lower precision guarantees identical outputs and higher speed everywhere.",
+      "C": "Measure only the reduced model file size and skip task-quality testing.",
+      "D": "Skip compatibility checks because every GPU supports every numeric format."
+    },
+    "answer": "A",
+    "explanation": "La quantification est une optimisation à valider : compatibilité, qualité et performances dépendent du modèle, du matériel et des données.",
+    "distractors": {
+      "B": "Aucune garantie universelle de qualité identique ou d’accélération ne découle du seul changement de précision.",
+      "C": "Une taille réduite ne démontre pas que la précision des sorties ni la performance du service restent acceptables.",
+      "D": "Les capacités dépendent des architectures et des versions ; les formats ne sont pas universels."
+    },
+    "source_ids": [
+      3,
+      71
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-031",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E01",
+    "question": "Why do AI frameworks often use optimized libraries such as cuBLAS and cuDNN?",
+    "choices": {
+      "A": "To replace all framework-level model construction and training logic",
+      "B": "To reuse accelerated computational building blocks instead of reimplementing every operation",
+      "C": "To replace the need for any trained model parameters",
+      "D": "To guarantee the business correctness of every prediction"
+    },
+    "answer": "B",
+    "explanation": "Ces bibliothèques fournissent des opérations optimisées que les frameworks peuvent exploiter, ce qui facilite productivité et performance.",
+    "distractors": {
+      "A": "Les bibliothèques fournissent des primitives ; elles ne remplacent pas toute la logique du framework et du modèle.",
+      "C": "Une bibliothèque d’opérations ne fournit pas automatiquement les poids propres à la tâche.",
+      "D": "La bonne implémentation du calcul ne garantit pas l’adéquation métier du modèle."
+    },
+    "source_ids": [
+      62
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": "E-032",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E01",
+    "question": "A Kubernetes administrator wants to automate installation and management of the supported NVIDIA GPU software stack across GPU nodes. Which component most directly fits?",
+    "choices": {
+      "A": "NVIDIA Triton Inference Server",
+      "B": "NGC Private Registry",
+      "C": "NVIDIA GPU Operator",
+      "D": "NVIDIA TensorRT execution engine"
+    },
+    "answer": "C",
+    "explanation": "L’opérateur automatise les composants GPU de Kubernetes, notamment pilotes, intégration des conteneurs et device plugin selon la configuration.",
+    "distractors": {
+      "A": "Triton fournit le serving des modèles ; il ne remplace pas la gestion de la pile GPU sur les nœuds Kubernetes.",
+      "B": "Le registre stocke et distribue les artefacts ; il n’automatise pas la configuration des composants GPU des nœuds.",
+      "D": "Le moteur exécute l’inférence optimisée ; ce n’est pas un gestionnaire de pilotes et de runtimes de cluster."
+    },
+    "source_ids": [
+      40
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-033",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E01",
+    "question": "A deployment fails before the model runs because the required GPU host driver is missing. At which layer should troubleshooting begin?",
+    "choices": {
+      "A": "The host system and GPU driver layer",
+      "B": "The model-serving request queue, before checking host dependencies",
+      "C": "The training hyperparameters, before checking host dependencies",
+      "D": "The model artifact registry access policy, despite the reported missing driver"
+    },
+    "answer": "A",
+    "explanation": "Le défaut décrit concerne une dépendance d’accès au matériel, en dessous du modèle et de sa logique métier.",
+    "distractors": {
+      "B": "Le modèle ne démarre pas faute de pilote ; régler la file de requêtes ne résout pas cette dépendance.",
+      "C": "Une modification d’apprentissage ne rend pas le GPU accessible sans la pile hôte requise.",
+      "D": "Un problème d’autorisation de téléchargement serait d’une autre nature ; le défaut indiqué est le pilote hôte."
+    },
+    "source_ids": [
+      40
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-034",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E06",
+    "question": "A speech team wants reproducible training and customization of automatic speech recognition models using pretrained checkpoints. Which NVIDIA framework most directly matches?",
+    "choices": {
+      "A": "A GPU device plugin by itself",
+      "B": "NeMo Framework",
+      "C": "Triton model instance configuration alone",
+      "D": "TensorRT used only to optimize a trained inference model"
+    },
+    "answer": "B",
+    "explanation": "La documentation NeMo Framework décrit les checkpoints préentraînés, l’entraînement et la personnalisation des modèles vocaux.",
+    "distractors": {
+      "A": "Le plugin expose des ressources GPU ; il ne fournit pas le workflow d’entraînement vocal demandé.",
+      "C": "Cette configuration concerne le serving, pas le développement et l’apprentissage de la capacité vocale.",
+      "D": "L’optimisation d’inférence d’un modèle existant n’est pas le framework d’entraînement et de personnalisation vocale demandé."
+    },
+    "source_ids": [
+      52
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-035",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E06",
+    "question": "A team needs a catalog of GPU-optimized software and a registry for sharing proprietary AI artifacts. Which NVIDIA service most directly addresses this?",
+    "choices": {
+      "A": "NVIDIA Triton Inference Server",
+      "B": "NVIDIA GPU Operator",
+      "C": "NVIDIA TensorRT runtime",
+      "D": "NGC"
+    },
+    "answer": "D",
+    "explanation": "NGC couvre un catalogue de ressources GPU et des fonctions de registre privé et de partage d’artefacts.",
+    "distractors": {
+      "A": "Triton sert les modèles ; il ne remplit pas le rôle de catalogue et de registre privé demandé.",
+      "B": "L’opérateur gère la pile GPU dans Kubernetes, pas la distribution d’artefacts au moyen d’un catalogue et registre.",
+      "C": "Le runtime exécute le modèle optimisé ; il ne fournit pas le service de catalogue et partage recherché."
+    },
+    "source_ids": [
+      49
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-036",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E07",
+    "question": "A newly deployed model violates a required quality criterion. The previous model version and its execution configuration are available and validated. What is the most appropriate immediate release-control action?",
+    "choices": {
+      "A": "Delete the previous version before investigating.",
+      "B": "Keep the failing version solely because it is newer.",
+      "C": "Change the GPU driver and assume model quality is fixed.",
+      "D": "Roll back to the validated version while investigating the regression."
+    },
+    "answer": "D",
+    "explanation": "Le retour arrière contrôlé rétablit une version dont les critères sont connus ; l’investigation de la régression peut ensuite guider une correction.",
+    "distractors": {
+      "A": "Cela retire l’option de retour arrière alors qu’elle est disponible et validée.",
+      "B": "La nouveauté ne remplace pas le respect d’un critère de qualité requis.",
+      "C": "Le scénario ne désigne pas le pilote comme cause ; son changement ne prouve pas la correction des sorties."
+    },
+    "source_ids": [
+      84
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-037",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E07",
+    "question": "A model was evaluated with normalized inputs, but the production API passes raw values with different scales. The hardware is healthy. Which issue should be investigated first?",
+    "choices": {
+      "A": "A guaranteed shortage of GPU cores",
+      "B": "The inference batch-size setting as the only possible cause",
+      "C": "The assumption that healthy hardware guarantees correct predictions for any input scale",
+      "D": "A mismatch between training/evaluation preprocessing and production preprocessing"
+    },
+    "answer": "D",
+    "explanation": "Le modèle reçoit une représentation différente de celle validée ; il faut vérifier le pipeline et la cohérence des caractéristiques avant d’accuser le matériel.",
+    "distractors": {
+      "A": "Le scénario décrit un écart de préparation et ne démontre aucun manque de calcul.",
+      "B": "Le scénario désigne un changement de représentation des entrées ; il faut vérifier cette transformation avant un réglage de débit.",
+      "C": "Un matériel sain peut exécuter un modèle sur des entrées mal préparées ; cela ne garantit pas la qualité des sorties."
+    },
+    "source_ids": [
+      78
+    ],
+    "difficulty": "scenario"
+  },
+  {
+    "id": "E-038",
+    "exam": "B",
+    "domain": "essential",
+    "objective": "E07",
+    "question": "Months after deployment, customer behavior changes and model quality on recent examples declines, although service latency remains stable. What is the best next step?",
+    "choices": {
+      "A": "Assume the model is healthy because infrastructure latency did not change.",
+      "B": "Automatically overwrite model weights with every incoming request.",
+      "C": "Investigate data and quality changes, then decide whether controlled reevaluation or retraining is needed.",
+      "D": "Increase persistent disk capacity and skip all model evaluation."
+    },
+    "answer": "C",
+    "explanation": "Une latence stable ne prouve pas une qualité stable. Il faut étudier l’évolution des données et réévaluer avant de décider d’une mise à jour contrôlée.",
+    "distractors": {
+      "A": "L’état du service et la pertinence des prédictions sont deux dimensions différentes.",
+      "B": "L’inférence standard n’est pas une mise à jour des paramètres ; cette action n’est ni une évaluation ni une politique contrôlée.",
+      "D": "La capacité disque ne démontre ni ne corrige la cause de la dégradation de qualité."
+    },
+    "source_ids": [
+      48,
+      52
+    ],
+    "difficulty": "scenario"
+  }
+]
